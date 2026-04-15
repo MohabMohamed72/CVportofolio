@@ -360,7 +360,7 @@ const techList = [
   align-items: center;
   gap: 14px;
   padding: 14px 18px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--code-header-bg);
   border-bottom: 1px solid var(--border);
 }
 .code-dots {

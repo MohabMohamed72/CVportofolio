@@ -22,6 +22,33 @@
         </svg>
       </a>
 
+      <!-- Theme toggle -->
+      <button
+        class="theme-toggle"
+        @click="toggleTheme"
+        :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+        :title="isDark ? 'Light mode' : 'Dark mode'"
+      >
+        <Transition name="theme-icon" mode="out-in">
+          <!-- Sun (shown in dark mode → click to go light) -->
+          <svg v-if="isDark" key="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <!-- Moon (shown in light mode → click to go dark) -->
+          <svg v-else key="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </Transition>
+      </button>
+
       <button
         class="menu-toggle"
         @click="menuOpen = !menuOpen"
@@ -76,10 +103,13 @@
 const isScrolled = ref(false)
 const menuOpen = ref(false)
 
+const { isDark, toggleTheme, initTheme } = useTheme()
+
 const route = useRoute()
 watch(() => route.path, () => { menuOpen.value = false })
 
 onMounted(() => {
+  initTheme()
   window.addEventListener('scroll', () => {
     isScrolled.value = window.scrollY > 40
   })
@@ -102,7 +132,7 @@ onMounted(() => {
 }
 .navbar.scrolled {
   padding: 10px 0;
-  background: rgba(10, 15, 26, 0.88);
+  background: var(--navbar-scrolled-bg);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
 }
@@ -202,9 +232,9 @@ onMounted(() => {
   flex-direction: column;
   padding: 8px 16px 20px;
   border-top: 1px solid var(--border);
-  background: rgba(10, 15, 26, 0.98);
+  background: var(--mobile-menu-bg);
   backdrop-filter: blur(24px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-lg);
 }
 
 .mobile-link {
@@ -252,6 +282,43 @@ onMounted(() => {
   color: var(--primary);
   border-color: var(--primary);
   background: rgba(66, 211, 146, 0.06);
+}
+
+/* ── Theme toggle button ── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease,
+    background 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  color: var(--primary);
+  border-color: var(--border-hover);
+  background: rgba(66, 211, 146, 0.08);
+  transform: rotate(20deg) scale(1.08);
+}
+
+/* ── Theme icon swap animation ── */
+.theme-icon-enter-active,
+.theme-icon-leave-active {
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.theme-icon-enter-from {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+.theme-icon-leave-to {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
 }
 
 /* ── Drawer transition ── */
