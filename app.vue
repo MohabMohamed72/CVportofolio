@@ -11,8 +11,9 @@
 
 <script setup>
 useHead({
-  titleTemplate: (title) => title ? `${title} | Mohab Mohamed` : 'Mohab Mohamed | Frontend Developer'
-})
+  titleTemplate: (title) =>
+    title ? `${title} | Mohab Mohamed` : "Mohab Mohamed | Frontend Developer",
+});
 </script>
 
 <style>
