@@ -76,7 +76,7 @@ export function usePortfolioData() {
 
   const experiences = [
     {
-      title: 'Junior Frontend Developer',
+      title: ' Frontend Developer',
       company: 'Full-Time',
       period: 'Jan 2024 – Present',
       location: 'Mansoura, Egypt',

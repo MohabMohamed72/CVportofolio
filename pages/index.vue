@@ -12,19 +12,46 @@
           </h1>
           <p class="hero-role">
             <span class="typing-prefix">I build </span>
-            <span class="hero-typed gradient-text">{{ typedText }}<span class="cursor">|</span></span>
+            <span class="hero-typed gradient-text"
+              >{{ typedText }}<span class="cursor">|</span></span
+            >
           </p>
           <p class="hero-desc">
-            Frontend Developer crafting responsive, scalable web applications with
-            Vue.js, React.js, Angular, Nuxt.js & TypeScript — powered by modern AI tools.
+            Frontend Developer crafting responsive, scalable web applications
+            with Vue.js, React.js, Angular, Nuxt.js & TypeScript — powered by
+            modern AI tools.
           </p>
           <div class="hero-actions">
             <NuxtLink to="/projects" class="btn-primary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
               View Projects
             </NuxtLink>
             <NuxtLink to="/contact" class="btn-outline">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
               Contact Me
             </NuxtLink>
           </div>
@@ -50,13 +77,15 @@
           <div class="code-window">
             <div class="code-header">
               <div class="code-dots">
-                <span style="background:#ff5f57" />
-                <span style="background:#febc2e" />
-                <span style="background:#28c840" />
+                <span style="background: #ff5f57" />
+                <span style="background: #febc2e" />
+                <span style="background: #28c840" />
               </div>
               <span class="code-filename">mohab.ts</span>
             </div>
-            <pre class="code-body"><code><span class="kw">const</span> <span class="fn">developer</span> = {
+            <pre
+              class="code-body"
+            ><code><span class="kw">const</span> <span class="fn">developer</span> = {
   <span class="key">name</span>: <span class="str">"Mohab Mohamed"</span>,
   <span class="key">role</span>: <span class="str">"Frontend Developer"</span>,
   <span class="key">frameworks</span>: [
@@ -71,9 +100,15 @@
   <span class="fn">code</span>: () => <span class="str">"pixel-perfect"</span> <span class="cmt">✨</span>
 };</code></pre>
           </div>
-          <div class="floating-badge badge-vue" style="animation-delay: 0s">Vue.js</div>
-          <div class="floating-badge badge-react" style="animation-delay: 0.5s">React</div>
-          <div class="floating-badge badge-ts" style="animation-delay: 1s">TypeScript</div>
+          <div class="floating-badge badge-vue" style="animation-delay: 0s">
+            Vue.js
+          </div>
+          <div class="floating-badge badge-react" style="animation-delay: 0.5s">
+            React
+          </div>
+          <div class="floating-badge badge-ts" style="animation-delay: 1s">
+            TypeScript
+          </div>
         </div>
       </div>
 
@@ -87,8 +122,14 @@
     <section class="section overview">
       <div class="container">
         <div class="overview-grid">
-          <div class="overview-card" v-for="(item, i) in overviewCards" :key="i">
-            <div class="oc-icon" :style="{ background: item.bg }">{{ item.icon }}</div>
+          <div
+            class="overview-card"
+            v-for="(item, i) in overviewCards"
+            :key="i"
+          >
+            <div class="oc-icon" :style="{ background: item.bg }">
+              {{ item.icon }}
+            </div>
             <h3>{{ item.title }}</h3>
             <p>{{ item.desc }}</p>
           </div>
@@ -100,7 +141,11 @@
     <section class="marquee-section">
       <div class="marquee">
         <div class="marquee-track">
-          <span v-for="(tech, i) in [...techList, ...techList]" :key="i" class="marquee-item">
+          <span
+            v-for="(tech, i) in [...techList, ...techList]"
+            :key="i"
+            class="marquee-item"
+          >
             {{ tech }}
           </span>
         </div>
@@ -110,44 +155,91 @@
 </template>
 
 <script setup>
-useHead({ title: 'Home' })
+useHead({ title: "Home" });
 
-const words = ['modern web apps', 'dashboard systems', 'responsive UIs', 'AI-powered features', 'scalable platforms']
-const typedText = ref('')
-const wordIndex = ref(0)
-const charIndex = ref(0)
-const isDeleting = ref(false)
+const words = [
+  "modern web apps",
+  "dashboard systems",
+  "responsive UIs",
+  "AI-powered features",
+  "scalable platforms",
+];
+const typedText = ref("");
+const wordIndex = ref(0);
+const charIndex = ref(0);
+const isDeleting = ref(false);
 
 onMounted(() => {
   const type = () => {
-    const current = words[wordIndex.value]
+    const current = words[wordIndex.value];
     if (!isDeleting.value) {
-      typedText.value = current.substring(0, charIndex.value + 1)
-      charIndex.value++
+      typedText.value = current.substring(0, charIndex.value + 1);
+      charIndex.value++;
       if (charIndex.value === current.length) {
-        setTimeout(() => { isDeleting.value = true }, 1800)
+        setTimeout(() => {
+          isDeleting.value = true;
+        }, 1800);
       }
     } else {
-      typedText.value = current.substring(0, charIndex.value - 1)
-      charIndex.value--
+      typedText.value = current.substring(0, charIndex.value - 1);
+      charIndex.value--;
       if (charIndex.value === 0) {
-        isDeleting.value = false
-        wordIndex.value = (wordIndex.value + 1) % words.length
+        isDeleting.value = false;
+        wordIndex.value = (wordIndex.value + 1) % words.length;
       }
     }
-    setTimeout(type, isDeleting.value ? 40 : 80)
-  }
-  type()
-})
+    setTimeout(type, isDeleting.value ? 40 : 80);
+  };
+  type();
+});
 
 const overviewCards = [
-  { icon: '⚡', title: 'Frontend Frameworks', desc: 'Vue.js, React, Angular, Nuxt.js, Next.js — building with the right tool for every project.', bg: 'rgba(66, 211, 146, 0.12)' },
-  { icon: '🤖', title: 'AI-Powered Dev', desc: 'GitHub Copilot, Cursor AI, ChatGPT, Claude — leveraging AI to ship faster and cleaner.', bg: 'rgba(100, 126, 255, 0.12)' },
-  { icon: '🎨', title: 'Pixel-Perfect UIs', desc: 'Tailwind CSS, SCSS, responsive design — translating Figma to flawless interfaces.', bg: 'rgba(245, 158, 11, 0.12)' },
-  { icon: '🚀', title: 'Full-Stack Ready', desc: 'REST APIs, GraphQL, Node.js, state management — end-to-end feature delivery.', bg: 'rgba(239, 68, 68, 0.12)' },
-]
+  {
+    icon: "⚡",
+    title: "Frontend Frameworks",
+    desc: "Vue.js, React, Angular, Nuxt.js, Next.js — building with the right tool for every project.",
+    bg: "rgba(66, 211, 146, 0.12)",
+  },
+  {
+    icon: "🤖",
+    title: "AI-Powered Dev",
+    desc: "GitHub Copilot, Cursor AI, ChatGPT, Claude — leveraging AI to ship faster and cleaner.",
+    bg: "rgba(100, 126, 255, 0.12)",
+  },
+  {
+    icon: "🎨",
+    title: "Pixel-Perfect UIs",
+    desc: "Tailwind CSS, SCSS, responsive design — translating Figma to flawless interfaces.",
+    bg: "rgba(245, 158, 11, 0.12)",
+  },
+  {
+    icon: "🚀",
+    title: "Full-Stack Ready",
+    desc: "REST APIs, GraphQL, Node.js, state management — end-to-end feature delivery.",
+    bg: "rgba(239, 68, 68, 0.12)",
+  },
+];
 
-const techList = ['Vue.js', 'React', 'Angular', 'Nuxt.js', 'TypeScript', 'Tailwind CSS', 'SCSS', 'Redux', 'Pinia', 'GraphQL', 'Git', 'Copilot', 'Cursor AI', 'ChatGPT', 'Figma', 'Vite', 'Jest', 'Cypress']
+const techList = [
+  "Vue.js",
+  "React",
+  "Angular",
+  "Nuxt.js",
+  "TypeScript",
+  "Tailwind CSS",
+  "SCSS",
+  "Redux",
+  "Pinia",
+  "GraphQL",
+  "Git",
+  "Copilot",
+  "Cursor AI",
+  "ChatGPT",
+  "Figma",
+  "Vite",
+  "Jest",
+  "Cypress",
+];
 </script>
 
 <style scoped>
@@ -181,7 +273,8 @@ const techList = ['Vue.js', 'React', 'Angular', 'Nuxt.js', 'TypeScript', 'Tailwi
   animation: fadeUp 0.6s ease;
 }
 .badge-dot {
-  width: 8px; height: 8px;
+  width: 8px;
+  height: 8px;
   background: var(--primary);
   border-radius: 50%;
   animation: pulse 2s infinite;
@@ -200,8 +293,12 @@ const techList = ['Vue.js', 'React', 'Angular', 'Nuxt.js', 'TypeScript', 'Tailwi
   animation: fadeUp 0.8s ease;
   min-height: 2em;
 }
-.typing-prefix { color: var(--text-secondary); }
-.hero-typed { font-weight: 700; }
+.typing-prefix {
+  color: var(--text-secondary);
+}
+.hero-typed {
+  font-weight: 700;
+}
 .cursor {
   animation: pulse 1s infinite;
   font-weight: 300;
@@ -263,7 +360,7 @@ const techList = ['Vue.js', 'React', 'Angular', 'Nuxt.js', 'TypeScript', 'Tailwi
   align-items: center;
   gap: 14px;
   padding: 14px 18px;
-  background: rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.02);
   border-bottom: 1px solid var(--border);
 }
 .code-dots {
@@ -271,7 +368,8 @@ const techList = ['Vue.js', 'React', 'Angular', 'Nuxt.js', 'TypeScript', 'Tailwi
   gap: 7px;
 }
 .code-dots span {
-  width: 12px; height: 12px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
 }
 .code-filename {
@@ -286,11 +384,21 @@ const techList = ['Vue.js', 'React', 'Angular', 'Nuxt.js', 'TypeScript', 'Tailwi
   line-height: 1.9;
   overflow-x: auto;
 }
-.code-body .kw { color: #c792ea; }
-.code-body .fn { color: #82aaff; }
-.code-body .key { color: #89ddff; }
-.code-body .str { color: #c3e88d; }
-.code-body .cmt { color: #546e7a; }
+.code-body .kw {
+  color: #c792ea;
+}
+.code-body .fn {
+  color: #82aaff;
+}
+.code-body .key {
+  color: #89ddff;
+}
+.code-body .str {
+  color: #c3e88d;
+}
+.code-body .cmt {
+  color: #546e7a;
+}
 
 .floating-badge {
   position: absolute;
@@ -304,19 +412,22 @@ const techList = ['Vue.js', 'React', 'Angular', 'Nuxt.js', 'TypeScript', 'Tailwi
   backdrop-filter: blur(10px);
 }
 .badge-vue {
-  top: -10px; right: 20px;
+  top: -10px;
+  right: 20px;
   background: rgba(66, 211, 146, 0.15);
   color: var(--primary);
   border-color: rgba(66, 211, 146, 0.3);
 }
 .badge-react {
-  bottom: 30px; left: -20px;
+  bottom: 30px;
+  left: -20px;
   background: rgba(97, 219, 251, 0.15);
   color: #61dafb;
   border-color: rgba(97, 219, 251, 0.3);
 }
 .badge-ts {
-  bottom: -10px; right: 40px;
+  bottom: -10px;
+  right: 40px;
   background: rgba(49, 120, 198, 0.15);
   color: #3178c6;
   border-color: rgba(49, 120, 198, 0.3);
@@ -365,7 +476,8 @@ const techList = ['Vue.js', 'React', 'Angular', 'Nuxt.js', 'TypeScript', 'Tailwi
   box-shadow: var(--shadow-glow);
 }
 .oc-icon {
-  width: 52px; height: 52px;
+  width: 52px;
+  height: 52px;
   border-radius: var(--radius);
   display: flex;
   align-items: center;
@@ -391,7 +503,9 @@ const techList = ['Vue.js', 'React', 'Angular', 'Nuxt.js', 'TypeScript', 'Tailwi
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-.marquee { overflow: hidden; }
+.marquee {
+  overflow: hidden;
+}
 .marquee-track {
   display: flex;
   gap: 48px;
@@ -406,23 +520,49 @@ const techList = ['Vue.js', 'React', 'Angular', 'Nuxt.js', 'TypeScript', 'Tailwi
   white-space: nowrap;
   transition: var(--transition);
 }
-.marquee-item:hover { color: var(--primary); }
+.marquee-item:hover {
+  color: var(--primary);
+}
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @media (max-width: 1024px) {
-  .overview-grid { grid-template-columns: repeat(2, 1fr); }
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 768px) {
-  .hero-content { grid-template-columns: 1fr; text-align: center; }
-  .hero-desc { margin-left: auto; margin-right: auto; }
-  .hero-actions { justify-content: center; }
-  .hero-stats { justify-content: center; flex-wrap: wrap; }
-  .hero-visual { display: none; }
-  .overview-grid { grid-template-columns: 1fr; }
-  .hero-badge { margin-left: auto; margin-right: auto; }
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-visual {
+    display: none;
+  }
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>

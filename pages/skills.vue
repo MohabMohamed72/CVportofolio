@@ -3,24 +3,32 @@
     <section class="section">
       <div class="container">
         <span class="section-label">// Skills & Expertise</span>
-        <h1 class="section-title">My <span class="gradient-text">Technical Arsenal</span></h1>
-        <p class="section-subtitle">Technologies, frameworks, and AI tools I use to build modern web applications.</p>
+        <h1 class="section-title">
+          My <span class="gradient-text">Technical Arsenal</span>
+        </h1>
+        <p class="section-subtitle">
+          Technologies, frameworks, and AI tools I use to build modern web
+          applications.
+        </p>
 
         <!-- Frontend Frameworks -->
         <div class="skills-block">
           <h2 class="block-title">
             <span class="block-icon">⚡</span> Frontend Frameworks
           </h2>
-          <div class="skills-bars">
+          <div class="skills-grid">
             <div class="skill-row" v-for="skill in skills.frontend" :key="skill.name">
-              <div class="skill-info">
-                <span class="skill-icon">{{ skill.icon }}</span>
-                <span class="skill-name">{{ skill.name }}</span>
-                <span class="skill-pct">{{ skill.level }}%</span>
+              <span class="skill-icon">{{ skill.icon }}</span>
+              <span class="skill-name">{{ skill.name }}</span>
+              <div class="skill-dots">
+                <!-- <span
+                  v-for="n in 5"
+                  :key="n"
+                  class="dot"
+                  :class="{ filled: n <= Math.round(skill.level / 20) }"
+                /> -->
               </div>
-              <div class="skill-bar">
-                <div class="skill-fill" :style="{ width: skill.level + '%' }" />
-              </div>
+              <!-- <span class="skill-pct">{{ skill.level }}%</span> -->
             </div>
           </div>
         </div>
@@ -30,15 +38,18 @@
           <h2 class="block-title">
             <span class="block-icon">🎨</span> Styling & CSS
           </h2>
-          <div class="skills-bars">
+          <div class="skills-grid">
             <div class="skill-row" v-for="skill in skills.styling" :key="skill.name">
-              <div class="skill-info">
-                <span class="skill-name">{{ skill.name }}</span>
-                <span class="skill-pct">{{ skill.level }}%</span>
+              <span class="skill-name">{{ skill.name }}</span>
+              <div class="skill-dots accent">
+                <!-- <span
+                  v-for="n in 5"
+                  :key="n"
+                  class="dot"
+                  :class="{ filled: n <= Math.round(skill.level / 20) }"
+                /> -->
               </div>
-              <div class="skill-bar">
-                <div class="skill-fill accent" :style="{ width: skill.level + '%' }" />
-              </div>
+              <!-- <span class="skill-pct">{{ skill.level }}%</span> -->
             </div>
           </div>
         </div>
@@ -49,7 +60,9 @@
             <span class="block-icon">🔧</span> Tools & Libraries
           </h2>
           <div class="tools-grid">
-            <span class="tool-tag" v-for="tool in skills.tools" :key="tool">{{ tool }}</span>
+            <span class="tool-tag" v-for="tool in skills.tools" :key="tool">{{
+              tool
+            }}</span>
           </div>
         </div>
 
@@ -59,14 +72,17 @@
             <span class="block-icon">🤖</span> AI-Powered Development
           </h2>
           <p class="ai-intro">
-            I integrate AI tools across the full development lifecycle to boost productivity and code quality.
+            I integrate AI tools across the full development lifecycle to boost
+            productivity and code quality.
           </p>
           <div class="ai-grid">
             <div class="ai-card" v-for="ai in skills.ai" :key="ai.category">
               <span class="ai-icon">{{ ai.icon }}</span>
               <h3>{{ ai.category }}</h3>
               <div class="ai-tools">
-                <span class="ai-tool" v-for="t in ai.tools" :key="t">{{ t }}</span>
+                <span class="ai-tool" v-for="t in ai.tools" :key="t">{{
+                  t
+                }}</span>
               </div>
               <p class="ai-desc">{{ ai.description }}</p>
             </div>
@@ -78,12 +94,14 @@
 </template>
 
 <script setup>
-useHead({ title: 'Skills' })
-const { skills } = usePortfolioData()
+useHead({ title: "Skills" });
+const { skills } = usePortfolioData();
 </script>
 
 <style scoped>
-.page-skills { padding-top: 100px; }
+.page-skills {
+  padding-top: 100px;
+}
 .skills-block {
   margin-top: 56px;
   padding: 36px;
@@ -99,39 +117,67 @@ const { skills } = usePortfolioData()
   font-weight: 700;
   margin-bottom: 28px;
 }
-.block-icon { font-size: 1.4rem; }
+.block-icon {
+  font-size: 1.4rem;
+}
 
-/* Skill Bars */
-.skills-bars { display: flex; flex-direction: column; gap: 20px; }
-.skill-row {}
-.skill-info {
+/* Skill Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.skill-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
 }
-.skill-icon { font-size: 1.1rem; }
-.skill-name { font-size: 0.92rem; font-weight: 600; flex: 1; }
+.skill-row:hover {
+  border-color: var(--border-hover);
+}
+.skill-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.skill-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  flex: 1;
+}
 .skill-pct {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--primary);
-  font-weight: 600;
+  font-weight: 700;
+  flex-shrink: 0;
 }
-.skill-bar {
+.skill-dots {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.dot {
+  width: 8px;
   height: 8px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 10px;
-  overflow: hidden;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background 0.3s;
 }
-.skill-fill {
-  height: 100%;
-  background: var(--gradient);
-  border-radius: 10px;
-  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+.skill-dots:not(.accent) .dot.filled {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
 }
-.skill-fill.accent {
-  background: linear-gradient(315deg, #647eff 25%, #42d392);
+.skill-dots.accent .dot.filled {
+  background: #647eff;
+  border-color: #647eff;
+  box-shadow: 0 0 6px #647eff;
 }
 
 /* Tools Grid */
@@ -142,7 +188,7 @@ const { skills } = usePortfolioData()
 }
 .tool-tag {
   padding: 10px 20px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: 50px;
   font-size: 0.85rem;
@@ -212,10 +258,19 @@ const { skills } = usePortfolioData()
 }
 
 @media (max-width: 1024px) {
-  .ai-grid { grid-template-columns: repeat(2, 1fr); }
+  .ai-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 768px) {
-  .ai-grid { grid-template-columns: 1fr; }
-  .skills-block { padding: 24px; }
+  .ai-grid {
+    grid-template-columns: 1fr;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .skills-block {
+    padding: 24px;
+  }
 }
 </style>

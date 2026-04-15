@@ -3,8 +3,11 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <span class="logo-code">&lt;MM /&gt;</span>
-          <p class="footer-desc">Building modern web experiences with passion, precision, and a love for clean code.</p>
+          <span class="logo-code">&lt;Mohab /&gt;</span>
+          <p class="footer-desc">
+            Building modern web experiences with passion, precision, and a love
+            for clean code.
+          </p>
         </div>
 
         <div class="footer-links">
@@ -20,14 +23,19 @@
         <div class="footer-links">
           <h4>Connect</h4>
           <a href="https://github.com/MohabMohamed72" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/mohab-mohamed-a5121024b" target="_blank">LinkedIn</a>
+          <a
+            href="https://linkedin.com/in/mohab-mohamed-a5121024b"
+            target="_blank"
+            >LinkedIn</a
+          >
           <a href="mailto:mohabmohamedd772@gmail.com">Email</a>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div class="footer-line" />
-        <p>&copy; {{ new Date().getFullYear() }} Mohab Mohamed. Crafted with
+        <p>
+          &copy; {{ new Date().getFullYear() }} Mohab Mohamed. Crafted with
           <span class="heart">♥</span> using Nuxt.js
         </p>
       </div>
@@ -97,7 +105,9 @@
   color: var(--text-muted);
   font-size: 0.85rem;
 }
-.heart { color: var(--primary); }
+.heart {
+  color: var(--primary);
+}
 
 @media (max-width: 768px) {
   .footer-grid {
