@@ -1,0 +1,173 @@
+function usePortfolioData() {
+  const personalInfo = {
+    name: "Mohab Mohamed",
+    title: "Frontend Developer",
+    email: "mohabmohamedd772@gmail.com",
+    phone: "+20 100 759 9123",
+    location: "Mansoura, Egypt",
+    portfolio: "https://portfolio772.vercel.app/",
+    linkedin: "https://linkedin.com/in/mohab-mohamed-a5121024b",
+    github: "https://github.com/MohabMohamed72",
+    bio: `Motivated Frontend Developer with 1+ year of hands-on experience building responsive, scalable web applications using Vue.js, React.js, Angular, Nuxt.js, and TypeScript. Skilled in translating Figma designs into pixel-perfect UIs with Tailwind CSS and SCSS. Comfortable using AI-powered development tools like GitHub Copilot, Cursor AI, and ChatGPT to write cleaner code faster.`
+  };
+  const skills = {
+    frontend: [
+      { name: "Vue.js 2/3", level: 92, icon: "\u{1F7E2}" },
+      { name: "React.js", level: 85, icon: "\u269B\uFE0F" },
+      { name: "Angular", level: 78, icon: "\u{1F53A}" },
+      { name: "Nuxt.js", level: 90, icon: "\u{1F49A}" },
+      { name: "Next.js", level: 75, icon: "\u25B2" },
+      { name: "TypeScript", level: 88, icon: "\u{1F537}" },
+      { name: "JavaScript", level: 95, icon: "\u26A1" },
+      { name: "HTML5 / CSS3", level: 96, icon: "\u{1F3A8}" }
+    ],
+    styling: [
+      { name: "Tailwind CSS", level: 93 },
+      { name: "SCSS / SASS", level: 90 },
+      { name: "Bootstrap", level: 85 }
+    ],
+    tools: [
+      "Redux",
+      "Vuex",
+      "Pinia",
+      "NgRx",
+      "REST APIs",
+      "GraphQL",
+      "Axios",
+      "Git / GitHub",
+      "Vite",
+      "Webpack",
+      "Jest",
+      "Cypress",
+      "Docker",
+      "Figma",
+      "Agile / Scrum",
+      "Jira"
+    ],
+    ai: [
+      {
+        category: "Code Assistants",
+        icon: "\u{1F916}",
+        tools: ["GitHub Copilot", "Cursor AI", "Codeium", "Tabnine"],
+        description: "Daily use for intelligent code completion, refactoring, and rapid prototyping."
+      },
+      {
+        category: "AI Chatbots",
+        icon: "\u{1F4AC}",
+        tools: ["ChatGPT (GPT-4o)", "Claude (Anthropic)", "Gemini (Google)"],
+        description: "Debugging, code review, documentation, and architectural decisions."
+      },
+      {
+        category: "Design Tools",
+        icon: "\u{1F3A8}",
+        tools: ["Figma AI", "Galileo AI", "Uizard", "v0 by Vercel"],
+        description: "Rapid UI prototyping, wireframe generation, and design-to-code workflows."
+      },
+      {
+        category: "Testing & QA",
+        icon: "\u{1F9EA}",
+        tools: ["Testim", "Applitools"],
+        description: "Visual regression testing and AI-driven automated test generation."
+      },
+      {
+        category: "Image Generation",
+        icon: "\u{1F5BC}\uFE0F",
+        tools: ["Midjourney", "DALL-E", "Stable Diffusion"],
+        description: "Custom illustrations, icons, and visual assets for web projects."
+      },
+      {
+        category: "Automation",
+        icon: "\u2699\uFE0F",
+        tools: ["Zapier AI", "Make (Integromat)", "n8n"],
+        description: "Automating deployment pipelines, notifications, and integrations."
+      }
+    ]
+  };
+  const experiences = [
+    {
+      title: "Junior Frontend Developer",
+      company: "Full-Time",
+      period: "Jan 2024 \u2013 Present",
+      location: "Mansoura, Egypt",
+      highlights: [
+        "Built and maintained 4 web applications (dashboards + client-facing websites) using Vue 3, Nuxt.js, React.js, Angular, and TypeScript.",
+        "Translated Figma wireframes into responsive, pixel-perfect UIs using Tailwind CSS and SCSS.",
+        "Integrated RESTful APIs and payment gateways (Stripe, PayPal) into frontend applications.",
+        "Contributed to building AI-powered chatbot and smart search features in production.",
+        "Built admin dashboards with data visualization (Chart.js), role-based views, and real-time tracking.",
+        "Collaborated in Agile/Scrum workflow using Git, GitHub, and Jira.",
+        "Used GitHub Copilot and ChatGPT daily to accelerate development velocity by 40%."
+      ]
+    },
+    {
+      title: "Programming Instructor",
+      company: "Part-Time",
+      period: "2022 \u2013 Present",
+      location: "Mansoura, Egypt",
+      highlights: [
+        "Taught Python, C, Arduino, Machine Learning, Computer Vision, and Scratch to 200+ students.",
+        "Created structured lesson plans with hands-on projects.",
+        "Conducted workshops on AI tools for developers."
+      ]
+    },
+    {
+      title: "Embedded Systems Trainee",
+      company: "NTI (National Telecommunication Institute)",
+      period: "2023",
+      location: "Egypt",
+      highlights: [
+        "Completed intensive training in embedded systems and microcontroller programming (AVR, ARM).",
+        "Hands-on experience with Raspberry Pi, sensor interfacing, and real-time systems."
+      ]
+    }
+  ];
+  const projects = [
+    {
+      title: "Orbit System",
+      subtitle: "Engineering Company Management Platform",
+      description: "Full dashboard + website for managing engineering projects, clients, reservations, and financial operations. Supports complete project lifecycle with real-time analytics.",
+      tech: ["Vue 3", "TypeScript", "SCSS", "Pinia", "REST APIs", "Chart.js"],
+      features: ["Project lifecycle management", "Real-time analytics dashboard", "Invoice management", "Multi-role access control"],
+      color: "#42d392",
+      image: "\u{1F3D7}\uFE0F"
+    },
+    {
+      title: "Education System",
+      subtitle: "E-Learning Platform",
+      description: "Full-featured LMS with course catalog, video lectures, AI chatbot for student support, and secure multi-method payment processing.",
+      tech: ["Vue.js", "TypeScript", "Tailwind CSS", "AI Chatbot", "Payment Gateway"],
+      features: ["AI-powered chatbot", "Course catalog with rich content", "Payment integration", "Admin analytics"],
+      color: "#647eff",
+      image: "\u{1F4DA}"
+    },
+    {
+      title: "Alkhalil Traveling",
+      subtitle: "Travel & Booking Platform",
+      description: "Comprehensive travel platform with flight booking, hotel reservations, room management, and e-ticket generation with multi-method payments.",
+      tech: ["Vue.js", "TypeScript", "SCSS", "REST APIs", "Payment Integration"],
+      features: ["Flight booking system", "Hotel reservation", "E-ticket generation", "Revenue reporting"],
+      color: "#f59e0b",
+      image: "\u2708\uFE0F"
+    },
+    {
+      title: "HSE Safety Platform",
+      subtitle: "Health, Safety & Environment",
+      description: "HSE platform promoting safety awareness with service plans, subscription management, and comprehensive admin dashboard.",
+      tech: ["Vue.js", "Tailwind CSS", "TypeScript", "Payment Integration"],
+      features: ["Safety resources", "Pricing plans", "Subscription tracking", "CMS dashboard"],
+      color: "#ef4444",
+      image: "\u{1F6E1}\uFE0F"
+    }
+  ];
+  const education = {
+    degree: "Bachelor of Engineering",
+    department: "Mechatronics Department",
+    university: "Mansoura University, Faculty of Engineering",
+    period: "2019 \u2013 2024",
+    description: "Interdisciplinary program covering software engineering, embedded systems, computer architecture, control systems, and robotics."
+  };
+  return { personalInfo, skills, experiences, projects, education };
+}
+
+export { usePortfolioData as u };
+//# sourceMappingURL=usePortfolioData-j_3rPAQ_.mjs.map
