@@ -165,8 +165,8 @@ const { skills } = usePortfolioData();
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--skill-dot-bg);
+  border: 1px solid var(--skill-dot-border);
   transition: background 0.3s;
 }
 .skill-dots:not(.accent) .dot.filled {
@@ -188,7 +188,7 @@ const { skills } = usePortfolioData();
 }
 .tool-tag {
   padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--tool-tag-bg);
   border: 1px solid var(--border);
   border-radius: 50px;
   font-size: 0.85rem;

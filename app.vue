@@ -14,6 +14,12 @@ useHead({
   titleTemplate: (title) =>
     title ? `${title} | Mohab Mohamed` : "Mohab Mohamed | Frontend Developer",
 });
+
+// Run on client immediately to avoid a flash of wrong theme
+if (import.meta.client) {
+  const { initTheme } = useTheme()
+  initTheme()
+}
 </script>
 
 <style>

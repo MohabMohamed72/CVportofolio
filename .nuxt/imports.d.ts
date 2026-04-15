@@ -32,3 +32,4 @@ export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composab
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
 export { usePortfolioData } from '../composables/usePortfolioData';
 export { useScrollReveal } from '../composables/useScrollReveal';
+export { useTheme } from '../composables/useTheme';
