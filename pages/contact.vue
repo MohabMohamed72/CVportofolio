@@ -287,7 +287,63 @@ const contactItems = [
 }
 
 @media (max-width: 768px) {
-  .contact-grid { grid-template-columns: 1fr; }
-  .contact-form-wrapper { padding: 24px; }
+  .page-contact { padding-top: 80px; }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 36px;
+  }
+
+  .contact-form-wrapper {
+    padding: 20px 16px;
+  }
+
+  .info-card {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .info-value {
+    font-size: 0.82rem;
+    word-break: break-all;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .availability-card {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px 14px;
+    font-size: 0.88rem;
+  }
+
+  .submit-btn {
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-grid { gap: 20px; }
+
+  .contact-form-wrapper { padding: 16px 12px; }
+
+  .info-card { padding: 12px; }
+
+  .info-value { font-size: 0.78rem; }
 }
 </style>
