@@ -11,6 +11,7 @@
             class="project-card"
             v-for="(project, i) in projects"
             :key="project.title"
+            @click="openDialog(project)"
           >
             <div class="project-visual">
               <div class="project-bg" :style="{ background: `linear-gradient(135deg, ${project.color}22, ${project.color}08)` }">
@@ -39,6 +40,8 @@
                   {{ t }}
                 </span>
               </div>
+
+              <span class="view-details-hint">Click to view details →</span>
             </div>
           </div>
         </div>
@@ -56,12 +59,95 @@
         </div>
       </div>
     </section>
+
+    <!-- Project Detail Dialog -->
+    <Teleport to="body">
+      <Transition name="dialog">
+        <div v-if="selectedProject" class="dialog-backdrop" @click.self="closeDialog">
+          <div class="dialog" role="dialog" :aria-label="selectedProject.title">
+            <!-- Header -->
+            <div class="dialog-header" :style="{ borderBottomColor: selectedProject.color + '30' }">
+              <div class="dialog-title-row">
+                <span class="dialog-emoji">{{ selectedProject.image }}</span>
+                <div>
+                  <h2 class="dialog-title">{{ selectedProject.title }}</h2>
+                  <span class="dialog-subtitle" :style="{ color: selectedProject.color }">{{ selectedProject.subtitle }}</span>
+                </div>
+              </div>
+              <button class="dialog-close" @click="closeDialog" aria-label="Close">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+
+            <!-- Body -->
+            <div class="dialog-body">
+              <!-- Overview -->
+              <div class="dialog-section">
+                <h3 class="dialog-section-title">Overview</h3>
+                <p class="dialog-overview">{{ selectedProject.details.overview }}</p>
+              </div>
+
+              <!-- Key Highlights -->
+              <div class="dialog-section">
+                <h3 class="dialog-section-title">Key Highlights</h3>
+                <ul class="dialog-highlights">
+                  <li v-for="h in selectedProject.details.highlights" :key="h">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" :style="{ color: selectedProject.color }"><polyline points="20 6 9 17 4 12"/></svg>
+                    {{ h }}
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Tech Stack -->
+              <div class="dialog-section">
+                <h3 class="dialog-section-title">Tech Stack</h3>
+                <div class="dialog-tech-grid">
+                  <div class="tech-group" v-for="group in selectedProject.details.techStack" :key="group.category">
+                    <span class="tech-group-label">{{ group.category }}</span>
+                    <div class="tech-group-chips">
+                      <span
+                        class="tech-chip"
+                        v-for="item in group.items"
+                        :key="item"
+                        :style="{ borderColor: selectedProject.color + '40', color: selectedProject.color }"
+                      >{{ item }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
   </div>
 </template>
 
 <script setup>
 useHead({ title: 'Projects' })
 const { projects } = usePortfolioData()
+
+const selectedProject = ref(null)
+
+function openDialog(project) {
+  selectedProject.value = project
+  document.body.style.overflow = 'hidden'
+}
+
+function closeDialog() {
+  selectedProject.value = null
+  document.body.style.overflow = ''
+}
+
+// Close on Escape key
+onMounted(() => {
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDialog()
+  })
+})
+onUnmounted(() => {
+  document.body.style.overflow = ''
+})
 </script>
 
 <style scoped>
@@ -84,6 +170,7 @@ const { projects } = usePortfolioData()
   border-radius: var(--radius-xl);
   transition: var(--transition);
   align-items: center;
+  cursor: pointer;
 }
 .project-card:hover {
   border-color: var(--border-hover);
@@ -160,6 +247,16 @@ const { projects } = usePortfolioData()
   font-family: var(--font-mono);
 }
 
+.view-details-hint {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.project-card:hover .view-details-hint { opacity: 1; }
+
 .projects-cta {
   text-align: center;
   margin-top: 72px;
@@ -179,9 +276,154 @@ const { projects } = usePortfolioData()
   justify-content: center;
 }
 
+/* ── Dialog ── */
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.dialog {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 720px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  border-bottom: 1px solid;
+  flex-shrink: 0;
+}
+.dialog-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.dialog-emoji { font-size: 2.4rem; }
+.dialog-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0 0 4px;
+}
+.dialog-subtitle {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.dialog-close {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.dialog-close:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.dialog-body {
+  overflow-y: auto;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.dialog-section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+}
+
+.dialog-overview {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.dialog-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dialog-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.dialog-highlights li svg { margin-top: 3px; flex-shrink: 0; }
+
+.dialog-tech-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.tech-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.tech-group-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  min-width: 110px;
+  padding-top: 5px;
+  flex-shrink: 0;
+}
+.tech-group-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ── Transition ── */
+.dialog-enter-active,
+.dialog-leave-active { transition: opacity 0.2s ease; }
+.dialog-enter-active .dialog,
+.dialog-leave-active .dialog { transition: transform 0.2s ease, opacity 0.2s ease; }
+.dialog-enter-from,
+.dialog-leave-to { opacity: 0; }
+.dialog-enter-from .dialog,
+.dialog-leave-to .dialog { transform: translateY(16px); opacity: 0; }
+
 @media (max-width: 768px) {
   .project-card { grid-template-columns: 1fr; }
   .project-card:nth-child(even) { direction: ltr; }
   .cta-actions { flex-direction: column; align-items: center; }
+  .dialog-backdrop { padding: 12px; align-items: flex-end; }
+  .dialog { max-height: 90vh; border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
+  .tech-group { flex-direction: column; gap: 6px; }
+  .tech-group-label { min-width: unset; padding-top: 0; }
 }
 </style>
