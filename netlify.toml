@@ -1,5 +1,6 @@
 [build]
-  command = "nuxt generate"
+  base = "portfolio"
+  command = "npm run generate"
   publish = ".output/public"
 
 [[redirects]]
