@@ -21,6 +21,11 @@ export function usePortfolioData() {
       { name: "TypeScript", level: 88, icon: "🔷" },
       { name: "JavaScript", level: 95, icon: "⚡" },
       { name: "HTML5 / CSS3", level: 96, icon: "🎨" },
+      { name: ".NET", level: 95, icon: "🔺" },
+      { name: "Node js", level: 95, icon: "▲" },
+      { name: "C#", level: 95, icon: "⚛️" },
+      { name: "C", level: 95, icon: "🎨" },
+      { name: "Paython", level: 95, icon: "🔷" },
     ],
     styling: [
       { name: "Tailwind CSS", level: 93 },
