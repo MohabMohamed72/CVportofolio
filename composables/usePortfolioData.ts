@@ -118,6 +118,7 @@ export function usePortfolioData() {
     {
       title: "HSE Safety Platform",
       subtitle: "Health, Safety & Environment",
+      link: "https://hse.techlabeg.com/",
       description:
         "HSE platform promoting safety awareness with service plans, subscription management, and comprehensive admin dashboard.",
       tech: [
@@ -176,10 +177,11 @@ export function usePortfolioData() {
         ],
       },
     },
-
     {
       title: "Orbit System",
       subtitle: "Engineering Company Management Platform",
+       link: "https://orbitconsults.com/",
+
       description:
         "Full dashboard + website for managing engineering projects, clients, reservations, and financial operations. Supports complete project lifecycle with real-time analytics.",
       tech: ["Vue 3", "TypeScript", "SCSS", "Pinia", "REST APIs", "Chart.js"],
@@ -297,6 +299,133 @@ export function usePortfolioData() {
           { category: "APIs", items: ["REST APIs", "Axios"] },
           { category: "Payments", items: ["Payment Gateway integration"] },
           { category: "Export", items: ["PDF e-ticket generation"] },
+        ],
+      },
+    },
+    {
+      title: "Fashion Store",
+      subtitle: "Clothing E-Commerce Platform",
+      link: "https://ecommerce8.netlify.app/",
+      description:
+        "Modern fashion e-commerce platform for men, women, and kids with product browsing, shopping cart, category filtering, and responsive user experience.",
+      tech: ["React.js", "Tailwind CSS", "JavaScript"],
+      features: [
+        "Men, Women & Kids categories",
+        "Shopping cart",
+        "Product filtering",
+        "Responsive design",
+        "Modern UI/UX",
+      ],
+      color: "#ec4899",
+      image: "👕",
+      details: {
+        overview:
+          "A responsive fashion e-commerce application built with React.js and Tailwind CSS. The platform provides a seamless shopping experience for men's, women's, and kids' clothing collections.",
+        highlights: [
+          "Modern responsive design for all devices",
+          "Category-based product browsing",
+          "Shopping cart functionality",
+          "Fast performance with React.js",
+          "Tailwind CSS powered UI",
+          "Clean and intuitive user experience",
+        ],
+        techStack: [
+          {
+            category: "Frontend",
+            items: ["React.js", "JavaScript"],
+          },
+          {
+            category: "Styling",
+            items: ["Tailwind CSS"],
+          },
+        ],
+      },
+    },
+    {
+      title: "Mega E-Commerce",
+      subtitle: "Multi-Category Online Marketplace",
+      link: "https://ecommerce759.netlify.app/",
+      description:
+        "Comprehensive e-commerce marketplace featuring electronics, mobiles, laptops, furniture, perfumes, food products, and more.",
+      tech: ["Vue.js", "TypeScript", "Tailwind CSS", "Pinia"],
+      features: [
+        "Multi-category marketplace",
+        "Electronics & mobiles",
+        "Furniture & home products",
+        "Perfumes & fashion",
+        "Shopping cart",
+        "Product search",
+      ],
+      color: "#10b981",
+      image: "🛒",
+      details: {
+        overview:
+          "A complete Vue.js e-commerce marketplace offering a wide range of products including mobiles, laptops, furniture, perfumes, food items, and other consumer products.",
+        highlights: [
+          "Multiple product categories",
+          "Product search and filtering",
+          "Responsive shopping experience",
+          "State management with Pinia",
+          "Modern Vue.js architecture",
+          "Optimized performance",
+        ],
+        techStack: [
+          {
+            category: "Frontend",
+            items: ["Vue.js", "TypeScript"],
+          },
+          {
+            category: "State Management",
+            items: ["Pinia"],
+          },
+          {
+            category: "Styling",
+            items: ["Tailwind CSS"],
+          },
+        ],
+      },
+    },
+    {
+      title: "FilmPiren",
+      subtitle: "Movies & Actors Discovery Platform",
+      link: "https://filmpiren.netlify.app/",
+      description:
+        "Movie discovery platform featuring movies, actors, ratings, movie details, cast information, and entertainment content.",
+      tech: ["React.js", "JavaScript", "REST APIs", "Tailwind CSS"],
+      features: [
+        "Movie browsing",
+        "Actor profiles",
+        "Movie details",
+        "Ratings and information",
+        "Search functionality",
+        "Responsive UI",
+      ],
+      color: "#8b5cf6",
+      image: "🎬",
+      details: {
+        overview:
+          "A movie and entertainment platform built with React.js that allows users to explore movies, actors, ratings, cast details, and other cinema-related information.",
+        highlights: [
+          "Movie catalog browsing",
+          "Actor and cast information",
+          "Detailed movie pages",
+          "Search functionality",
+          "API-driven content",
+          "Responsive modern design",
+        ],
+        techStack: [
+          {
+            category: "Frontend",
+            items: ["React.js", "JavaScript"],
+          },
+          {
+            category: "Data",
+            items: ["REST APIs", "Axios"],
+          },
+          {
+            category: "Styling",
+            items: ["Tailwind CSS"],
+          },
         ],
       },
     },

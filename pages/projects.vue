@@ -1,37 +1,41 @@
-
 <script setup>
-useHead({ title: 'Projects' })
-const { projects } = usePortfolioData()
+useHead({ title: "Projects" });
+const { projects } = usePortfolioData();
 
-const selectedProject = ref(null)
+const selectedProject = ref(null);
 
 function openDialog(project) {
-  selectedProject.value = project
-  document.body.style.overflow = 'hidden'
+  selectedProject.value = project;
+  document.body.style.overflow = "hidden";
 }
 
 function closeDialog() {
-  selectedProject.value = null
-  document.body.style.overflow = ''
+  selectedProject.value = null;
+  document.body.style.overflow = "";
 }
 
 // Close on Escape key
 onMounted(() => {
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeDialog()
-  })
-})
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeDialog();
+  });
+});
 onUnmounted(() => {
-  document.body.style.overflow = ''
-})
+  document.body.style.overflow = "";
+});
 </script>
 <template>
   <div class="page-projects">
     <section class="section">
       <div class="container">
         <span class="section-label">// Portfolio</span>
-        <h1 class="section-title">Featured <span class="gradient-text">Projects</span></h1>
-        <p class="section-subtitle">Real-world applications I've built — dashboards, platforms, and full-stack systems.</p>
+        <h1 class="section-title">
+          Featured <span class="gradient-text">Projects</span>
+        </h1>
+        <p class="section-subtitle">
+          Real-world applications I've built — dashboards, platforms, and
+          full-stack systems.
+        </p>
 
         <div class="projects-list">
           <div
@@ -41,7 +45,12 @@ onUnmounted(() => {
             @click="openDialog(project)"
           >
             <div class="project-visual">
-              <div class="project-bg" :style="{ background: `linear-gradient(135deg, ${project.color}22, ${project.color}08)` }">
+              <div
+                class="project-bg"
+                :style="{
+                  background: `linear-gradient(135deg, ${project.color}22, ${project.color}08)`,
+                }"
+              >
                 <span class="project-emoji">{{ project.image }}</span>
               </div>
               <div class="project-number">0{{ i + 1 }}</div>
@@ -57,13 +66,30 @@ onUnmounted(() => {
 
               <div class="project-features">
                 <span class="feature" v-for="f in project.features" :key="f">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                   {{ f }}
                 </span>
               </div>
 
               <div class="project-tech">
-                <span class="tech-chip" v-for="t in project.tech" :key="t" :style="{ borderColor: project.color + '40', color: project.color }">
+                <span
+                  class="tech-chip"
+                  v-for="t in project.tech"
+                  :key="t"
+                  :style="{
+                    borderColor: project.color + '40',
+                    color: project.color,
+                  }"
+                >
                   {{ t }}
                 </span>
               </div>
@@ -77,8 +103,21 @@ onUnmounted(() => {
         <div class="projects-cta">
           <p>Want to see more or discuss a project?</p>
           <div class="cta-actions">
-            <a href="https://github.com/MohabMohamed72" target="_blank" class="btn-primary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            <a
+              href="https://github.com/MohabMohamed72"
+              target="_blank"
+              class="btn-primary"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
               View GitHub
             </a>
             <NuxtLink to="/contact" class="btn-outline">Contact Me</NuxtLink>
@@ -90,19 +129,65 @@ onUnmounted(() => {
     <!-- Project Detail Dialog -->
     <Teleport to="body">
       <Transition name="dialog">
-        <div v-if="selectedProject" class="dialog-backdrop" @click.self="closeDialog">
+        <div
+          v-if="selectedProject"
+          class="dialog-backdrop"
+          @click.self="closeDialog"
+        >
           <div class="dialog" role="dialog" :aria-label="selectedProject.title">
             <!-- Header -->
-            <div class="dialog-header" :style="{ borderBottomColor: selectedProject.color + '30' }">
+            <div
+              class="dialog-header"
+              :style="{ borderBottomColor: selectedProject.color + '30' }"
+            >
               <div class="dialog-title-row">
                 <span class="dialog-emoji">{{ selectedProject.image }}</span>
                 <div>
-                  <h2 class="dialog-title">{{ selectedProject.title }}</h2>
-                  <span class="dialog-subtitle" :style="{ color: selectedProject.color }">{{ selectedProject.subtitle }}</span>
+                  <div>
+                    <h2 class="dialog-title">{{ selectedProject.title }}</h2>
+                    <span
+                      class="dialog-subtitle"
+                      :style="{ color: selectedProject.color }"
+                      >{{ selectedProject.subtitle }}</span
+                    >
+                  </div>
+                  <NuxtLink
+                    :to="selectedProject.link"
+                    target="_blank"
+                    class="dialog-link"
+                    :style="{ color: selectedProject.color }"
+                  >
+                    View Project
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                    >
+                      <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                  </NuxtLink>
                 </div>
               </div>
-              <button class="dialog-close" @click="closeDialog" aria-label="Close">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+
+              <button
+                class="dialog-close"
+                @click="closeDialog"
+                aria-label="Close"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
               </button>
             </div>
 
@@ -111,7 +196,9 @@ onUnmounted(() => {
               <!-- Overview -->
               <div class="dialog-section">
                 <h3 class="dialog-section-title">Overview</h3>
-                <p class="dialog-overview">{{ selectedProject.details.overview }}</p>
+                <p class="dialog-overview">
+                  {{ selectedProject.details.overview }}
+                </p>
               </div>
 
               <!-- Key Highlights -->
@@ -119,7 +206,17 @@ onUnmounted(() => {
                 <h3 class="dialog-section-title">Key Highlights</h3>
                 <ul class="dialog-highlights">
                   <li v-for="h in selectedProject.details.highlights" :key="h">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" :style="{ color: selectedProject.color }"><polyline points="20 6 9 17 4 12"/></svg>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      :style="{ color: selectedProject.color }"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
                     {{ h }}
                   </li>
                 </ul>
@@ -129,15 +226,23 @@ onUnmounted(() => {
               <div class="dialog-section">
                 <h3 class="dialog-section-title">Tech Stack</h3>
                 <div class="dialog-tech-grid">
-                  <div class="tech-group" v-for="group in selectedProject.details.techStack" :key="group.category">
+                  <div
+                    class="tech-group"
+                    v-for="group in selectedProject.details.techStack"
+                    :key="group.category"
+                  >
                     <span class="tech-group-label">{{ group.category }}</span>
                     <div class="tech-group-chips">
                       <span
                         class="tech-chip"
                         v-for="item in group.items"
                         :key="item"
-                        :style="{ borderColor: selectedProject.color + '40', color: selectedProject.color }"
-                      >{{ item }}</span>
+                        :style="{
+                          borderColor: selectedProject.color + '40',
+                          color: selectedProject.color,
+                        }"
+                        >{{ item }}</span
+                      >
                     </div>
                   </div>
                 </div>
@@ -150,9 +255,16 @@ onUnmounted(() => {
   </div>
 </template>
 
-
 <style scoped>
-.page-projects { padding-top: 100px; }
+.dialog-link {
+  color: white !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.page-projects {
+  padding-top: 100px;
+}
 
 .projects-list {
   margin-top: 56px;
@@ -184,7 +296,9 @@ onUnmounted(() => {
   direction: ltr;
 }
 
-.project-visual { position: relative; }
+.project-visual {
+  position: relative;
+}
 .project-bg {
   aspect-ratio: 4/3;
   border-radius: var(--radius-lg);
@@ -193,7 +307,9 @@ onUnmounted(() => {
   justify-content: center;
   border: 1px solid var(--border);
 }
-.project-emoji { font-size: 4rem; }
+.project-emoji {
+  font-size: 4rem;
+}
 .project-number {
   position: absolute;
   top: -12px;
@@ -207,8 +323,13 @@ onUnmounted(() => {
   opacity: 0.3;
 }
 
-.project-header { margin-bottom: 16px; }
-.project-header h2 { font-size: 1.4rem; font-weight: 800; }
+.project-header {
+  margin-bottom: 16px;
+}
+.project-header h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
 .project-sub {
   font-size: 0.85rem;
   color: var(--primary);
@@ -233,7 +354,10 @@ onUnmounted(() => {
   font-size: 0.85rem;
   color: var(--text-secondary);
 }
-.feature svg { color: var(--primary); flex-shrink: 0; }
+.feature svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
 .project-tech {
   display: flex;
   flex-wrap: wrap;
@@ -256,7 +380,9 @@ onUnmounted(() => {
   opacity: 0.6;
   transition: opacity 0.2s;
 }
-.project-card:hover .view-details-hint { opacity: 1; }
+.project-card:hover .view-details-hint {
+  opacity: 1;
+}
 
 .projects-cta {
   text-align: center;
@@ -315,7 +441,9 @@ onUnmounted(() => {
   align-items: center;
   gap: 16px;
 }
-.dialog-emoji { font-size: 2.4rem; }
+.dialog-emoji {
+  font-size: 2.4rem;
+}
 .dialog-title {
   font-size: 1.3rem;
   font-weight: 800;
@@ -381,7 +509,10 @@ onUnmounted(() => {
   color: var(--text-secondary);
   line-height: 1.6;
 }
-.dialog-highlights li svg { margin-top: 3px; flex-shrink: 0; }
+.dialog-highlights li svg {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
 
 .dialog-tech-grid {
   display: flex;
@@ -410,21 +541,51 @@ onUnmounted(() => {
 
 /* ── Transition ── */
 .dialog-enter-active,
-.dialog-leave-active { transition: opacity 0.2s ease; }
+.dialog-leave-active {
+  transition: opacity 0.2s ease;
+}
 .dialog-enter-active .dialog,
-.dialog-leave-active .dialog { transition: transform 0.2s ease, opacity 0.2s ease; }
+.dialog-leave-active .dialog {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
 .dialog-enter-from,
-.dialog-leave-to { opacity: 0; }
+.dialog-leave-to {
+  opacity: 0;
+}
 .dialog-enter-from .dialog,
-.dialog-leave-to .dialog { transform: translateY(16px); opacity: 0; }
+.dialog-leave-to .dialog {
+  transform: translateY(16px);
+  opacity: 0;
+}
 
 @media (max-width: 768px) {
-  .project-card { grid-template-columns: 1fr; }
-  .project-card:nth-child(even) { direction: ltr; }
-  .cta-actions { flex-direction: column; align-items: center; }
-  .dialog-backdrop { padding: 12px; align-items: flex-end; }
-  .dialog { max-height: 90vh; border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
-  .tech-group { flex-direction: column; gap: 6px; }
-  .tech-group-label { min-width: unset; padding-top: 0; }
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+  .project-card:nth-child(even) {
+    direction: ltr;
+  }
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .dialog-backdrop {
+    padding: 12px;
+    align-items: flex-end;
+  }
+  .dialog {
+    max-height: 90vh;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+  .tech-group {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .tech-group-label {
+    min-width: unset;
+    padding-top: 0;
+  }
 }
 </style>
