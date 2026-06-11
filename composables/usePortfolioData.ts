@@ -1,4 +1,4 @@
-import HSE from "../public/images/HSE.svg";
+import HSE from "../public/images/h.png";
 import ORBIT from "../public/images/logo_orbit_footer.png";
 import forever from "../public/images/forever.png";
 import fimpire from "../public/images/fimpire.png";
