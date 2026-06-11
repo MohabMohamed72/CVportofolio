@@ -1,3 +1,10 @@
+import HSE from "../public/images/HSE.svg";
+import ORBIT from "../public/images/logo_orbit_footer.png";
+import forever from "../public/images/forever.png";
+import fimpire from "../public/images/fimpire.png";
+import cart from "../public/images/cart.webp";
+import Plane from "../public/images/plane.webp";
+import edu from "../public/images/books.webp";
 export function usePortfolioData() {
   const personalInfo = {
     name: "Mohab Mohamed",
@@ -136,7 +143,7 @@ export function usePortfolioData() {
         "CMS dashboard",
       ],
       color: "#ef4444",
-      image: "🛡️",
+      image: HSE,
       details: {
         overview:
           "An enterprise Health, Safety & Environment (HSE) management web application built with Vue 3 and Vite. The system provides dedicated modules for managing equipment, observations, hazards, incidents, and safety workflows within an organization — with full multi-language support (English & Arabic/RTL).",
@@ -180,7 +187,7 @@ export function usePortfolioData() {
     {
       title: "Orbit System",
       subtitle: "Engineering Company Management Platform",
-       link: "https://orbitconsults.com/",
+      link: "https://orbitconsults.com/",
 
       description:
         "Full dashboard + website for managing engineering projects, clients, reservations, and financial operations. Supports complete project lifecycle with real-time analytics.",
@@ -192,7 +199,7 @@ export function usePortfolioData() {
         "Multi-role access control",
       ],
       color: "#42d392",
-      image: "🏗️",
+      image: ORBIT,
       details: {
         overview:
           "Orbit System is a comprehensive engineering company management platform covering the full project lifecycle — from client acquisition through delivery and invoicing. Built with a feature-driven architecture, it provides separate dashboards for admins, project managers, and clients.",
@@ -238,7 +245,7 @@ export function usePortfolioData() {
         "Admin analytics",
       ],
       color: "#647eff",
-      image: "📚",
+      image: edu,
       details: {
         overview:
           "A full-featured Learning Management System (LMS) enabling educators to publish courses and students to enroll, watch lectures, and track progress. Integrated an AI chatbot for real-time student support and multiple payment gateways for secure checkout.",
@@ -281,7 +288,7 @@ export function usePortfolioData() {
         "Revenue reporting",
       ],
       color: "#f59e0b",
-      image: "✈️",
+      image: Plane,
       details: {
         overview:
           "Alkhalil Traveling is a full-stack travel booking platform handling flights, hotels, and package tours. It generates e-tickets, manages room inventory, and provides a back-office portal for agents and admins to track bookings and revenue.",
@@ -317,7 +324,7 @@ export function usePortfolioData() {
         "Modern UI/UX",
       ],
       color: "#ec4899",
-      image: "👕",
+      image: forever,
       details: {
         overview:
           "A responsive fashion e-commerce application built with React.js and Tailwind CSS. The platform provides a seamless shopping experience for men's, women's, and kids' clothing collections.",
@@ -357,7 +364,7 @@ export function usePortfolioData() {
         "Product search",
       ],
       color: "#10b981",
-      image: "🛒",
+      image: cart,
       details: {
         overview:
           "A complete Vue.js e-commerce marketplace offering a wide range of products including mobiles, laptops, furniture, perfumes, food items, and other consumer products.",
@@ -386,7 +393,7 @@ export function usePortfolioData() {
       },
     },
     {
-      title: "FilmPiren",
+      title: "FilmPire",
       subtitle: "Movies & Actors Discovery Platform",
       link: "https://filmpiren.netlify.app/",
       description:
@@ -401,7 +408,7 @@ export function usePortfolioData() {
         "Responsive UI",
       ],
       color: "#8b5cf6",
-      image: "🎬",
+      image: fimpire,
       details: {
         overview:
           "A movie and entertainment platform built with React.js that allows users to explore movies, actors, ratings, cast details, and other cinema-related information.",

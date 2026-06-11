@@ -51,7 +51,7 @@ onUnmounted(() => {
                   background: `linear-gradient(135deg, ${project.color}22, ${project.color}08)`,
                 }"
               >
-                <span class="project-emoji">{{ project.image }}</span>
+                <img class="project-emoji" :src="project.image" />
               </div>
               <div class="project-number">0{{ i + 1 }}</div>
             </div>
@@ -141,7 +141,7 @@ onUnmounted(() => {
               :style="{ borderBottomColor: selectedProject.color + '30' }"
             >
               <div class="dialog-title-row">
-                <span class="dialog-emoji">{{ selectedProject.image }}</span>
+                <img class="dialog-emoji" :src="selectedProject.image" />
                 <div>
                   <div>
                     <h2 class="dialog-title">{{ selectedProject.title }}</h2>
@@ -309,6 +309,7 @@ onUnmounted(() => {
 }
 .project-emoji {
   font-size: 4rem;
+  max-width: 150px;
 }
 .project-number {
   position: absolute;
@@ -443,6 +444,7 @@ onUnmounted(() => {
 }
 .dialog-emoji {
   font-size: 2.4rem;
+  max-width: 90px;
 }
 .dialog-title {
   font-size: 1.3rem;
