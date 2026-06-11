@@ -132,6 +132,12 @@ const whatIDo = [
   padding-bottom: 12px;
   border-bottom: 1px solid var(--border);
 }
+@media (max-width: 768px) {
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .detail-item:last-child { border-bottom: none; padding-bottom: 0; }
 .detail-label {
   font-size: 0.82rem;

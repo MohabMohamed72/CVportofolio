@@ -1,3 +1,30 @@
+
+<script setup>
+useHead({ title: 'Projects' })
+const { projects } = usePortfolioData()
+
+const selectedProject = ref(null)
+
+function openDialog(project) {
+  selectedProject.value = project
+  document.body.style.overflow = 'hidden'
+}
+
+function closeDialog() {
+  selectedProject.value = null
+  document.body.style.overflow = ''
+}
+
+// Close on Escape key
+onMounted(() => {
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDialog()
+  })
+})
+onUnmounted(() => {
+  document.body.style.overflow = ''
+})
+</script>
 <template>
   <div class="page-projects">
     <section class="section">
@@ -123,32 +150,6 @@
   </div>
 </template>
 
-<script setup>
-useHead({ title: 'Projects' })
-const { projects } = usePortfolioData()
-
-const selectedProject = ref(null)
-
-function openDialog(project) {
-  selectedProject.value = project
-  document.body.style.overflow = 'hidden'
-}
-
-function closeDialog() {
-  selectedProject.value = null
-  document.body.style.overflow = ''
-}
-
-// Close on Escape key
-onMounted(() => {
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeDialog()
-  })
-})
-onUnmounted(() => {
-  document.body.style.overflow = ''
-})
-</script>
 
 <style scoped>
 .page-projects { padding-top: 100px; }

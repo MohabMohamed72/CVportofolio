@@ -161,6 +161,12 @@ const { experiences, education } = usePortfolioData();
   align-items: center;
   margin-bottom: 12px;
 }
+@media (max-width: 768px) {
+  .tc-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .tc-period {
   font-family: var(--font-mono);
   font-size: 0.78rem;

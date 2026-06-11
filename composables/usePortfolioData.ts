@@ -111,6 +111,68 @@ export function usePortfolioData() {
 
   const projects = [
     {
+      title: "HSE Safety Platform",
+      subtitle: "Health, Safety & Environment",
+      description:
+        "HSE platform promoting safety awareness with service plans, subscription management, and comprehensive admin dashboard.",
+      tech: [
+        "Vue 3",
+        "TypeScript",
+        "Tailwind CSS 4",
+        "PrimeVue 4",
+        "Pinia",
+        "Axios",
+      ],
+      features: [
+        "Safety resources",
+        "Pricing plans",
+        "Subscription tracking",
+        "CMS dashboard",
+      ],
+      color: "#ef4444",
+      image: "🛡️",
+      details: {
+        overview:
+          "An enterprise Health, Safety & Environment (HSE) management web application built with Vue 3 and Vite. The system provides dedicated modules for managing equipment, observations, hazards, incidents, and safety workflows within an organization — with full multi-language support (English & Arabic/RTL).",
+        highlights: [
+          "Equipment management — CRUD with inspection tracking, certification, and decommissioning",
+          "Safety observations — hazard types, near-miss tracking, and action items",
+          "Hazard identification and incident logging with image attachments",
+          "Configurable inspection/checklist template builder",
+          "Role-based authentication, permissions, and organization management",
+          "Multi-language support: English and Arabic (RTL layout via vue-i18n)",
+          "Analytics dashboard with Chart.js and ApexCharts",
+          "Excel import/export and PDF report generation",
+          "Real-time notifications via WebSocket (STOMP protocol)",
+        ],
+        techStack: [
+          {
+            category: "Framework",
+            items: ["Vue 3 (Composition API)", "Vite", "TypeScript"],
+          },
+          {
+            category: "UI & Styling",
+            items: ["PrimeVue 4 (Aura theme)", "Tailwind CSS 4", "Sass"],
+          },
+          {
+            category: "State & Routing",
+            items: ["Pinia", "pinia-plugin-persistedstate", "Vue Router"],
+          },
+          {
+            category: "HTTP & Realtime",
+            items: ["Axios", "WebSocket (STOMP)"],
+          },
+          {
+            category: "Charts",
+            items: ["Chart.js", "ApexCharts (vue3-apexcharts)"],
+          },
+          { category: "i18n", items: ["vue-i18n (EN + AR / RTL)"] },
+          { category: "Export", items: ["jsPDF", "html2canvas", "xlsx"] },
+        ],
+      },
+    },
+
+    {
       title: "Orbit System",
       subtitle: "Engineering Company Management Platform",
       description:
@@ -230,67 +292,6 @@ export function usePortfolioData() {
           { category: "APIs", items: ["REST APIs", "Axios"] },
           { category: "Payments", items: ["Payment Gateway integration"] },
           { category: "Export", items: ["PDF e-ticket generation"] },
-        ],
-      },
-    },
-    {
-      title: "HSE Safety Platform",
-      subtitle: "Health, Safety & Environment",
-      description:
-        "HSE platform promoting safety awareness with service plans, subscription management, and comprehensive admin dashboard.",
-      tech: [
-        "Vue 3",
-        "TypeScript",
-        "Tailwind CSS 4",
-        "PrimeVue 4",
-        "Pinia",
-        "Axios",
-      ],
-      features: [
-        "Safety resources",
-        "Pricing plans",
-        "Subscription tracking",
-        "CMS dashboard",
-      ],
-      color: "#ef4444",
-      image: "🛡️",
-      details: {
-        overview:
-          "An enterprise Health, Safety & Environment (HSE) management web application built with Vue 3 and Vite. The system provides dedicated modules for managing equipment, observations, hazards, incidents, and safety workflows within an organization — with full multi-language support (English & Arabic/RTL).",
-        highlights: [
-          "Equipment management — CRUD with inspection tracking, certification, and decommissioning",
-          "Safety observations — hazard types, near-miss tracking, and action items",
-          "Hazard identification and incident logging with image attachments",
-          "Configurable inspection/checklist template builder",
-          "Role-based authentication, permissions, and organization management",
-          "Multi-language support: English and Arabic (RTL layout via vue-i18n)",
-          "Analytics dashboard with Chart.js and ApexCharts",
-          "Excel import/export and PDF report generation",
-          "Real-time notifications via WebSocket (STOMP protocol)",
-        ],
-        techStack: [
-          {
-            category: "Framework",
-            items: ["Vue 3 (Composition API)", "Vite", "TypeScript"],
-          },
-          {
-            category: "UI & Styling",
-            items: ["PrimeVue 4 (Aura theme)", "Tailwind CSS 4", "Sass"],
-          },
-          {
-            category: "State & Routing",
-            items: ["Pinia", "pinia-plugin-persistedstate", "Vue Router"],
-          },
-          {
-            category: "HTTP & Realtime",
-            items: ["Axios", "WebSocket (STOMP)"],
-          },
-          {
-            category: "Charts",
-            items: ["Chart.js", "ApexCharts (vue3-apexcharts)"],
-          },
-          { category: "i18n", items: ["vue-i18n (EN + AR / RTL)"] },
-          { category: "Export", items: ["jsPDF", "html2canvas", "xlsx"] },
         ],
       },
     },
