@@ -1,0 +1,99 @@
+export interface CaseStudy {
+  slug: string
+  title: string
+  shortTitle: string
+  category: string
+  summary: string
+  context: string
+  problem: string
+  role: string
+  system: string
+  challenge: string
+  result: string
+  workflow: string[]
+  features: string[]
+  technology: string[]
+  architecture: string[]
+  threads: { title: string; description: string }[]
+  logo?: string
+  screenshot?: string
+  external?: string
+}
+
+const caseStudies: CaseStudy[] = [
+  {
+    slug: 'education-system',
+    title: 'Education System',
+    shortTitle: 'Education',
+    category: 'Multi-tenant education SaaS',
+    summary: 'One learning platform, many distinct schools and teaching businesses.',
+    context: 'A multi-tenant education product where a teacher’s domain loads its own brand, learning stages, courses, books, blog, FAQs, contact information, and student experience.',
+    problem: 'A shared platform had to serve distinct tenants without flattening their identity, while keeping discovery, protected learning content, assessment, and payments coherent for students.',
+    role: 'Built frontend product flows, tenant-aware interfaces, and the student experience using a feature-based architecture.',
+    system: 'The tenant domain resolves an identity and content model. Students move from course discovery to protected multimedia, homework, timed exams, progress, and live sessions; teachers manage stages, books, and question banks.',
+    challenge: 'Coordinating Arabic RTL, dynamic SEO, SSR, SWR caching, persistent state, watermark and access controls, and automated regression coverage across tenant-specific experiences.',
+    result: 'Teachers can run branded learning experiences on their own domains while students discover content, purchase access, study, take assessments, and track progress in one connected product.',
+    workflow: ['Teacher domain', 'Tenant identity', 'Course discovery', 'Protected learning', 'Assessment', 'Progress'],
+    features: ['Digital and printed books', 'Protected multimedia', 'Timed exams and question banks', 'Homework and favorites', 'Live sessions', 'Student dashboards', 'Payments', 'Arabic RTL'],
+    technology: ['Nuxt 3', 'Vue 3', 'TypeScript', 'Pinia', 'Vue I18n', 'REST APIs', 'SSR', 'SWR caching'],
+    architecture: ['Multi-tenant / white-label', 'Feature-based modules', 'Persistent state', 'Automated regression tests'],
+    threads: [
+      { title: 'The domain sets the context', description: 'Teacher domains load their own brand, learning stages, courses, books, and supporting content. The student interface must keep that tenant identity coherent across the learning journey.' },
+      { title: 'Discovery and access are different concerns', description: 'Server-side rendering and dynamic SEO support discovery. Protected multimedia, watermarking, and access controls support the purchased learning experience.' },
+      { title: 'Learning continues across sessions', description: 'Persistent state, homework, favorites, timed exams, and progress tracking connect the student experience. Regression tests cover those product flows.' },
+    ],
+    logo: '/images/books.webp',
+  },
+  {
+    slug: 'orbit-system',
+    title: 'Orbit System',
+    shortTitle: 'Orbit',
+    category: 'Engineering ERP ecosystem',
+    summary: 'An engineering project, from the first client request to final delivery.',
+    context: 'Orbit connects engineering project work with client, staff, financial, and document operations in one role-aware ecosystem.',
+    problem: 'The same project touches clients, quotations, technical studies, designs, permits, authority approvals, tenders, supervision, invoicing, and delivery. Different teams need a reliable shared view of that lifecycle.',
+    role: 'Built frontend dashboards and workflows for project tracking, role-specific operations, and real-time collaboration.',
+    system: 'Project areas connect clients, reservations, payments, invoices, HR, attendance, daily work, tasks, meetings, documents, tickets, and employee performance.',
+    challenge: 'Keeping role permissions, live notifications and chat, reporting, and technical artifacts such as CAD/DXF views understandable across a dense operational interface.',
+    result: 'The completed system gives teams a connected place to manage engineering work, coordinate handoffs, track project status, and produce PDF and Excel outputs.',
+    workflow: ['Client request', 'Quotation', 'Technical study', 'Approvals', 'Supervision', 'Invoice & delivery'],
+    features: ['Projects and reservations', 'Invoices and payments', 'HR and attendance', 'Tasks and meetings', 'Notifications and chat', 'CAD/DXF visualization', 'Chart.js dashboards', 'PDF and Excel generation'],
+    technology: ['Vue 3', 'TypeScript', 'Pinia', 'SCSS', 'REST APIs', 'WebSockets', 'STOMP', 'Chart.js'],
+    architecture: ['Feature-based modules', 'Role permissions', 'Reusable components', 'Real-time data flows'],
+    threads: [
+      { title: 'One project, different responsibilities', description: 'Role permissions shape the frontend experiences across project, client, staff, and financial operations. Project tracking connects the work without treating every role as the same user.' },
+      { title: 'Requests load data; events keep work live', description: 'REST API integrations support the operational workflows. WebSockets and STOMP support notifications and chat, so collaboration is part of the system rather than a separate destination.' },
+      { title: 'The interface has to deliver artifacts', description: 'Chart.js supports operational dashboards; CAD/DXF visualization supports technical work; PDF and Excel generation take information beyond the screen into reporting and delivery.' },
+    ],
+    logo: '/images/logo_orbit_footer.png',
+    external: 'https://orbitconsults.com/',
+  },
+  {
+    slug: 'hse-management-system',
+    title: 'HSE Management System',
+    shortTitle: 'HSE',
+    category: 'Enterprise safety operations',
+    summary: 'Safety events become accountable investigations and verified actions.',
+    context: 'An enterprise safety platform spanning projects, workforce, equipment, observations, hazards, incidents, inspections, audits, permits, PPE, risk assessments, drills, meetings, and Management of Change.',
+    problem: 'A reported safety issue is only the start. Evidence, witnesses, root-cause analysis, corrective and preventive actions, verification, and lessons learned must stay connected until closure.',
+    role: 'Built frontend workflows for safety operations, configurable templates, role-aware views, multilingual access, and operational reporting.',
+    system: 'Investigations move through evidence and witness statements, Five Whys, CAPA assignments and due dates, verification, closure tracking, and lessons learned. Inspection and audit templates support repeatable field work.',
+    challenge: 'Making long, conditional safety workflows legible across permissions, Arabic and English layouts, notifications, dashboards, and PDF/Excel reporting.',
+    result: 'Teams can follow safety work from observation or incident through investigation, assigned actions, verification, and operational learning.',
+    workflow: ['Observation', 'Evidence', 'Root cause', 'CAPA', 'Verification', 'Closure'],
+    features: ['Incidents and hazards', 'Investigations and Five Whys', 'Corrective / preventive actions', 'Inspection and audit templates', 'Permits and PPE', 'Risk assessments', 'Arabic / English RTL', 'PDF and Excel reports'],
+    technology: ['Vue 3', 'TypeScript', 'PrimeVue', 'Pinia', 'Tailwind CSS', 'Axios', 'Vue I18n', 'WebSockets'],
+    architecture: ['Role permissions', 'Configurable workflows', 'Reusable templates', 'Real-time notifications'],
+    threads: [
+      { title: 'An event starts an investigation', description: 'Observations and incidents connect to evidence, witness statements, and root-cause analysis, including Five Whys. The investigation carries context forward rather than stopping at a report.' },
+      { title: 'Actions remain accountable', description: 'Corrective and preventive actions (CAPA) include assignments, due dates, and verification. Closure tracking and lessons learned connect the response back to operational learning.' },
+      { title: 'Repeatable work, bilingual access', description: 'Inspection and audit templates support repeatable workflows. Permissions, Arabic and English layouts, notifications, and PDF/Excel reports support the people using the platform.' },
+    ],
+    logo: '/images/h.png',
+    external: 'https://hse.techlabeg.com/',
+  },
+]
+
+export function useCaseStudies() {
+  return caseStudies
+}

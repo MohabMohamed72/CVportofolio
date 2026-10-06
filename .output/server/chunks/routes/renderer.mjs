@@ -1,5 +1,5 @@
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
-import { j as joinRelativeURL, u as useRuntimeConfig, g as getResponseStatusText, a as getResponseStatus, d as defineRenderHandler, b as getQuery, c as createError, e as getRouteRules, f as joinURL, h as useNitroApp } from '../nitro/nitro.mjs';
+import { j as joinRelativeURL, u as useRuntimeConfig, e as getResponseStatusText, f as getResponseStatus, h as defineRenderHandler, i as getQuery, c as createError, k as getRouteRules, l as joinURL, m as useNitroApp } from '../nitro/nitro.mjs';
 import { renderToString } from 'vue/server-renderer';
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'unhead/server';
 import { stringify, uneval } from 'devalue';
@@ -76,7 +76,7 @@ function createHead(options = {}) {
 
 const NUXT_RUNTIME_PAYLOAD_EXTRACTION = false;
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"Junior Frontend Developer skilled in Vue.js, React.js, Angular, Nuxt.js, TypeScript & AI-powered development."},{"name":"keywords","content":"frontend developer, vue.js, react.js, angular, nuxt.js, typescript, portfolio, mohab mohamed"},{"property":"og:title","content":"Mohab Mohamed | Frontend Developer"},{"property":"og:description","content":"Junior Frontend Developer Portfolio - Vue.js, React.js, Angular, Nuxt.js"}],"link":[{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"}],"style":[],"script":[],"noscript":[],"title":"Mohab Mohamed | Frontend Developer"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"},{"name":"description","content":"Mohab Mohamed is a frontend engineer building complex production applications, enterprise dashboards, bilingual workflows, and multi-tenant products."},{"name":"theme-color","content":"#171a18"},{"property":"og:title","content":"Mohab Mohamed — Frontend Engineer"},{"property":"og:description","content":"Frontend engineering for complex production applications."}],"link":[{"rel":"preload","href":"/fonts/anybody-latin.woff2","as":"font","type":"font/woff2","crossorigin":""},{"rel":"preload","href":"/fonts/atkinson-regular-latin.woff2","as":"font","type":"font/woff2","crossorigin":""}],"style":[],"script":[],"noscript":[],"title":"Mohab Mohamed — Frontend Engineer"};
 
 const appRootTag = "div";
 
@@ -494,5 +494,5 @@ const renderer = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   default: handler
 }, Symbol.toStringTag, { value: 'Module' }));
 
-export { baseURL as b, headSymbol as h, renderer as r, useHead as u };
+export { baseURL as b, headSymbol as h, publicAssetsURL as p, renderer as r, useHead as u };
 //# sourceMappingURL=renderer.mjs.map

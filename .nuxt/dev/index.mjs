@@ -1,10 +1,11 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getResponseStatusText } from 'file:///home/techlab/projects/CVportofolio/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, createError, getQuery as getQuery$1, readBody, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getResponseStatus, getRouterParam, getHeader, readRawBody, getRequestIP, getResponseStatusText } from 'file:///home/techlab/projects/CVportofolio/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { escapeHtml } from 'file:///home/techlab/projects/CVportofolio/node_modules/@vue/shared/dist/shared.cjs.js';
+import { escapeHtml as escapeHtml$1 } from 'file:///home/techlab/projects/CVportofolio/node_modules/@vue/shared/dist/shared.cjs.js';
+import { Resend } from 'file:///home/techlab/projects/CVportofolio/node_modules/resend/dist/index.mjs';
 import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///home/techlab/projects/CVportofolio/node_modules/vue-bundle-renderer/dist/runtime.mjs';
 import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, joinRelativeURL } from 'file:///home/techlab/projects/CVportofolio/node_modules/ufo/dist/index.mjs';
 import { renderToString } from 'file:///home/techlab/projects/CVportofolio/node_modules/vue/server-renderer/index.mjs';
@@ -648,7 +649,10 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {}
+  "public": {},
+  "resendApiKey": "",
+  "contactEmail": "mohabmohamedd772@gmail.com",
+  "contactFrom": ""
 };
 const envOptions = {
   prefix: "NITRO_",
@@ -2017,7 +2021,7 @@ async function errorHandler(error, event) {
 
 const rootDir = "/home/techlab/projects/CVportofolio";
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"Junior Frontend Developer skilled in Vue.js, React.js, Angular, Nuxt.js, TypeScript & AI-powered development."},{"name":"keywords","content":"frontend developer, vue.js, react.js, angular, nuxt.js, typescript, portfolio, mohab mohamed"},{"property":"og:title","content":"Mohab Mohamed | Frontend Developer"},{"property":"og:description","content":"Junior Frontend Developer Portfolio - Vue.js, React.js, Angular, Nuxt.js"}],"link":[{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"},{"rel":"icon","type":"image/png","href":"https://cyber.comolho.com/static/img/avatar.png"}],"style":[],"script":[],"noscript":[],"title":"Mohab Mohamed | Frontend Developer"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"},{"name":"description","content":"Mohab Mohamed is a frontend engineer building complex production applications, enterprise dashboards, bilingual workflows, and multi-tenant products."},{"name":"theme-color","content":"#171a18"},{"property":"og:title","content":"Mohab Mohamed — Frontend Engineer"},{"property":"og:description","content":"Frontend engineering for complex production applications."}],"link":[{"rel":"preload","href":"/fonts/anybody-latin.woff2","as":"font","type":"font/woff2","crossorigin":""},{"rel":"preload","href":"/fonts/atkinson-regular-latin.woff2","as":"font","type":"font/woff2","crossorigin":""}],"style":[],"script":[],"noscript":[],"title":"Mohab Mohamed — Frontend Engineer"};
 
 const appRootTag = "div";
 
@@ -2118,7 +2122,22 @@ const plugins = [
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1b605-AhSxK/gAA2OzkZn1UO14u5WvgWY\"",
+    "mtime": "2026-10-06T10:58:31.780Z",
+    "size": 112133,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"6f605-lKgb/tXhEBhneqLGd4Odqg1GYqg\"",
+    "mtime": "2026-10-06T10:58:31.780Z",
+    "size": 456197,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -2578,10 +2597,12 @@ async function getIslandContext(event) {
 	};
 }
 
+const _lazy_jNeBZ7 = () => Promise.resolve().then(function () { return contact_post$1; });
 const _lazy_KHfs5G = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
   { route: '', handler: _o7tD2T, lazy: false, middleware: true, method: undefined },
+  { route: '/api/contact', handler: _lazy_jNeBZ7, lazy: true, middleware: false, method: "post" },
   { route: '/__nuxt_error', handler: _lazy_KHfs5G, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_KHfs5G, lazy: true, middleware: false, method: undefined }
@@ -2902,7 +2923,7 @@ const template$1 = (messages) => {
 		..._messages,
 		...messages
 	};
-	return "<!DOCTYPE html><html lang=\"en\"><head><title>" + escapeHtml(messages.status) + " - " + escapeHtml(messages.statusText) + " | " + escapeHtml(messages.appName) + "</title><meta charset=\"utf-8\"><meta content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0\" name=\"viewport\"><style>.spotlight{background:linear-gradient(45deg,#00dc82,#36e4da 50%,#0047e1);filter:blur(20vh)}*,:after,:before{border-color:var(--un-default-border-color,#e5e7eb);border-style:solid;border-width:0;box-sizing:border-box}:after,:before{--un-content:\"\"}html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-moz-tab-size:4;tab-size:4;-webkit-tap-highlight-color:transparent}body{line-height:inherit;margin:0}h1{font-size:inherit;font-weight:inherit}h1,p{margin:0}*,:after,:before{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-pan-x: ;--un-pan-y: ;--un-pinch-zoom: ;--un-scroll-snap-strictness:proximity;--un-ordinal: ;--un-slashed-zero: ;--un-numeric-figure: ;--un-numeric-spacing: ;--un-numeric-fraction: ;--un-border-spacing-x:0;--un-border-spacing-y:0;--un-ring-offset-shadow:0 0 transparent;--un-ring-shadow:0 0 transparent;--un-shadow-inset: ;--un-shadow:0 0 transparent;--un-ring-inset: ;--un-ring-offset-width:0px;--un-ring-offset-color:#fff;--un-ring-width:0px;--un-ring-color:rgba(147,197,253,.5);--un-blur: ;--un-brightness: ;--un-contrast: ;--un-drop-shadow: ;--un-grayscale: ;--un-hue-rotate: ;--un-invert: ;--un-saturate: ;--un-sepia: ;--un-backdrop-blur: ;--un-backdrop-brightness: ;--un-backdrop-contrast: ;--un-backdrop-grayscale: ;--un-backdrop-hue-rotate: ;--un-backdrop-invert: ;--un-backdrop-opacity: ;--un-backdrop-saturate: ;--un-backdrop-sepia: }.fixed{position:fixed}.-bottom-1\\/2{bottom:-50%}.left-0{left:0}.right-0{right:0}.grid{display:grid}.mb-16{margin-bottom:4rem}.mb-8{margin-bottom:2rem}.h-1\\/2{height:50%}.max-w-520px{max-width:520px}.min-h-screen{min-height:100vh}.place-content-center{place-content:center}.overflow-hidden{overflow:hidden}.bg-white{--un-bg-opacity:1;background-color:rgb(255 255 255/var(--un-bg-opacity))}.px-8{padding-left:2rem;padding-right:2rem}.text-center{text-align:center}.text-8xl{font-size:6rem;line-height:1}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-black{--un-text-opacity:1;color:rgb(0 0 0/var(--un-text-opacity))}.font-light{font-weight:300}.font-medium{font-weight:500}.leading-tight{line-height:1.25}.font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}@media(prefers-color-scheme:dark){.dark\\:bg-black{--un-bg-opacity:1;background-color:rgb(0 0 0/var(--un-bg-opacity))}.dark\\:text-white{--un-text-opacity:1;color:rgb(255 255 255/var(--un-text-opacity))}}@media(min-width:640px){.sm\\:px-0{padding-left:0;padding-right:0}.sm\\:text-4xl{font-size:2.25rem;line-height:2.5rem}}</style><script>!function(){const e=document.createElement(\"link\").relList;if(!(e&&e.supports&&e.supports(\"modulepreload\"))){for(const e of document.querySelectorAll('link[rel=\"modulepreload\"]'))r(e);new MutationObserver(e=>{for(const o of e)if(\"childList\"===o.type)for(const e of o.addedNodes)\"LINK\"===e.tagName&&\"modulepreload\"===e.rel&&r(e)}).observe(document,{childList:!0,subtree:!0})}function r(e){if(e.ep)return;e.ep=!0;const r=function(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),\"use-credentials\"===e.crossOrigin?r.credentials=\"include\":\"anonymous\"===e.crossOrigin?r.credentials=\"omit\":r.credentials=\"same-origin\",r}(e);fetch(e.href,r)}}();<\/script></head><body class=\"antialiased bg-white dark:bg-black dark:text-white font-sans grid min-h-screen overflow-hidden place-content-center text-black\"><div class=\"-bottom-1/2 fixed h-1/2 left-0 right-0 spotlight\"></div><div class=\"max-w-520px text-center\"><h1 class=\"font-medium mb-8 sm:text-10xl text-8xl\">" + escapeHtml(messages.status) + "</h1><p class=\"font-light leading-tight mb-16 px-8 sm:px-0 sm:text-4xl text-xl\">" + escapeHtml(messages.description) + "</p></div></body></html>";
+	return "<!DOCTYPE html><html lang=\"en\"><head><title>" + escapeHtml$1(messages.status) + " - " + escapeHtml$1(messages.statusText) + " | " + escapeHtml$1(messages.appName) + "</title><meta charset=\"utf-8\"><meta content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0\" name=\"viewport\"><style>.spotlight{background:linear-gradient(45deg,#00dc82,#36e4da 50%,#0047e1);filter:blur(20vh)}*,:after,:before{border-color:var(--un-default-border-color,#e5e7eb);border-style:solid;border-width:0;box-sizing:border-box}:after,:before{--un-content:\"\"}html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-moz-tab-size:4;tab-size:4;-webkit-tap-highlight-color:transparent}body{line-height:inherit;margin:0}h1{font-size:inherit;font-weight:inherit}h1,p{margin:0}*,:after,:before{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-pan-x: ;--un-pan-y: ;--un-pinch-zoom: ;--un-scroll-snap-strictness:proximity;--un-ordinal: ;--un-slashed-zero: ;--un-numeric-figure: ;--un-numeric-spacing: ;--un-numeric-fraction: ;--un-border-spacing-x:0;--un-border-spacing-y:0;--un-ring-offset-shadow:0 0 transparent;--un-ring-shadow:0 0 transparent;--un-shadow-inset: ;--un-shadow:0 0 transparent;--un-ring-inset: ;--un-ring-offset-width:0px;--un-ring-offset-color:#fff;--un-ring-width:0px;--un-ring-color:rgba(147,197,253,.5);--un-blur: ;--un-brightness: ;--un-contrast: ;--un-drop-shadow: ;--un-grayscale: ;--un-hue-rotate: ;--un-invert: ;--un-saturate: ;--un-sepia: ;--un-backdrop-blur: ;--un-backdrop-brightness: ;--un-backdrop-contrast: ;--un-backdrop-grayscale: ;--un-backdrop-hue-rotate: ;--un-backdrop-invert: ;--un-backdrop-opacity: ;--un-backdrop-saturate: ;--un-backdrop-sepia: }.fixed{position:fixed}.-bottom-1\\/2{bottom:-50%}.left-0{left:0}.right-0{right:0}.grid{display:grid}.mb-16{margin-bottom:4rem}.mb-8{margin-bottom:2rem}.h-1\\/2{height:50%}.max-w-520px{max-width:520px}.min-h-screen{min-height:100vh}.place-content-center{place-content:center}.overflow-hidden{overflow:hidden}.bg-white{--un-bg-opacity:1;background-color:rgb(255 255 255/var(--un-bg-opacity))}.px-8{padding-left:2rem;padding-right:2rem}.text-center{text-align:center}.text-8xl{font-size:6rem;line-height:1}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-black{--un-text-opacity:1;color:rgb(0 0 0/var(--un-text-opacity))}.font-light{font-weight:300}.font-medium{font-weight:500}.leading-tight{line-height:1.25}.font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}@media(prefers-color-scheme:dark){.dark\\:bg-black{--un-bg-opacity:1;background-color:rgb(0 0 0/var(--un-bg-opacity))}.dark\\:text-white{--un-text-opacity:1;color:rgb(255 255 255/var(--un-text-opacity))}}@media(min-width:640px){.sm\\:px-0{padding-left:0;padding-right:0}.sm\\:text-4xl{font-size:2.25rem;line-height:2.5rem}}</style><script>!function(){const e=document.createElement(\"link\").relList;if(!(e&&e.supports&&e.supports(\"modulepreload\"))){for(const e of document.querySelectorAll('link[rel=\"modulepreload\"]'))r(e);new MutationObserver(e=>{for(const o of e)if(\"childList\"===o.type)for(const e of o.addedNodes)\"LINK\"===e.tagName&&\"modulepreload\"===e.rel&&r(e)}).observe(document,{childList:!0,subtree:!0})}function r(e){if(e.ep)return;e.ep=!0;const r=function(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),\"use-credentials\"===e.crossOrigin?r.credentials=\"include\":\"anonymous\"===e.crossOrigin?r.credentials=\"omit\":r.credentials=\"same-origin\",r}(e);fetch(e.href,r)}}();<\/script></head><body class=\"antialiased bg-white dark:bg-black dark:text-white font-sans grid min-h-screen overflow-hidden place-content-center text-black\"><div class=\"-bottom-1/2 fixed h-1/2 left-0 right-0 spotlight\"></div><div class=\"max-w-520px text-center\"><h1 class=\"font-medium mb-8 sm:text-10xl text-8xl\">" + escapeHtml$1(messages.status) + "</h1><p class=\"font-light leading-tight mb-16 px-8 sm:px-0 sm:text-4xl text-xl\">" + escapeHtml$1(messages.description) + "</p></div></body></html>";
 };
 
 const error500 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -2922,6 +2943,80 @@ const styles = {};
 const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: styles
+}, Symbol.toStringTag, { value: 'Module' }));
+
+function validateContact(input) {
+  const source = input && typeof input === "object" && !Array.isArray(input) ? input : {};
+  const values = Object.fromEntries(["name", "email", "subject", "phone", "message", "website"].map((key) => [key, typeof source[key] === "string" ? source[key].trim() : ""]));
+  const errors = {};
+  if (!values.name) errors.name = "Please enter your name.";
+  else if (values.name.length > 100 || /[\r\n\x00-\x1f]/.test(values.name)) errors.name = "Use a name of up to 100 characters.";
+  if (!values.email || values.email.length > 254 || !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(values.email)) errors.email = "Please enter a valid email address.";
+  if (!values.message) errors.message = "Please enter a message.";
+  else if (values.message.length > 5e3) errors.message = "Keep your message within 5,000 characters.";
+  if (values.subject.length > 150 || /[\r\n\x00-\x1f]/.test(values.subject)) errors.subject = "Use a subject of up to 150 characters on one line.";
+  if (values.phone.length > 40 || values.phone && !/^[+\d\s().-]+$/.test(values.phone)) errors.phone = "Please enter a valid phone number.";
+  return { values, errors };
+}
+
+function escapeHtml(value) {
+  return value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+}
+function contactEmail(values) {
+  const entries = [["Name", values.name], ["Email", values.email], ["Phone", values.phone || "Not provided"], ["Subject", values.subject || "Portfolio inquiry"], ["Message", values.message]];
+  return {
+    subject: "Portfolio Contact \u2014 " + (values.subject || values.name),
+    text: "New Portfolio Message\n\n" + entries.map(([label, value]) => label + "\n" + value).join("\n\n"),
+    html: '<!doctype html><html><body style="font-family:Arial,sans-serif;background:#f2efe6;color:#171a18;padding:32px"><h1 style="font-size:24px">New Portfolio Message</h1>' + entries.map(([label, value]) => '<h2 style="font-size:14px;margin-top:24px">' + label + '</h2><p style="white-space:pre-wrap;line-height:1.6">' + escapeHtml(value) + "</p>").join("") + "</body></html>"
+  };
+}
+
+const attempts = /* @__PURE__ */ new Map();
+const contact_post = defineEventHandler(async (event) => {
+  setResponseHeader(event, "Cache-Control", "no-store");
+  const origin = getHeader(event, "origin");
+  if (origin && origin !== getRequestURL(event).origin) throw createError({ statusCode: 403, statusMessage: "Request not allowed" });
+  if (!(getHeader(event, "content-type") || "").startsWith("application/json")) throw createError({ statusCode: 415, statusMessage: "JSON required" });
+  if (Number(getHeader(event, "content-length") || 0) > 32768) throw createError({ statusCode: 413, statusMessage: "Message too large" });
+  const raw = await readRawBody(event);
+  if (!raw || Buffer.byteLength(raw) > 32768) throw createError({ statusCode: 413, statusMessage: "Message too large" });
+  let input;
+  try {
+    input = JSON.parse(raw);
+  } catch {
+    throw createError({ statusCode: 400, statusMessage: "Invalid payload" });
+  }
+  if (!input || typeof input !== "object" || Array.isArray(input)) throw createError({ statusCode: 400, statusMessage: "Invalid payload" });
+  const { values, errors } = validateContact(input);
+  if (values.website) return { ok: true };
+  const now = Date.now();
+  for (const [key, value] of attempts) if (value.expires <= now) attempts.delete(key);
+  const ip = getRequestIP(event) || "unknown";
+  const current = attempts.get(ip) || { count: 0, expires: now + 6e4 };
+  if (current.count >= 5) {
+    setResponseHeader(event, "Retry-After", 60);
+    throw createError({ statusCode: 429, statusMessage: "Please wait a minute before trying again" });
+  }
+  current.count++;
+  attempts.set(ip, current);
+  if (Object.keys(errors).length) throw createError({ statusCode: 400, statusMessage: "Check the highlighted fields", data: { errors } });
+  const config = useRuntimeConfig();
+  const apiKey = process.env.RESEND_API_KEY || config.resendApiKey;
+  const from = process.env.CONTACT_FROM || config.contactFrom;
+  const to = process.env.CONTACT_EMAIL || config.contactEmail;
+  if (!apiKey || !from) throw createError({ statusCode: 503, statusMessage: "Email service is unavailable. Please use WhatsApp." });
+  try {
+    const { error, data } = await new Resend(apiKey).emails.send({ from, to, replyTo: values.email, ...contactEmail(values) });
+    if (error || !(data == null ? void 0 : data.id)) throw new Error("Provider rejected the message");
+  } catch {
+    throw createError({ statusCode: 502, statusMessage: "Unable to send your message. Please try again or use WhatsApp." });
+  }
+  return { ok: true };
+});
+
+const contact_post$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: contact_post
 }, Symbol.toStringTag, { value: 'Module' }));
 
 function renderPayloadResponse(ssrContext) {

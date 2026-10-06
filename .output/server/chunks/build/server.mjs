@@ -1,8 +1,8 @@
-import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent, shallowRef, h, resolveComponent, hasInjectionContext, inject, computed, unref, getCurrentInstance, ref, Suspense, Fragment, createApp, provide, shallowReactive, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, reactive, effectScope, defineAsyncComponent, mergeProps, getCurrentScope, toRef, withCtx, createTextVNode, isReadonly, useSSRContext, isRef, isShallow, isReactive, toRaw } from 'vue';
-import { p as parseQuery, i as hasProtocol, f as joinURL, k as parseURL, l as encodePath, m as decodePath, w as withQuery, n as isScriptProtocol, o as getContext, q as withTrailingSlash, r as withoutTrailingSlash, s as sanitizeStatusCode, $ as $fetch, t as createHooks, c as createError$1, v as executeAsync, x as defu } from '../nitro/nitro.mjs';
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineComponent, unref, mergeProps, hasInjectionContext, inject, shallowRef, h, resolveComponent, toRef, isRef, computed, getCurrentInstance, useSSRContext, ref, Suspense, Fragment, createApp, watch, withCtx, createVNode, createTextVNode, toDisplayString, provide, shallowReactive, onErrorCaptured, onServerPrefetch, resolveDynamicComponent, reactive, effectScope, defineAsyncComponent, getCurrentScope, isReadonly, isShallow, isReactive, toRaw } from 'vue';
+import { c as createError$1, p as parseQuery, n as hasProtocol, l as joinURL, o as parseURL, q as encodePath, t as decodePath, w as withQuery, v as isScriptProtocol, x as getContext, y as withTrailingSlash, z as withoutTrailingSlash, A as sanitizeStatusCode, $ as $fetch, B as createHooks, C as executeAsync, D as defu } from '../nitro/nitro.mjs';
 import { u as useHead$1, h as headSymbol, b as baseURL } from '../routes/renderer.mjs';
 import { RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
-import { ssrRenderSuspense, ssrRenderComponent, ssrRenderVNode, ssrRenderAttrs, ssrRenderClass, ssrRenderAttr, ssrInterpolate } from 'vue/server-renderer';
+import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr, ssrRenderList, ssrInterpolate, ssrRenderSuspense, ssrRenderVNode } from 'vue/server-renderer';
 import 'node:http';
 import 'node:https';
 import 'node:events';
@@ -404,36 +404,48 @@ function getRouteRules(arg) {
     return {};
   }
 }
+const __nuxt_page_meta = { key: (route2) => route2.fullPath };
 const _routes = [
+  {
+    name: "cv",
+    path: "/cv",
+    component: () => import('./cv-CwQSK5wL.mjs')
+  },
   {
     name: "about",
     path: "/about",
-    component: () => import('./about-DqvxXqiW.mjs')
+    component: () => import('./about--6VNITLI.mjs')
   },
   {
     name: "index",
     path: "/",
-    component: () => import('./index-DCw1TB5A.mjs')
+    component: () => import('./index-CSxKcjUj.mjs')
   },
   {
     name: "skills",
     path: "/skills",
-    component: () => import('./skills-IRKhaPAF.mjs')
+    component: () => import('./skills-BZvSuqwR.mjs')
   },
   {
     name: "contact",
     path: "/contact",
-    component: () => import('./contact-Dvu78nvQ.mjs')
-  },
-  {
-    name: "projects",
-    path: "/projects",
-    component: () => import('./projects-DvghgTna.mjs')
+    component: () => import('./contact-CZIiTAzm.mjs')
   },
   {
     name: "experience",
     path: "/experience",
-    component: () => import('./experience-DI1E60Iw.mjs')
+    component: () => import('./experience-BbHmsC5d.mjs')
+  },
+  {
+    name: "projects",
+    path: "/projects",
+    component: () => import('./index-BfkgL9W4.mjs')
+  },
+  {
+    name: "projects-slug",
+    path: "/projects/:slug()",
+    meta: __nuxt_page_meta || {},
+    component: () => import('./_slug_-C1S59dGg.mjs')
   }
 ];
 const ROUTE_KEY_PARENTHESES_RE = /(:\w+)\([^)]+\)/g;
@@ -1085,6 +1097,30 @@ function applyTrailingSlashBehavior(to, trailingSlash) {
   }
   return normalizeFn(to, true);
 }
+const _sfc_main$6 = /* @__PURE__ */ defineComponent({
+  __name: "ArrowIcon",
+  __ssrInlineRender: true,
+  props: {
+    direction: { default: "up-right" }
+  },
+  setup(__props) {
+    const props = __props;
+    const rotation = computed(() => ({ "up-right": -45, left: 180, down: 90 })[props.direction]);
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(`<svg${ssrRenderAttrs(mergeProps({
+        class: "arrow-icon",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        "stroke-width": "1.7",
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "aria-hidden": "true",
+        focusable: "false"
+      }, _attrs))} data-v-d1e35248><g${ssrRenderAttr("transform", "rotate(" + unref(rotation) + " 12 12)")} data-v-d1e35248><path d="M4 12h16M13 5l7 7-7 7" data-v-d1e35248></path></g></svg>`);
+    };
+  }
+});
 const _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -1092,142 +1128,221 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$4 = {
+const _sfc_setup$6 = _sfc_main$6.setup;
+_sfc_main$6.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/ArrowIcon.vue");
+  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
+};
+const __nuxt_component_1$1 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-d1e35248"]]);
+const useStateKeyPrefix = "$s";
+function useState(...args) {
+  const autoKey = typeof args[args.length - 1] === "string" ? args.pop() : void 0;
+  if (typeof args[0] !== "string") {
+    args.unshift(autoKey);
+  }
+  const [_key, init] = args;
+  if (!_key || typeof _key !== "string") {
+    throw new TypeError("[nuxt] [useState] key must be a string: " + _key);
+  }
+  if (init !== void 0 && typeof init !== "function") {
+    throw new Error("[nuxt] [useState] init must be a function: " + init);
+  }
+  const key = useStateKeyPrefix + _key;
+  const nuxtApp = useNuxtApp();
+  const state = toRef(nuxtApp.payload.state, key);
+  if (state.value === void 0 && init) {
+    const initialValue = init();
+    if (isRef(initialValue)) {
+      nuxtApp.payload.state[key] = initialValue;
+      return initialValue;
+    }
+    state.value = initialValue;
+  }
+  return state;
+}
+function useCvDocument() {
+  const available = useState("cv-document-available", () => false);
+  useState("cv-document-checked", () => false);
+  const path = "/cv/Mohab-Mohamed-CV.pdf";
+  return { available, path };
+}
+const _sfc_main$5 = /* @__PURE__ */ defineComponent({
+  __name: "CvDownload",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const { available, path } = useCvDocument();
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_ArrowIcon = __nuxt_component_1$1;
+      if (unref(available)) {
+        _push(`<a${ssrRenderAttrs(mergeProps({
+          href: unref(path),
+          download: "",
+          class: "button"
+        }, _attrs))}>Download CV `);
+        _push(ssrRenderComponent(_component_ArrowIcon, { direction: "down" }, null, _parent));
+        _push(`</a>`);
+      } else {
+        _push(`<!---->`);
+      }
+    };
+  }
+});
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/CvDownload.vue");
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+};
+const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "TheNavbar",
   __ssrInlineRender: true,
   setup(__props) {
-    const isScrolled = ref(false);
-    const menuOpen = ref(false);
+    const route = useRoute();
+    const open = ref(false);
+    const scrolled = ref(false);
+    ref(null);
+    ref(null);
+    const links = [
+      { label: "Home", to: "/" },
+      { label: "About", to: "/about" },
+      { label: "Skills", to: "/skills" },
+      { label: "Projects", to: "/projects" },
+      { label: "Experience", to: "/experience" },
+      { label: "Contact", to: "/contact" }
+    ];
+    watch(() => route.fullPath, () => {
+      open.value = false;
+    });
+    watch(open, async (value) => {
+      return;
+    });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0$1;
+      const _component_CvDownload = _sfc_main$5;
+      const _component_ArrowIcon = __nuxt_component_1$1;
       _push(`<header${ssrRenderAttrs(mergeProps({
-        class: ["navbar", { scrolled: unref(isScrolled), "menu-open": unref(menuOpen) }]
-      }, _attrs))} data-v-ae5f4775><div class="container navbar-inner" data-v-ae5f4775>`);
+        class: ["site-header", { "is-scrolled": unref(scrolled) }]
+      }, _attrs))} data-v-a1626582><div class="container header-inner" data-v-a1626582>`);
       _push(ssrRenderComponent(_component_NuxtLink, {
+        class: "brand",
         to: "/",
-        class: "logo"
+        "aria-label": "Mohab Mohamed, home"
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<span class="logo-bracket" data-v-ae5f4775${_scopeId}>&lt;</span><span class="logo-text" data-v-ae5f4775${_scopeId}>MM</span><span class="logo-bracket" data-v-ae5f4775${_scopeId}>/&gt;</span>`);
+            _push2(`<span class="brand-mark" data-v-a1626582${_scopeId}>M<span data-v-a1626582${_scopeId}>.</span></span><span class="brand-name" data-v-a1626582${_scopeId}>Mohab Mohamed <small data-v-a1626582${_scopeId}>Frontend Developer</small></span>`);
           } else {
             return [
-              createVNode("span", { class: "logo-bracket" }, "<"),
-              createVNode("span", { class: "logo-text" }, "MM"),
-              createVNode("span", { class: "logo-bracket" }, "/>")
+              createVNode("span", { class: "brand-mark" }, [
+                createTextVNode("M"),
+                createVNode("span", null, ".")
+              ]),
+              createVNode("span", { class: "brand-name" }, [
+                createTextVNode("Mohab Mohamed "),
+                createVNode("small", null, "Frontend Developer")
+              ])
             ];
           }
         }),
         _: 1
       }, _parent));
-      _push(`<nav class="${ssrRenderClass([{ active: unref(menuOpen) }, "nav-links"])}" data-v-ae5f4775>`);
+      _push(`<nav class="desktop-nav" aria-label="Primary navigation" data-v-a1626582><!--[-->`);
+      ssrRenderList(links, (link) => {
+        _push(ssrRenderComponent(_component_NuxtLink, {
+          key: link.to,
+          to: link.to,
+          class: { active: unref(route).path === link.to || link.to === "/projects" && unref(route).path.startsWith("/projects/") }
+        }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`${ssrInterpolate(link.label)}`);
+            } else {
+              return [
+                createTextVNode(toDisplayString(link.label), 1)
+              ];
+            }
+          }),
+          _: 2
+        }, _parent));
+      });
+      _push(`<!--]--></nav><div class="desktop-cv" data-v-a1626582>`);
+      if (unref(route).path !== "/") {
+        _push(ssrRenderComponent(_component_CvDownload, null, null, _parent));
+      } else {
+        _push(`<!---->`);
+      }
       _push(ssrRenderComponent(_component_NuxtLink, {
-        to: "/",
-        class: "nav-link",
-        onClick: ($event) => menuOpen.value = false
+        to: "/cv",
+        class: "cv-overview"
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`Home`);
+            _push2(`View CV`);
           } else {
             return [
-              createTextVNode("Home")
+              createTextVNode("View CV")
             ];
           }
         }),
         _: 1
       }, _parent));
-      _push(ssrRenderComponent(_component_NuxtLink, {
-        to: "/about",
-        class: "nav-link",
-        onClick: ($event) => menuOpen.value = false
-      }, {
-        default: withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`About`);
-          } else {
-            return [
-              createTextVNode("About")
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(ssrRenderComponent(_component_NuxtLink, {
-        to: "/skills",
-        class: "nav-link",
-        onClick: ($event) => menuOpen.value = false
-      }, {
-        default: withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`Skills`);
-          } else {
-            return [
-              createTextVNode("Skills")
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(ssrRenderComponent(_component_NuxtLink, {
-        to: "/projects",
-        class: "nav-link",
-        onClick: ($event) => menuOpen.value = false
-      }, {
-        default: withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`Projects`);
-          } else {
-            return [
-              createTextVNode("Projects")
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(ssrRenderComponent(_component_NuxtLink, {
-        to: "/experience",
-        class: "nav-link",
-        onClick: ($event) => menuOpen.value = false
-      }, {
-        default: withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`Experience`);
-          } else {
-            return [
-              createTextVNode("Experience")
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(ssrRenderComponent(_component_NuxtLink, {
-        to: "/contact",
-        class: "nav-link",
-        onClick: ($event) => menuOpen.value = false
-      }, {
-        default: withCtx((_, _push2, _parent2, _scopeId) => {
-          if (_push2) {
-            _push2(`Contact`);
-          } else {
-            return [
-              createTextVNode("Contact")
-            ];
-          }
-        }),
-        _: 1
-      }, _parent));
-      _push(`</nav><a href="https://github.com/MohabMohamed72" target="_blank" class="nav-github" data-v-ae5f4775><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" data-v-ae5f4775><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" data-v-ae5f4775></path></svg></a><button class="menu-toggle"${ssrRenderAttr("aria-label", unref(menuOpen) ? "Close menu" : "Open menu")} data-v-ae5f4775><span data-v-ae5f4775></span><span data-v-ae5f4775></span><span data-v-ae5f4775></span></button></div></header>`);
+      _push(`</div><button class="menu-button" type="button"${ssrRenderAttr("aria-expanded", unref(open))} aria-controls="mobile-navigation"${ssrRenderAttr("aria-label", unref(open) ? "Close navigation" : "Open navigation")} data-v-a1626582>${ssrInterpolate(unref(open) ? "Close" : "Menu")}</button></div>`);
+      if (unref(open)) {
+        _push(`<nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" data-v-a1626582><div class="container mobile-nav-inner" data-v-a1626582><!--[-->`);
+        ssrRenderList(links, (link) => {
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            key: link.to,
+            to: link.to,
+            onClick: ($event) => open.value = false
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`<span data-v-a1626582${_scopeId}>${ssrInterpolate(link.label)}</span>`);
+                _push2(ssrRenderComponent(_component_ArrowIcon, null, null, _parent2, _scopeId));
+              } else {
+                return [
+                  createVNode("span", null, toDisplayString(link.label), 1),
+                  createVNode(_component_ArrowIcon)
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+        });
+        _push(`<!--]-->`);
+        if (unref(route).path !== "/") {
+          _push(ssrRenderComponent(_component_CvDownload, null, null, _parent));
+        } else {
+          _push(`<!---->`);
+        }
+        _push(ssrRenderComponent(_component_NuxtLink, { to: "/cv" }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`View CV`);
+            } else {
+              return [
+                createTextVNode("View CV")
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`</div></nav>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</header>`);
     };
   }
-};
+});
 const _sfc_setup$4 = _sfc_main$4.setup;
 _sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/TheNavbar.vue");
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-ae5f4775"]]);
+const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-a1626582"]]);
 const defineRouteProvider = (name = "RouteProvider") => defineComponent({
   name,
   props: {
@@ -1311,116 +1426,115 @@ function normalizeSlot(slot, data) {
   const slotContent = slot(data);
   return slotContent.length === 1 ? h(slotContent[0]) : h(Fragment, void 0, slotContent);
 }
-const _sfc_main$3 = {};
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_NuxtLink = __nuxt_component_0$1;
-  _push(`<footer${ssrRenderAttrs(mergeProps({ class: "footer" }, _attrs))} data-v-946ef981><div class="container" data-v-946ef981><div class="footer-grid" data-v-946ef981><div class="footer-brand" data-v-946ef981><span class="logo-code" data-v-946ef981>&lt;MM /&gt;</span><p class="footer-desc" data-v-946ef981>Building modern web experiences with passion, precision, and a love for clean code.</p></div><div class="footer-links" data-v-946ef981><h4 data-v-946ef981>Navigation</h4>`);
-  _push(ssrRenderComponent(_component_NuxtLink, { to: "/" }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`Home`);
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
+  __name: "TheFooter",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const route = useRoute();
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_ArrowIcon = __nuxt_component_1$1;
+      const _component_NuxtLink = __nuxt_component_0$1;
+      _push(`<footer${ssrRenderAttrs(mergeProps({ class: "site-footer" }, _attrs))} data-v-e4044b4f><div class="container" data-v-e4044b4f><div class="footer-top" data-v-e4044b4f><span class="mono" data-v-e4044b4f>MOHAB MOHAMED / FRONTEND DEVELOPER</span><span class="mono" data-v-e4044b4f>MANSOURA, EGYPT</span></div>`);
+      if (unref(route).path !== "/" && unref(route).path !== "/contact" && unref(route).path !== "/cv") {
+        _push(`<div class="footer-statement" data-v-e4044b4f><p class="display" data-v-e4044b4f>Mohab Mohamed<br data-v-e4044b4f><em data-v-e4044b4f>Frontend Developer</em></p><a href="mailto:mohabmohamedd772@gmail.com" aria-label="Email Mohab Mohamed" data-v-e4044b4f>Contact Me `);
+        _push(ssrRenderComponent(_component_ArrowIcon, null, null, _parent));
+        _push(`</a></div>`);
       } else {
-        return [
-          createTextVNode("Home")
-        ];
+        _push(`<!---->`);
       }
-    }),
-    _: 1
-  }, _parent));
-  _push(ssrRenderComponent(_component_NuxtLink, { to: "/about" }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`About`);
-      } else {
-        return [
-          createTextVNode("About")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(ssrRenderComponent(_component_NuxtLink, { to: "/skills" }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`Skills`);
-      } else {
-        return [
-          createTextVNode("Skills")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(ssrRenderComponent(_component_NuxtLink, { to: "/projects" }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`Projects`);
-      } else {
-        return [
-          createTextVNode("Projects")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(ssrRenderComponent(_component_NuxtLink, { to: "/experience" }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`Experience`);
-      } else {
-        return [
-          createTextVNode("Experience")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(ssrRenderComponent(_component_NuxtLink, { to: "/contact" }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`Contact`);
-      } else {
-        return [
-          createTextVNode("Contact")
-        ];
-      }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div><div class="footer-links" data-v-946ef981><h4 data-v-946ef981>Connect</h4><a href="https://github.com/MohabMohamed72" target="_blank" data-v-946ef981>GitHub</a><a href="https://linkedin.com/in/mohab-mohamed-a5121024b" target="_blank" data-v-946ef981>LinkedIn</a><a href="mailto:mohabmohamedd772@gmail.com" data-v-946ef981>Email</a></div></div><div class="footer-bottom" data-v-946ef981><div class="footer-line" data-v-946ef981></div><p data-v-946ef981>© ${ssrInterpolate((/* @__PURE__ */ new Date()).getFullYear())} Mohab Mohamed. Crafted with <span class="heart" data-v-946ef981>♥</span> using Nuxt.js </p></div></div></footer>`);
-}
+      _push(`<div class="footer-bottom" data-v-e4044b4f><a class="footer-email" href="mailto:mohabmohamedd772@gmail.com" data-v-e4044b4f>mohabmohamedd772@gmail.com</a><nav aria-label="Footer navigation" data-v-e4044b4f>`);
+      _push(ssrRenderComponent(_component_NuxtLink, { to: "/projects" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Projects`);
+          } else {
+            return [
+              createTextVNode("Projects")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, { to: "/about" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`About`);
+          } else {
+            return [
+              createTextVNode("About")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, { to: "/cv" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`CV`);
+          } else {
+            return [
+              createTextVNode("CV")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, { to: "/contact" }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`Contact`);
+          } else {
+            return [
+              createTextVNode("Contact")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</nav><div class="footer-social" data-v-e4044b4f><a href="https://github.com/MohabMohamed72" target="_blank" rel="noopener noreferrer" data-v-e4044b4f>GitHub `);
+      _push(ssrRenderComponent(_component_ArrowIcon, null, null, _parent));
+      _push(`</a><a href="https://linkedin.com/in/mohab-mohamed-a5121024b" target="_blank" rel="noopener noreferrer" data-v-e4044b4f>LinkedIn `);
+      _push(ssrRenderComponent(_component_ArrowIcon, null, null, _parent));
+      _push(`</a></div></div><div class="footer-signoff" data-v-e4044b4f><span data-v-e4044b4f>© ${ssrInterpolate((/* @__PURE__ */ new Date()).getFullYear())} Mohab Mohamed</span><span data-v-e4044b4f>Built with Nuxt · Designed for the details</span></div></div></footer>`);
+    };
+  }
+});
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/TheFooter.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-946ef981"]]);
-const _sfc_main$2 = {
+const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-e4044b4f"]]);
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "app",
   __ssrInlineRender: true,
   setup(__props) {
     useHead({
-      titleTemplate: (title) => title ? `${title} | Mohab Mohamed` : "Mohab Mohamed | Frontend Developer"
+      titleTemplate: (title) => title ? title + " — Mohab Mohamed" : "Mohab Mohamed — Frontend Engineer",
+      htmlAttrs: { lang: "en" }
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_TheNavbar = __nuxt_component_0;
       const _component_NuxtPage = __nuxt_component_1;
       const _component_TheFooter = __nuxt_component_2;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "app" }, _attrs))}><div class="bg-orb bg-orb-1"></div><div class="bg-orb bg-orb-2"></div><div class="bg-orb bg-orb-3"></div>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "site-shell" }, _attrs))} data-v-7b1943aa><a class="skip-link" href="#main-content" data-v-7b1943aa>Skip to content</a>`);
       _push(ssrRenderComponent(_component_TheNavbar, null, null, _parent));
+      _push(`<div id="main-content" tabindex="-1" data-v-7b1943aa>`);
       _push(ssrRenderComponent(_component_NuxtPage, null, null, _parent));
+      _push(`</div>`);
       _push(ssrRenderComponent(_component_TheFooter, null, null, _parent));
       _push(`</div>`);
     };
   }
-};
+});
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("app.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
+const AppComponent = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-7b1943aa"]]);
 const _sfc_main$1 = {
   __name: "nuxt-error-page",
   __ssrInlineRender: true,
@@ -1435,8 +1549,8 @@ const _sfc_main$1 = {
     const statusText = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = defineAsyncComponent(() => import('./error-404-CVF87ZtR.mjs'));
-    const _Error = defineAsyncComponent(() => import('./error-500-Dc0ZsMV_.mjs'));
+    const _Error404 = defineAsyncComponent(() => import('./error-404-CE6ChRFd.mjs'));
+    const _Error = defineAsyncComponent(() => import('./error-500-DAexjXIz.mjs'));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
       _push(ssrRenderComponent(unref(ErrorTemplate), mergeProps({ status: unref(status), statusText: unref(statusText), statusCode: unref(status), statusMessage: unref(statusText), description: unref(description), stack: unref(stack) }, _attrs), null, _parent));
@@ -1483,7 +1597,7 @@ const _sfc_main = {
           } else if (unref(SingleRenderer)) {
             ssrRenderVNode(_push, createVNode(resolveDynamicComponent(unref(SingleRenderer)), null, null), _parent);
           } else {
-            _push(ssrRenderComponent(unref(_sfc_main$2), null, null, _parent));
+            _push(ssrRenderComponent(unref(AppComponent), null, null, _parent));
           }
         },
         _: 1
@@ -1517,5 +1631,5 @@ let entry;
 }
 const entry_default = ((ssrContext) => entry(ssrContext));
 
-export { _export_sfc as _, __nuxt_component_0$1 as a, entry_default as default, useHead as u };
+export { _export_sfc as _, __nuxt_component_0$1 as a, useCvDocument as b, __nuxt_component_1$1 as c, _sfc_main$5 as d, entry_default as default, useRoute as e, createError as f, useHead as u };
 //# sourceMappingURL=server.mjs.map

@@ -1,6 +1,8 @@
+import type { DirectiveBinding } from 'vue'
+
 export function useScrollReveal() {
-  const observe = (el) => {
-    if (!process.client) return
+  const observe = (el: HTMLElement) => {
+    if (!import.meta.client) return
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -16,7 +18,7 @@ export function useScrollReveal() {
   }
 
   const vReveal = {
-    mounted(el, binding) {
+    mounted(el: HTMLElement, binding: DirectiveBinding<number | undefined>) {
       el.classList.add('reveal-hidden')
       if (binding.value) {
         el.style.transitionDelay = `${binding.value}ms`

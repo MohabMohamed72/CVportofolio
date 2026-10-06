@@ -1,342 +1,92 @@
+<script setup lang="ts">
+const route = useRoute()
+const open = ref(false)
+const scrolled = ref(false)
+const menuButton = ref<HTMLButtonElement | null>(null)
+const mobileNavigation = ref<HTMLElement | null>(null)
+const links = [
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Skills', to: '/skills' },
+  { label: 'Projects', to: '/projects' },
+  { label: 'Experience', to: '/experience' },
+  { label: 'Contact', to: '/contact' },
+]
+const updateScroll = () => { scrolled.value = window.scrollY > 12 }
+const handleResize = () => { if (window.innerWidth > 900) open.value = false }
+watch(() => route.fullPath, () => { open.value = false })
+watch(open, async (value) => {
+  if (!import.meta.client) return
+  document.body.classList.toggle('mobile-nav-open', value)
+  document.querySelector('#main-content')?.toggleAttribute('inert', value)
+  document.querySelector('footer')?.toggleAttribute('inert', value)
+  await nextTick()
+  if (value) mobileNavigation.value?.querySelector<HTMLAnchorElement>('a')?.focus()
+})
+const handleMenuKey = (event: KeyboardEvent) => {
+  if (!open.value) return
+  if (event.key === 'Escape') { open.value = false; menuButton.value?.focus(); return }
+  if (event.key !== 'Tab') return
+  const controls = [menuButton.value, ...Array.from(mobileNavigation.value?.querySelectorAll<HTMLElement>('a, button:not([disabled])') || [])].filter(Boolean) as HTMLElement[]
+  const first = controls[0], last = controls[controls.length - 1]
+  if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus() }
+  else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
+}
+onMounted(() => { updateScroll(); window.addEventListener('scroll', updateScroll, { passive: true }); window.addEventListener('resize', handleResize) })
+onUnmounted(() => { window.removeEventListener('scroll', updateScroll); window.removeEventListener('resize', handleResize); document.body.classList.remove('mobile-nav-open') })
+</script>
+
 <template>
-  <header class="navbar" :class="{ scrolled: isScrolled, 'menu-open': menuOpen }">
-    <div class="container navbar-inner">
-      <NuxtLink to="/" class="logo">
-        <span class="logo-bracket">&lt;</span>
-        <span class="logo-text">Mohab</span>
-        <span class="logo-bracket">/&gt;</span>
+  <header class="site-header" :class="{ 'is-scrolled': scrolled }" @keydown="handleMenuKey">
+    <div class="container header-inner">
+      <NuxtLink class="brand" to="/" aria-label="Mohab Mohamed, home">
+        <span class="brand-mark">M<span>.</span></span>
+        <span class="brand-name">Mohab Mohamed <small>Frontend Developer</small></span>
       </NuxtLink>
-
-      <nav class="nav-links">
-        <NuxtLink to="/" class="nav-link">Home</NuxtLink>
-        <NuxtLink to="/about" class="nav-link">About</NuxtLink>
-        <NuxtLink to="/skills" class="nav-link">Skills</NuxtLink>
-        <NuxtLink to="/projects" class="nav-link">Projects</NuxtLink>
-        <NuxtLink to="/experience" class="nav-link">Experience</NuxtLink>
-        <NuxtLink to="/contact" class="nav-link">Contact</NuxtLink>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <NuxtLink v-for="link in links" :key="link.to" :to="link.to" :class="{ active: route.path === link.to || (link.to === '/projects' && route.path.startsWith('/projects/')) }">{{ link.label }}</NuxtLink>
       </nav>
-
-      <a href="https://github.com/MohabMohamed72" target="_blank" class="nav-github">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-        </svg>
-      </a>
-
-      <!-- Theme toggle -->
-      <button
-        class="theme-toggle"
-        @click="toggleTheme"
-        :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-        :title="isDark ? 'Light mode' : 'Dark mode'"
-      >
-        <Transition name="theme-icon" mode="out-in">
-          <!-- Sun (shown in dark mode → click to go light) -->
-          <svg v-if="isDark" key="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
-          <!-- Moon (shown in light mode → click to go dark) -->
-          <svg v-else key="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </Transition>
-      </button>
-
-      <button
-        class="menu-toggle"
-        @click="menuOpen = !menuOpen"
-        :aria-expanded="menuOpen"
-        :aria-label="menuOpen ? 'Close menu' : 'Open menu'"
-      >
-        <span class="bar bar-1" />
-        <span class="bar bar-2" />
-        <span class="bar bar-3" />
-      </button>
+      <div class="desktop-cv"><CvDownload v-if="route.path !== '/'" /><NuxtLink to="/cv" class="cv-overview">View CV</NuxtLink></div>
+      <button ref="menuButton" class="menu-button" type="button" :aria-expanded="open" aria-controls="mobile-navigation" :aria-label="open ? 'Close navigation' : 'Open navigation'" @click="open = !open">{{ open ? 'Close' : 'Menu' }}</button>
     </div>
-
-    <!-- Mobile drawer -->
-    <Transition name="drawer">
-      <nav v-if="menuOpen" class="mobile-menu">
-        <NuxtLink to="/" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">01</span> Home
-        </NuxtLink>
-        <NuxtLink to="/about" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">02</span> About
-        </NuxtLink>
-        <NuxtLink to="/skills" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">03</span> Skills
-        </NuxtLink>
-        <NuxtLink to="/projects" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">04</span> Projects
-        </NuxtLink>
-        <NuxtLink to="/experience" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">05</span> Experience
-        </NuxtLink>
-        <NuxtLink to="/contact" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">06</span> Contact
-        </NuxtLink>
-
-        <a
-          href="https://github.com/MohabMohamed72"
-          target="_blank"
-          class="mobile-github"
-          @click="menuOpen = false"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-          GitHub
-        </a>
+    <Transition name="menu">
+      <nav v-if="open" ref="mobileNavigation" id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation">
+        <div class="container mobile-nav-inner">
+          <NuxtLink v-for="link in links" :key="link.to" :to="link.to" @click="open = false"><span>{{ link.label }}</span><ArrowIcon /></NuxtLink>
+          <CvDownload v-if="route.path !== '/'" /><NuxtLink to="/cv">View CV</NuxtLink>
+        </div>
       </nav>
     </Transition>
   </header>
 </template>
 
-<script setup>
-const isScrolled = ref(false)
-const menuOpen = ref(false)
-
-const { isDark, toggleTheme, initTheme } = useTheme()
-
-const route = useRoute()
-watch(() => route.path, () => { menuOpen.value = false })
-
-onMounted(() => {
-  initTheme()
-  window.addEventListener('scroll', () => {
-    isScrolled.value = window.scrollY > 40
-  })
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') menuOpen.value = false
-  })
-})
-</script>
-
 <style scoped>
-/* ── Base ── */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 16px 0;
-  transition: background 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
-}
-.navbar.scrolled {
-  padding: 10px 0;
-  background: var(--navbar-scrolled-bg);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-}
-
-.navbar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* ── Logo ── */
-.logo {
-  font-family: var(--font-mono);
-  font-size: 1.3rem;
-  font-weight: 700;
-  display: flex;
-  gap: 2px;
-  transition: var(--transition);
-  flex-shrink: 0;
-}
-.logo:hover { transform: scale(1.05); }
-.logo-bracket { color: var(--primary); }
-.logo-text {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ── Desktop nav ── */
-.nav-links {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-.nav-link {
-  padding: 8px 16px;
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  border-radius: 50px;
-  transition: var(--transition);
-}
-.nav-link:hover,
-.nav-link.router-link-active {
-  color: var(--primary);
-  background: rgba(66, 211, 146, 0.08);
-}
-
-/* ── GitHub icon ── */
-.nav-github {
-  color: var(--text-secondary);
-  transition: var(--transition);
-  padding: 8px;
-  border-radius: 50%;
-  display: flex;
-  flex-shrink: 0;
-}
-.nav-github:hover {
-  color: var(--primary);
-  transform: scale(1.1);
-}
-
-/* ── Hamburger ── */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  cursor: pointer;
-  padding: 8px 10px;
-  position: relative;
-  z-index: 1001;
-  transition: border-color 0.2s ease;
-}
-.menu-toggle:hover { border-color: var(--border-hover); }
-
-.bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--text-secondary);
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.2s ease, background 0.2s ease;
-  transform-origin: center;
-}
-.menu-open .bar { background: var(--primary); }
-.menu-open .bar-1 { transform: translateY(7px) rotate(45deg); }
-.menu-open .bar-2 { opacity: 0; transform: scaleX(0); }
-.menu-open .bar-3 { transform: translateY(-7px) rotate(-45deg); }
-
-/* ── Mobile drawer ── */
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  padding: 8px 16px 20px;
-  border-top: 1px solid var(--border);
-  background: var(--mobile-menu-bg);
-  backdrop-filter: blur(24px);
-  box-shadow: var(--shadow-lg);
-}
-
-.mobile-link {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  border-radius: 10px;
-  border-left: 2px solid transparent;
-  transition: color 0.2s, background 0.2s, border-color 0.2s, padding-left 0.2s;
-}
-.mobile-link:hover,
-.mobile-link.router-link-active {
-  color: var(--primary);
-  background: rgba(66, 211, 146, 0.07);
-  border-left-color: var(--primary);
-  padding-left: 18px;
-}
-.mobile-link-num {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--primary);
-  opacity: 0.5;
-  min-width: 22px;
-}
-
-.mobile-github {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
-}
-.mobile-github:hover {
-  color: var(--primary);
-  border-color: var(--primary);
-  background: rgba(66, 211, 146, 0.06);
-}
-
-/* ── Theme toggle button ── */
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease,
-    background 0.2s ease, transform 0.2s ease;
-  flex-shrink: 0;
-}
-.theme-toggle:hover {
-  color: var(--primary);
-  border-color: var(--border-hover);
-  background: rgba(66, 211, 146, 0.08);
-  transform: rotate(20deg) scale(1.08);
-}
-
-/* ── Theme icon swap animation ── */
-.theme-icon-enter-active,
-.theme-icon-leave-active {
-  transition: opacity 0.18s ease, transform 0.18s ease;
-}
-.theme-icon-enter-from {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.6);
-}
-.theme-icon-leave-to {
-  opacity: 0;
-  transform: rotate(90deg) scale(0.6);
-}
-
-/* ── Drawer transition ── */
-.drawer-enter-active,
-.drawer-leave-active {
-  transition: opacity 0.22s ease, transform 0.22s ease;
-}
-.drawer-enter-from,
-.drawer-leave-to {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .nav-github { display: none; }
-  .menu-toggle { display: flex; }
-  .mobile-menu { display: flex; }
-}
+.desktop-cv { display: flex; align-items: center; gap: .6rem; }.desktop-cv :deep(.button) { font-size: .78rem; gap: .6rem; padding: .55rem .65rem; min-height: 44px; }.cv-overview { font-size: .8rem; text-decoration: underline; }.mobile-nav :deep(.button) { margin-top: 1.5rem; }
+.site-header { position: sticky; top: 0; z-index: 50; background: var(--ink); color: var(--paper); border-bottom: 1px solid var(--line-dark); transition: box-shadow 240ms ease; }
+.site-header.is-scrolled { box-shadow: 0 10px 24px rgba(0,0,0,.14); }
+.header-inner { min-height: 80px; display: flex; align-items: center; gap: clamp(12px, 1.5vw, 24px); }
+.brand { display: flex; align-items: center; gap: .8rem; flex: 0 1 auto; min-width: 0; }
+.brand-mark { font: 750 2.1rem/.8 var(--font-display); letter-spacing: -.04em; }
+.brand-mark span { color: var(--oxide); }
+.brand-name { font-size: .87rem; font-weight: 700; line-height: 1.2; }
+.brand-name small { display: block; margin-top: 3px; font: 400 .61rem var(--font-data); color: var(--text-muted); }
+.desktop-nav { display: flex; align-items: center; gap: clamp(14px, 1.6vw, 28px); margin-left: auto; }
+.desktop-nav a { position: relative; padding-block: .5rem; font-size: .84rem; color: var(--text-muted); transition: color 220ms ease; }
+.desktop-nav a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--oxide); transition: right 240ms var(--ease); }
+.desktop-nav a:hover, .desktop-nav a.active { color: var(--paper); }
+.desktop-nav a:hover::after, .desktop-nav a.active::after { right: 0; }
+.header-contact { display: flex; align-items: center; gap: 1.4rem; padding: .65rem .8rem; border: 1px solid var(--line-dark); font-size: .84rem; font-weight: 700; transition: color 220ms ease, border-color 220ms ease; }
+.header-contact:hover { color: var(--lime); border-color: var(--lime); }
+.menu-button { display: none; flex: 0 0 auto; min-width: 72px; height: 48px; margin-left: auto; padding: 8px 12px; border: 1px solid var(--line-dark); background: transparent; color: var(--paper); font-size: .9rem; }
+.menu-button span { display: block; height: 1px; background: var(--paper); margin-block: 5px; }
+.mobile-nav { position: fixed; top: 70px; left: 0; right: 0; bottom: 0; overflow-y: auto; background: var(--ink); }
+.mobile-nav-inner { padding-block: 2rem 4rem; }
+.mobile-nav a { display: flex; justify-content: space-between; align-items: center; padding: .8rem 0; border-bottom: 1px solid var(--line-dark); font: 650 clamp(2rem, 8vw, 3.5rem)/1.1 var(--font-display); }
+.mobile-nav a:hover, .mobile-nav a[aria-current="page"] { color: var(--lime); }
+.mobile-nav a span:last-child { font: 400 1.1rem var(--font-body); }
+.mobile-nav p { margin-top: 2rem; color: var(--text-muted); }
+.menu-enter-active, .menu-leave-active { transition: opacity 220ms ease, transform 220ms var(--ease); }
+.menu-enter-from, .menu-leave-to { opacity: 0; transform: translateY(-10px); }
+@media (max-width: 1080px) { .desktop-nav { gap: 12px; } .desktop-nav a { font-size: .78rem; } .brand-name small { display: none; } }
+@media (max-width: 900px) { .header-inner { min-height: 70px; } .desktop-nav, .header-contact, .desktop-cv { display: none; } .menu-button { display: block; } }
 </style>
