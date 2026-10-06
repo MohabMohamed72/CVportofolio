@@ -10,7 +10,7 @@ const { active } = useOsNavigation();
 <template>
   <header class="page-header">
     <div class="page-path">
-      <span>MOHAB_OS / {{ file || active.file }}</span
+      <span>MOHAB / {{ file || active.file }}</span
       ><span class="page-access">READ ACCESS: PUBLIC</span>
     </div>
     <p class="eyebrow"><span aria-hidden="true">›</span> {{ label }}</p>

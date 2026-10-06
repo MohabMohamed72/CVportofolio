@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{ error: { statusCode?: number } }>();
-useHead({ title: "Application unavailable — MOHAB_OS" });
+useHead({ title: "Application unavailable — MOHAB" });
 </script>
 <template>
   <main class="error-screen container">
