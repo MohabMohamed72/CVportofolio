@@ -8,6 +8,7 @@ export const osNavigation = [
     file: "PROJECTS.APP",
     icon: "folder",
   },
+  { label: "Stores", path: "/stores", file: "STORES.APP", icon: "store" },
   {
     label: "Experience",
     path: "/experience",

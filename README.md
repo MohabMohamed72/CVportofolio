@@ -25,11 +25,21 @@ npm run test:contact
 
 ## Routes and content
 
-- Home, Projects, About, Experience, Skills, Contact, and CV.
+- Home (`/`), Projects (`/projects`), E-commerce Stores (`/stores`), About, Experience, Skills, Contact, and CV. Stores is available in the desktop launcher, taskbar, and mobile menu.
 - Production case studies: `/projects/education-system`, `/projects/orbit-system`, `/projects/hse-management-system`.
 - Verified major project content lives in `composables/useCaseStudies.ts`.
 - Global tokens: `assets/css/main.css`. Design reference: `DESIGN.md` and `.impeccable/design.json`.
 - Contact posts to `/api/contact`, which sends through Resend on the server. WhatsApp is an independent, prefilled contact option.
+
+## Sharing with recruiters and clients
+
+Append these paths to the deployed portfolio URL:
+
+- `/?work=frontend`: the frontend homepage, with production projects and the original frontend CV action. Share with frontend recruiters and engineering managers.
+- `/?work=stores`: the e-commerce homepage, with the store developer role, Salla / WordPress / Shopify / Zid stack, View Stores and Contact actions, selected storefronts, and matching footer copy. Share with e-commerce recruiters, teams, and brands.
+- `/projects` and `/stores`: direct links to the respective work directories. The shared “Explore my work” navigation switches between them; on Home it switches the shareable homepage focus.
+
+`composables/useStores.ts` holds 25 unique owner-supplied destinations; the repeated Augoo URL was removed. The featured order is Prime Story, BKRJ, Augoo Coffee, Snacko, and Tuhfa Fn. `/stores` leads with Prime Story, follows with four paired previews, then lists the other 20 destinations. Store links are native anchors that open a new tab. Home's store view uses the compact five-preview showcase and links to the full directory.
 
 ## Contact email setup
 
@@ -51,7 +61,7 @@ Run `npm run test:contact` (Node 22.6+), `npm run typecheck`, and `npm run build
 
 The original two-page CV was recovered from the `enhance` branch at `public/documents/mohab-mohamed-frontend-cv.pdf`. The shared CV link uses `/documents/mohab-mohamed-frontend-cv.pdf`; download and open actions appear after PDF availability is checked. Do not replace the original with a generated document.
 
-Actual interface screenshots are still needed. The displayed product diagrams are explicitly labeled schematics, not reconstructed screenshots.
+Actual interface screenshots are still needed for the production application case studies. Their displayed product diagrams are explicitly labeled schematics. The five featured storefronts have authentic 1280 × 900 browser captures; source URLs and capture date are recorded in `public/images/stores/SOURCES.md` and embedded in each JPEG's provenance metadata.
 
 1. Put approved project captures under `public/images/projects/`, then set each case study's optional `screenshot` field to its public URL. Use sanitized captures without private customer data. The media component reserves a 16:10 area and does not crop the image.
 2. Keep the original PDF at `public/documents/mohab-mohamed-frontend-cv.pdf`. All PDF actions share the path in `composables/useCvDocument.ts`.
@@ -61,4 +71,6 @@ Self-hosted font sources and licenses live in `public/fonts/`.
 
 ## Verification scope
 
-MOHAB_OS browser verification covers all ten routes at 375, 390, 430, 768, 1024, 1440 and 1920 widths. It also checks session-only boot/skip, window restoration, CRT preference persistence, directory selection, mobile menu keyboard behavior, reduced motion, contact validation and mocked success/failure, encoded WhatsApp content, the real PDF, and live API validation/honeypot/missing-configuration responses. No email is sent during testing. Physical iOS/Android devices and Safari are not verified. Original screenshot loading cannot be assessed until those assets are supplied.
+The earlier MOHAB_OS verification covered its ten existing routes at 375, 390, 430, 768, 1024, 1440 and 1920 widths, including session-only boot/skip, window restoration, CRT preference persistence, directory selection, mobile menu keyboard behavior, reduced motion, contact validation and mocked success/failure, encoded WhatsApp content, the real PDF, and live API validation/honeypot/missing-configuration responses.
+
+The stores extension was checked in the browser at 1440, 768, and 390 widths: no horizontal overflow, hydration errors, or browser errors; correct destination count and featured order; all five images loaded; homepage focus switching and mobile navigation worked. Production build passes. The repository's `npm run typecheck` currently fails on existing contact Node types because `@types/node` is absent; an independent Vue SFC check using temporary external Node types passes. No email is sent during testing. Physical iOS/Android devices and Safari are not verified; production application screenshot loading remains unverified until captures are supplied.
