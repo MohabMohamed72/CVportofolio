@@ -23,7 +23,7 @@ onUnmounted(() => {
 </script>
 <template>
   <footer class="system-footer">
-    <span>MOHAB_OS / BUILT BY MOHAB MOHAMED</span
+    <span>MOHAB / BUILT BY MOHAB MOHAMED</span
     ><a href="mailto:mohabmohamedd772@gmail.com">Start a conversation ↗</a
     ><span
       >{{ storesFocus ? "E-commerce Web Developer" : "Frontend Developer" }} /

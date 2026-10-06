@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({ title: "CV" });
-const { available: pdfAvailable, path: pdfPath } = useCvDocument();
+const { path: pdfPath } = useCvDocument("full");
 const { experienceEntries: roles } = useProfessionalProfile();
 const studies = useCaseStudies();
 </script>
@@ -10,7 +10,7 @@ const studies = useCaseStudies();
       label="CV"
       title="Curriculum Vitae"
       file="MOHAB_MOHAMED_CV.PDF"
-      description="Mohab Mohamed's professional background. Read the web edition or download the original PDF."
+      description="Mohab Mohamed's professional background. Read the web edition or download the full CV covering frontend engineering and e-commerce."
     />
     <div class="page-content">
       <SystemWindow file="MOHAB_MOHAMED_CV.PDF" label="WEB EDITION">
@@ -20,22 +20,24 @@ const studies = useCaseStudies();
             <p>Frontend Developer / Production web applications</p>
           </div>
           <div class="actions">
-            <a
-              v-if="pdfAvailable"
-              :href="pdfPath"
-              download
-              class="button primary"
-              >Download CV <ArrowIcon direction="down" /></a
+            <a :href="pdfPath" download class="button primary"
+              >Download Full CV <ArrowIcon direction="down" /></a
             ><a
-              v-if="pdfAvailable"
               :href="pdfPath"
               target="_blank"
               rel="noopener noreferrer"
               class="button"
-              >Open PDF <ArrowIcon
+              >Open Full PDF <ArrowIcon
             /></a>
           </div>
         </header>
+        <!-- <div class="actions">
+          <CvDownload variant="frontend" />
+          <CvDownload variant="stores" />
+        </div> -->
+        <!-- <p class="muted">
+          The full CV covers both frontend development and e-commerce work.
+        </p> -->
         <div class="cv-contact">
           <span>Mansoura, Egypt</span
           ><a href="mailto:mohabmohamedd772@gmail.com"
@@ -132,3 +134,8 @@ const studies = useCaseStudies();
     </div>
   </main>
 </template>
+<style scoped >
+.actions{
+  padding-top: 1rem;
+}
+</style>

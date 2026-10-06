@@ -1,8 +1,8 @@
 <script setup lang="ts">
 defineProps<{ compact?: boolean }>();
 const stores = useStores();
-const featured = stores.slice(0, 5);
-const remaining = stores.slice(5);
+const featured = stores.filter((store) => store.featured);
+const remaining = stores.filter((store) => !store.featured);
 function domain(url: string) {
   const destination = new URL(url);
   return (
@@ -22,14 +22,16 @@ function domain(url: string) {
         </p>
       </div>
       <span class="meta">{{
-        compact ? "05 SELECTED" : stores.length + " STORES"
+        compact
+          ? String(featured.length).padStart(2, "0") + " SELECTED"
+          : stores.length + " STORES"
       }}</span>
     </div>
     <ol class="store-featured">
       <li
         v-for="(store, index) in featured"
         :key="store.url"
-        :class="{ 'store-lead': index === 0 }"
+        :class="{ 'store-lead': index < 1 }"
       >
         <a
           :href="store.url"
@@ -47,6 +49,11 @@ function domain(url: string) {
               width="1280"
               height="900"
             />
+            <div v-if="!store.image" class="store-capture-unavailable">
+              <SystemIcon name="store" />
+              <strong>{{ store.name }}</strong>
+              <span>Storefront preview unavailable</span>
+            </div>
             <span class="store-open">Visit store <ArrowIcon /></span>
           </div>
           <div class="store-record">
@@ -71,7 +78,7 @@ function domain(url: string) {
         <h2>More store work</h2>
         <span class="meta">{{ remaining.length }} DESTINATIONS</span>
       </div>
-      <ol class="store-directory" start="6">
+      <ol class="store-directory" :start="featured.length + 1">
         <li v-for="(store, index) in remaining" :key="store.url">
           <a
             :href="store.url"
@@ -80,7 +87,7 @@ function domain(url: string) {
             :aria-label="store.name + ' — visit store (opens in a new tab)'"
           >
             <span class="store-index">{{
-              String(index + 6).padStart(2, "0")
+              String(index + featured.length + 1).padStart(2, "0")
             }}</span>
             <span
               ><strong>{{ store.name }}</strong

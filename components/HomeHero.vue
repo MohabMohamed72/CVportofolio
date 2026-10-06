@@ -41,7 +41,7 @@ const intent = ref("Select an application to open");
         ><NuxtLink v-if="storesFocus" to="/contact" class="button"
           >Contact me <ArrowIcon
         /></NuxtLink>
-        <CvDownload v-else />
+        <CvDownload :variant="storesFocus ? 'stores' : 'frontend'" />
       </div>
       <div class="desktop-socials">
         <NuxtLink to="/contact" class="text-link">Contact ↗</NuxtLink

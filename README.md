@@ -35,11 +35,11 @@ npm run test:contact
 
 Append these paths to the deployed portfolio URL:
 
-- `/?work=frontend`: the frontend homepage, with production projects and the original frontend CV action. Share with frontend recruiters and engineering managers.
-- `/?work=stores`: the e-commerce homepage, with the store developer role, Salla / WordPress / Shopify / Zid stack, View Stores and Contact actions, selected storefronts, and matching footer copy. Share with e-commerce recruiters, teams, and brands.
+- `/?work=frontend`: the frontend homepage, with production projects and the frontend CV download. Share with frontend recruiters and engineering managers.
+- `/?work=stores`: the e-commerce homepage, with the store developer role, Salla / WordPress / Shopify / Zid stack, View Stores, Contact, and e-commerce CV download actions, selected storefronts, and matching footer copy. Share with e-commerce recruiters, teams, and brands.
 - `/projects` and `/stores`: direct links to the respective work directories. The shared “Explore my work” navigation switches between them; on Home it switches the shareable homepage focus.
 
-`composables/useStores.ts` holds 25 unique owner-supplied destinations; the repeated Augoo URL was removed. The featured order is Prime Story, BKRJ, Augoo Coffee, Snacko, and Tuhfa Fn. `/stores` leads with Prime Story, follows with four paired previews, then lists the other 20 destinations. Store links are native anchors that open a new tab. Home's store view uses the compact five-preview showcase and links to the full directory.
+`composables/useStores.ts` holds 38 unique owner-supplied destinations; the repeated Augoo URL was removed. The featured order is Prime Story, Bellora, BKRJ, Augoo Coffee, Snacko, Tuhfa Fn, Family Care UAE, Striker, and Ferza. `/stores` leads with Prime Story and Bellora, follows with the remaining seven featured entries, then lists the other 29 destinations. Store links are native anchors that open a new tab. Home's store view uses the compact nine-entry showcase and links to the full directory.
 
 ## Contact email setup
 
@@ -59,12 +59,12 @@ Run `npm run test:contact` (Node 22.6+), `npm run typecheck`, and `npm run build
 
 ## Original assets
 
-The original two-page CV was recovered from the `enhance` branch at `public/documents/mohab-mohamed-frontend-cv.pdf`. The shared CV link uses `/documents/mohab-mohamed-frontend-cv.pdf`; download and open actions appear after PDF availability is checked. Do not replace the original with a generated document.
+The original two-page CV was recovered from the `enhance` branch at `public/documents/mohab-mohamed-frontend-cv.pdf`. It is identical to the supplied Frontend CV v1.1 and remains unchanged. The supplied E-commerce Only CV v1.0 is stored separately; the full CV uses the owner-supplied `Mohab_Mohamed_Ecommerce_CV_v1.0.pdf` unchanged.
 
-Actual interface screenshots are still needed for the production application case studies. Their displayed product diagrams are explicitly labeled schematics. The five featured storefronts have authentic 1280 × 900 browser captures; source URLs and capture date are recorded in `public/images/stores/SOURCES.md` and embedded in each JPEG's provenance metadata.
+Actual interface screenshots are still needed for the production application case studies. Their displayed product diagrams are explicitly labeled schematics. The eight available featured sites have authentic 1280 × 900 browser captures; source URLs and capture date are recorded in `public/images/stores/SOURCES.md` and embedded in each JPEG's provenance metadata.
 
 1. Put approved project captures under `public/images/projects/`, then set each case study's optional `screenshot` field to its public URL. Use sanitized captures without private customer data. The media component reserves a 16:10 area and does not crop the image.
-2. Keep the original PDF at `public/documents/mohab-mohamed-frontend-cv.pdf`. All PDF actions share the path in `composables/useCvDocument.ts`.
+2. Keep the supplied PDFs at `public/documents/mohab-mohamed-frontend-cv.pdf` and `public/documents/mohab-mohamed-ecommerce-cv.pdf`. Home and the two work directories download their matching CV. `/cv` downloads `mohab-mohamed-full-cv.pdf`, which is the supplied `Mohab_Mohamed_Ecommerce_CV_v1.0.pdf` covering both frontend and e-commerce work, and also offers each separately. Document paths and labels live in `composables/useCvDocument.ts`.
 3. For richer galleries, provide filenames, screen captions and permission to publish; don't substitute decorative stock imagery for interface proof.
 
 Self-hosted font sources and licenses live in `public/fonts/`.
@@ -73,4 +73,6 @@ Self-hosted font sources and licenses live in `public/fonts/`.
 
 The earlier MOHAB_OS verification covered its ten existing routes at 375, 390, 430, 768, 1024, 1440 and 1920 widths, including session-only boot/skip, window restoration, CRT preference persistence, directory selection, mobile menu keyboard behavior, reduced motion, contact validation and mocked success/failure, encoded WhatsApp content, the real PDF, and live API validation/honeypot/missing-configuration responses.
 
-The stores extension was checked in the browser at 1440, 768, and 390 widths: no horizontal overflow, hydration errors, or browser errors; correct destination count and featured order; all five images loaded; homepage focus switching and mobile navigation worked. Production build passes. The repository's `npm run typecheck` currently fails on existing contact Node types because `@types/node` is absent; an independent Vue SFC check using temporary external Node types passes. No email is sent during testing. Physical iOS/Android devices and Safari are not verified; production application screenshot loading remains unverified until captures are supplied.
+The stores extension was checked in the browser at 1440, 768, and 390 widths: no horizontal overflow, hydration errors, or browser errors; correct destination count and featured order; all available images loaded; homepage focus switching and mobile navigation worked. Production build passes. The repository's `npm run typecheck` currently fails on existing contact Node types because `@types/node` is absent; an independent Vue SFC check using temporary external Node types passes. No email is sent during testing. Physical iOS/Android devices and Safari are not verified; production application screenshot loading remains unverified until captures are supplied.
+
+Family Care UAE remains featured with its owner-supplied link and a labeled unavailable preview; the domain could not be loaded during this update. Store data marks featured entries explicitly, so adding regular stores does not shift the featured group.

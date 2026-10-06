@@ -32,7 +32,7 @@ onUnmounted(() => {
 });
 useHead({
   titleTemplate: (title) =>
-    title ? title + " — MOHAB_OS" : "MOHAB_OS — Mohab Mohamed",
+    title ? title + " — MOHAB" : "MOHAB — Mohab Mohamed",
   htmlAttrs: { lang: "en" },
 });
 </script>

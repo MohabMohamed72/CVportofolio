@@ -30,7 +30,7 @@ watch(
 <template>
   <header class="system-bar">
     <NuxtLink to="/" class="system-brand" aria-label="MOHAB OS Home"
-      ><span class="brand-chip">M</span><span>MOHAB_OS</span></NuxtLink
+      ><span class="brand-chip">M</span><span>MOHAB</span></NuxtLink
     >
     <span class="system-breadcrumb"
       ><span aria-hidden="true">/</span> {{ active.file }}</span

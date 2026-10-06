@@ -45,7 +45,7 @@ onUnmounted(() => {
   >
     <div class="boot-corner" aria-hidden="true">M / OS</div>
     <p class="eyebrow">PERSONAL FRONTEND SYSTEM / BUILD 2026.10</p>
-    <h2 id="boot-title">MOHAB_OS</h2>
+    <h2 id="boot-title">MOHAB</h2>
     <p class="boot-identity">Mohab Mohamed <span>Frontend Developer</span></p>
     <div class="boot-log" aria-hidden="true">
       <p

@@ -1,11 +1,20 @@
-export function useCvDocument() {
-  const available = useState('cv-document-available', () => false)
-  const checked = useState('cv-document-checked', () => false)
-  const path = '/documents/mohab-mohamed-frontend-cv.pdf'
-  onMounted(async () => {
-    if (checked.value) return
-    checked.value = true
-    try { const response = await fetch(path, { method: 'HEAD' }); available.value = response.ok && (response.headers.get('content-type') || '').includes('pdf') } catch { available.value = false }
-  })
-  return { available, path }
+export type CvVariant = "frontend" | "stores" | "full";
+
+const cvDocuments = {
+  frontend: {
+    path: "/documents/mohab-mohamed-frontend-cv.pdf",
+    label: "Download Frontend CV",
+  },
+  stores: {
+    path: "/documents/mohab-mohamed-ecommerce-cv.pdf",
+    label: "Download E-commerce CV",
+  },
+  full: {
+    path: "/documents/mohab-mohamed-full-cv.pdf",
+    label: "Download Full CV",
+  },
+} as const;
+
+export function useCvDocument(variant: CvVariant = "full") {
+  return cvDocuments[variant];
 }
