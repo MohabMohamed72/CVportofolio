@@ -13,6 +13,15 @@ npx tsc --noEmit
 
 `npm run build` creates a server-capable Nuxt deployment. Vercel detects its server functions automatically; do not use `nuxt generate` or a static-only preset when deploying the contact API. No deployment was performed.
 
+## Vercel deployment preparation
+
+- Framework preset: Nuxt. Build command: `npm run build`. Keep output directory detection automatic; do not override it to `.output/public`.
+- Nitro's preset is intentionally unset so Vercel detection produces server functions, while a local build produces a Node server.
+- `POST /api/contact` must remain a server route, not a prerendered or static page. The obsolete static-only `netlify.toml` was removed; it contained only the generate command, public output directory, and SPA fallback.
+- Set `RESEND_API_KEY`, `CONTACT_FROM`, and `CONTACT_EMAIL` in the Vercel environments you intend to use. Keep all of them server-only; the recipient defaults to `mohabmohamedd772@gmail.com`.
+- Stop the dev server in this worktree before preparing types or building; these commands regenerate the same `.nuxt` directory. Do not run multiple dev servers against this worktree.
+- Generated `.nuxt`, `.nuxt-build`, `.output`, `.vercel`, dependency, and distribution directories are not source and must not be committed. Secret `.env` files are ignored; `.env.example` contains placeholders only.
+
 ## Routes and content
 
 - Home, Projects, About, Experience, Skills, Contact, and CV.
@@ -28,7 +37,7 @@ Set these server-only values in `.env` locally and in Vercel's environment setti
 ```dotenv
 RESEND_API_KEY=your-private-key
 CONTACT_EMAIL=mohabmohamedd772@gmail.com
-CONTACT_FROM=onboarding@resend.dev
+CONTACT_FROM=your-approved-sender@example.com
 ```
 
 Never place these in `runtimeConfig.public` or a `NUXT_PUBLIC_` variable. The private Nuxt equivalents `NUXT_RESEND_API_KEY`, `NUXT_CONTACT_EMAIL`, and `NUXT_CONTACT_FROM` are also supported. `.env` is ignored by Git. The sender must be approved by Resend. `onboarding@resend.dev` is for testing only and can deliver only to the email associated with your Resend account; for production use a sender on a verified domain.
@@ -37,12 +46,14 @@ The endpoint trims/validates inputs, escapes HTML, sets reply-to, rejects cross-
 
 Run `npm run test:contact` (Node 22.6+), `npm run typecheck`, and `npm run build`. There is no configured lint command in this repository. Verify a real delivery after configuring credentials. Resend should be registered with the recipient email if using its testing sender.
 
-## Original assets still needed
+## Original assets
 
-No actual interface screenshots or original CV PDF have been supplied. The displayed product diagrams are explicitly labeled schematics, not reconstructed screenshots.
+The original two-page CV was recovered from the `enhance` branch at `public/documents/mohab-mohamed-frontend-cv.pdf`. The shared CV link uses `/documents/mohab-mohamed-frontend-cv.pdf`; download and open actions appear after PDF availability is checked. Do not replace the original with a generated document.
+
+Actual interface screenshots are still needed. The displayed product diagrams are explicitly labeled schematics, not reconstructed screenshots.
 
 1. Put approved project captures under `public/images/projects/`, then set each case study's optional `screenshot` field to its public URL. Use sanitized captures without private customer data. The media component reserves a 16:10 area and does not crop the image.
-2. Put the original PDF at `public/cv/Mohab-Mohamed-CV.pdf`. The CV page enables Download PDF and Open original PDF only when that URL returns PDF content.
+2. Keep the original PDF at `public/documents/mohab-mohamed-frontend-cv.pdf`. All PDF actions share the path in `composables/useCvDocument.ts`.
 3. For richer galleries, provide filenames, screen captions and permission to publish; don't substitute decorative stock imagery for interface proof.
 
 Self-hosted font sources and licenses live in `public/fonts/`.

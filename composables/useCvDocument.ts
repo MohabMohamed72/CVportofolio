@@ -1,7 +1,7 @@
 export function useCvDocument() {
   const available = useState('cv-document-available', () => false)
   const checked = useState('cv-document-checked', () => false)
-  const path = '/cv/Mohab-Mohamed-CV.pdf'
+  const path = '/documents/mohab-mohamed-frontend-cv.pdf'
   onMounted(async () => {
     if (checked.value) return
     checked.value = true

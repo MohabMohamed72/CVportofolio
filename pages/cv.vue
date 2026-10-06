@@ -9,7 +9,7 @@ const studies = useCaseStudies()
   <main class="cv-page paper">
     <div class="container cv-shell">
       <div class="index-meta"><span>Curriculum Vitae / Mohab Mohamed</span><span>Web edition</span></div>
-      <header class="cv-header"><div><h1 class="display display-lg">Mohab Mohamed</h1><p class="body-lg">Frontend Developer · Production web applications</p></div><div class="cv-actions"><a v-if="pdfAvailable" :href="pdfPath" download class="button button-dark">Download CV <ArrowIcon direction="down" /></a><a v-if="pdfAvailable" :href="pdfPath" target="_blank" rel="noopener noreferrer" class="line-link">Open PDF <ArrowIcon /></a><p v-else class="pdf-note">Original PDF will be available here after the file is supplied.</p></div></header>
+      <header class="cv-header"><div><h1 class="display display-lg">Mohab Mohamed</h1><p class="body-lg">Frontend Developer · Production web applications</p></div><div class="cv-actions"><a v-if="pdfAvailable" :href="pdfPath" download class="button button-dark">Download CV <ArrowIcon direction="down" /></a><a v-if="pdfAvailable" :href="pdfPath" target="_blank" rel="noopener noreferrer" class="line-link">Open PDF <ArrowIcon /></a></div></header>
 
       <div class="cv-contact"><span>Mansoura, Egypt</span><a href="mailto:mohabmohamedd772@gmail.com">mohabmohamedd772@gmail.com</a><a href="https://github.com/MohabMohamed72" target="_blank" rel="noopener noreferrer">GitHub <ArrowIcon /></a><a href="https://linkedin.com/in/mohab-mohamed-a5121024b" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowIcon /></a></div>
 
@@ -28,7 +28,6 @@ const studies = useCaseStudies()
 .cv-header { display: flex; justify-content: space-between; align-items: end; gap: 3rem; padding-block: clamp(5rem, 9vw, 9rem) 3rem; }
 .cv-header h1 { margin-bottom: 1rem; }
 .cv-actions { display: flex; flex-direction: column; align-items: start; gap: 1rem; }
-.pdf-note { max-width: 24ch; color: #686c63; font-size: .86rem; }
 .cv-contact { display: flex; flex-wrap: wrap; gap: .7rem 2rem; padding-block: 1rem; border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); font-size: .84rem; }
 .cv-contact a:hover { color: #a64430; }
 .cv-section { display: grid; grid-template-columns: .24fr 1fr; gap: clamp(2rem, 5vw, 6rem); padding-block: 3rem; border-bottom: 1px solid var(--line-light); }
