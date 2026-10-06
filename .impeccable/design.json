@@ -1,417 +1,178 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-06T09:38:27.008Z",
-  "title": "Design System: Mohab Mohamed Portfolio",
+  "generatedAt": "2026-10-06T12:00:00.000Z",
+  "title": "Design System: MOHAB_OS",
   "extensions": {
     "colorMeta": {
-      "ink": {
+      "background": {
         "role": "neutral",
-        "displayName": "Charcoal Ink",
-        "tonalRamp": [
-          "oklch(15% 0.006 145)",
-          "oklch(26% 0.006 145)",
-          "oklch(38% 0.006 145)",
-          "oklch(49% 0.006 145)",
-          "oklch(61% 0.006 145)",
-          "oklch(72% 0.006 145)",
-          "oklch(84% 0.006 145)",
-          "oklch(95% 0.006 145)"
-        ]
+        "displayName": "background",
+        "value": "#10120f"
       },
-      "ink-soft": {
+      "panel-background": {
         "role": "neutral",
-        "displayName": "Soft Ink",
-        "tonalRamp": [
-          "oklch(15% 0.01 145)",
-          "oklch(26% 0.01 145)",
-          "oklch(38% 0.01 145)",
-          "oklch(49% 0.01 145)",
-          "oklch(61% 0.01 145)",
-          "oklch(72% 0.01 145)",
-          "oklch(84% 0.01 145)",
-          "oklch(95% 0.01 145)"
-        ]
+        "displayName": "panel-background",
+        "value": "#181c16"
       },
-      "ink-raised": {
+      "panel-raised": {
         "role": "neutral",
-        "displayName": "Raised Ink",
-        "tonalRamp": [
-          "oklch(15% 0.014 145)",
-          "oklch(26% 0.014 145)",
-          "oklch(38% 0.014 145)",
-          "oklch(49% 0.014 145)",
-          "oklch(61% 0.014 145)",
-          "oklch(72% 0.014 145)",
-          "oklch(84% 0.014 145)",
-          "oklch(95% 0.014 145)"
-        ]
+        "displayName": "panel-raised",
+        "value": "#20251d"
       },
-      "paper": {
-        "role": "neutral",
-        "displayName": "Warm Paper",
-        "tonalRamp": [
-          "oklch(15% 0.012 88)",
-          "oklch(26% 0.012 88)",
-          "oklch(38% 0.012 88)",
-          "oklch(49% 0.012 88)",
-          "oklch(61% 0.012 88)",
-          "oklch(72% 0.012 88)",
-          "oklch(84% 0.012 88)",
-          "oklch(95% 0.012 88)"
-        ]
-      },
-      "paper-soft": {
-        "role": "neutral",
-        "displayName": "Soft Paper",
-        "tonalRamp": [
-          "oklch(15% 0.018 88)",
-          "oklch(26% 0.018 88)",
-          "oklch(38% 0.018 88)",
-          "oklch(49% 0.018 88)",
-          "oklch(61% 0.018 88)",
-          "oklch(72% 0.018 88)",
-          "oklch(84% 0.018 88)",
-          "oklch(95% 0.018 88)"
-        ]
-      },
-      "oxide": {
+      "amber": {
         "role": "primary",
-        "displayName": "Oxide",
-        "tonalRamp": [
-          "oklch(15% 0.13 38)",
-          "oklch(26% 0.13 38)",
-          "oklch(38% 0.13 38)",
-          "oklch(49% 0.13 38)",
-          "oklch(61% 0.13 38)",
-          "oklch(72% 0.13 38)",
-          "oklch(84% 0.13 38)",
-          "oklch(95% 0.13 38)"
-        ]
+        "displayName": "amber",
+        "value": "#ffbd66"
       },
-      "oxide-light": {
-        "role": "primary",
-        "displayName": "Light Oxide",
-        "tonalRamp": [
-          "oklch(15% 0.1 42)",
-          "oklch(26% 0.1 42)",
-          "oklch(38% 0.1 42)",
-          "oklch(49% 0.1 42)",
-          "oklch(61% 0.1 42)",
-          "oklch(72% 0.1 42)",
-          "oklch(84% 0.1 42)",
-          "oklch(95% 0.1 42)"
-        ]
-      },
-      "lime": {
-        "role": "secondary",
-        "displayName": "Acid Lime",
-        "tonalRamp": [
-          "oklch(15% 0.13 119)",
-          "oklch(26% 0.13 119)",
-          "oklch(38% 0.13 119)",
-          "oklch(49% 0.13 119)",
-          "oklch(61% 0.13 119)",
-          "oklch(72% 0.13 119)",
-          "oklch(84% 0.13 119)",
-          "oklch(95% 0.13 119)"
-        ]
-      },
-      "line-dark": {
+      "amber-muted": {
         "role": "neutral",
-        "displayName": "Dark-Field Rule",
-        "tonalRamp": [
-          "oklch(15% 0.012 88 / 0.2)",
-          "oklch(26% 0.012 88 / 0.2)",
-          "oklch(38% 0.012 88 / 0.2)",
-          "oklch(49% 0.012 88 / 0.2)",
-          "oklch(61% 0.012 88 / 0.2)",
-          "oklch(72% 0.012 88 / 0.2)",
-          "oklch(84% 0.012 88 / 0.2)",
-          "oklch(95% 0.012 88 / 0.2)"
-        ]
+        "displayName": "amber-muted",
+        "value": "#c5a77e"
       },
-      "line-light": {
+      "text-primary": {
         "role": "neutral",
-        "displayName": "Light-Field Rule",
-        "tonalRamp": [
-          "oklch(15% 0.006 145 / 0.2)",
-          "oklch(26% 0.006 145 / 0.2)",
-          "oklch(38% 0.006 145 / 0.2)",
-          "oklch(49% 0.006 145 / 0.2)",
-          "oklch(61% 0.006 145 / 0.2)",
-          "oklch(72% 0.006 145 / 0.2)",
-          "oklch(84% 0.006 145 / 0.2)",
-          "oklch(95% 0.006 145 / 0.2)"
-        ]
+        "displayName": "text-primary",
+        "value": "#f2eadb"
       },
-      "text-muted": {
+      "text-secondary": {
         "role": "neutral",
-        "displayName": "Muted Dark-Field Text",
-        "tonalRamp": [
-          "oklch(15% 0.018 115)",
-          "oklch(26% 0.018 115)",
-          "oklch(38% 0.018 115)",
-          "oklch(49% 0.018 115)",
-          "oklch(61% 0.018 115)",
-          "oklch(72% 0.018 115)",
-          "oklch(84% 0.018 115)",
-          "oklch(95% 0.018 115)"
-        ]
+        "displayName": "text-secondary",
+        "value": "#bbb5a6"
       },
-      "text-on-paper": {
+      "border": {
         "role": "neutral",
-        "displayName": "Supporting Paper Text",
-        "tonalRamp": [
-          "oklch(15% 0.021 133)",
-          "oklch(26% 0.021 133)",
-          "oklch(38% 0.021 133)",
-          "oklch(49% 0.021 133)",
-          "oklch(61% 0.021 133)",
-          "oklch(72% 0.021 133)",
-          "oklch(84% 0.021 133)",
-          "oklch(95% 0.021 133)"
-        ]
+        "displayName": "border",
+        "value": "#665742"
       },
-      "oxide-on-paper": {
-        "role": "primary",
-        "displayName": "Oxide on Paper",
-        "tonalRamp": [
-          "oklch(15% 0.105 38)",
-          "oklch(26% 0.105 38)",
-          "oklch(38% 0.105 38)",
-          "oklch(49% 0.105 38)",
-          "oklch(61% 0.105 38)",
-          "oklch(72% 0.105 38)",
-          "oklch(84% 0.105 38)",
-          "oklch(95% 0.105 38)"
-        ]
-      },
-      "sage": {
+      "border-subtle": {
         "role": "neutral",
-        "displayName": "Sage Paper",
-        "tonalRamp": [
-          "oklch(15% 0.019 119)",
-          "oklch(26% 0.019 119)",
-          "oklch(38% 0.019 119)",
-          "oklch(49% 0.019 119)",
-          "oklch(61% 0.019 119)",
-          "oklch(72% 0.019 119)",
-          "oklch(84% 0.019 119)",
-          "oklch(95% 0.019 119)"
-        ]
+        "displayName": "border-subtle",
+        "value": "#343b2e"
+      },
+      "danger": {
+        "role": "neutral",
+        "displayName": "danger",
+        "value": "#ffad98"
+      },
+      "success": {
+        "role": "neutral",
+        "displayName": "success",
+        "value": "#c4d694"
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Opening Statement",
-        "purpose": "Largest statements and home identity; Anybody at 85% stretch."
-      },
-      "headline": {
-        "displayName": "Chapter Headline",
-        "purpose": "Route introductions and major project or career headings."
-      },
-      "statement": {
-        "displayName": "Supporting Statement",
-        "purpose": "Section headings and editorial statements."
+        "displayName": "Pixel Display",
+        "purpose": "Silkscreen for system headings, app labels and buttons."
       },
       "body": {
-        "displayName": "Reading Text",
-        "purpose": "Atkinson prose; the global measure utility caps text at 68ch."
-      },
-      "body-large": {
-        "displayName": "Introductory Prose",
-        "purpose": "Readable introductory paragraphs beside statements."
-      },
-      "button": {
-        "displayName": "Action Text",
-        "purpose": "Bold body-family controls."
-      },
-      "navigation": {
-        "displayName": "Navigation Text",
-        "purpose": "Desktop rail links with oxide underline states."
+        "displayName": "Technical Reading",
+        "purpose": "Fira Code for readable prose, data, skill names and navigation."
       }
     },
     "shadows": [
       {
-        "name": "scrolled-header",
-        "value": "0 10px 24px rgba(0,0,0,.14)",
-        "purpose": "Separate sticky navigation from content after scrolling; not a panel elevation token."
+        "name": "window-offset",
+        "value": "5px 5px 0 #0003",
+        "purpose": "Small application-frame depth; not general card elevation."
       }
     ],
     "motion": [
       {
-        "name": "ease",
-        "value": "cubic-bezier(.22, 1, .36, 1)",
-        "purpose": "Shared exponential ease-out for controls and reveals."
+        "name": "route-close",
+        "value": "120ms",
+        "purpose": "Short closing CRT wipe."
       },
       {
-        "name": "duration",
-        "value": "360ms",
-        "purpose": "Shared button and text-link state transitions."
+        "name": "route-open",
+        "value": "340ms cubic-bezier(.22,.8,.25,1)",
+        "purpose": "Opening application wipe."
       },
       {
-        "name": "reveal",
-        "value": "620ms",
-        "purpose": "Visible-default reveal from 20px below, only when motion is allowed."
+        "name": "boot",
+        "value": "2200ms maximum",
+        "purpose": "Skip-able local startup, once per session; absent under reduced motion."
       },
       {
-        "name": "route-fade",
-        "value": "240ms ease",
-        "purpose": "Page opacity transitions when motion is allowed."
-      },
-      {
-        "name": "menu",
-        "value": "220ms",
-        "purpose": "Mobile-menu opacity and 10px movement."
+        "name": "preview",
+        "value": "120ms",
+        "purpose": "Selected project record transition."
       },
       {
         "name": "reduced-motion",
         "value": "none",
-        "purpose": "Disable animation and transitions; use automatic rather than smooth scrolling."
+        "purpose": "No animations, cursor accent or smooth scrolling."
       }
     ],
     "breakpoints": [
       {
-        "name": "footer-small",
-        "value": "500px"
+        "name": "small-phone-form",
+        "value": "390px"
       },
       {
-        "name": "home-small",
-        "value": "550px"
+        "name": "mobile-shell",
+        "value": "767px"
       },
       {
-        "name": "mobile-type-and-media",
-        "value": "600px"
-      },
-      {
-        "name": "project-facts",
-        "value": "700px"
-      },
-      {
-        "name": "route-columns",
-        "value": "800px"
-      },
-      {
-        "name": "navigation-and-section-head",
+        "name": "directory-recomposition",
         "value": "900px"
       },
       {
-        "name": "lifecycle-columns",
-        "value": "1000px"
-      },
-      {
-        "name": "compact-desktop-navigation",
-        "value": "1080px"
-      },
-      {
-        "name": "paired-tablet-layouts",
+        "name": "compact-desktop",
         "value": "1100px"
+      },
+      {
+        "name": "wide-desktop",
+        "value": "1600px"
       }
     ]
   },
   "components": [
     {
-      "name": "Dark Button",
+      "name": "System Window",
+      "kind": "panel",
+      "refersTo": "SystemWindow.vue",
+      "description": "Application frame with filename, readable content, and optional real minimize/restore."
+    },
+    {
+      "name": "Primary Button",
       "kind": "button",
-      "refersTo": "button-dark",
-      "description": "Square primary action on a warm field.",
-      "html": "<button type=\"button\" class=\"ds-dark-button\">View Projects<svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><g transform=\"rotate(-45 12 12)\"><path d=\"M4 12h16M13 5l7 7-7 7\"/></g></svg></button>",
-      "css": ".ds-dark-button{display:inline-flex;align-items:center;justify-content:space-between;gap:2rem;min-height:52px;padding:.8rem 1.05rem;border:1px solid currentColor;border-radius:0;font:700 .95rem var(--font-body,'Atkinson Hyperlegible',Arial,sans-serif);cursor:pointer;transition:background var(--duration,360ms) var(--ease,cubic-bezier(.22,1,.36,1)),color var(--duration,360ms) var(--ease,cubic-bezier(.22,1,.36,1)),transform var(--duration,360ms) var(--ease,cubic-bezier(.22,1,.36,1))}.ds-dark-button svg{width:18px;height:18px}.ds-dark-button{background:var(--ink,#171a18);color:var(--paper,#f2efe6);border-color:var(--ink,#171a18)}.ds-dark-button:hover{background:var(--oxide,#d36548);border-color:var(--oxide,#d36548);color:var(--ink,#171a18);transform:translateY(-2px)}.ds-arrow{display:inline-block;width:1.1em;height:1.1em;vertical-align:-.12em;flex:none}.ds-dark-button:focus-visible{outline:2px solid var(--oxide-on-paper,#96412c);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-dark-button{transition:none}}"
+      "refersTo": "button primary",
+      "description": "Square amber control, native semantics, visible focus and subtle pressed state."
     },
     {
-      "name": "Outline Button",
-      "kind": "button",
-      "refersTo": "button-outline",
-      "description": "Inherited-color action shown on warm paper.",
-      "html": "<div class=\"ds-outline-field\"><button type=\"button\" class=\"ds-outline-button\">Contact Me<svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><g transform=\"rotate(-45 12 12)\"><path d=\"M4 12h16M13 5l7 7-7 7\"/></g></svg></button></div>",
-      "css": ".ds-outline-field{padding:24px;background:var(--paper,#f2efe6);color:var(--ink,#171a18)}.ds-outline-button{display:inline-flex;align-items:center;justify-content:space-between;gap:2rem;min-height:52px;padding:.8rem 1.05rem;border:1px solid currentColor;border-radius:0;font:700 .95rem var(--font-body,'Atkinson Hyperlegible',Arial,sans-serif);cursor:pointer;transition:background var(--duration,360ms) var(--ease,cubic-bezier(.22,1,.36,1)),color var(--duration,360ms) var(--ease,cubic-bezier(.22,1,.36,1)),transform var(--duration,360ms) var(--ease,cubic-bezier(.22,1,.36,1))}.ds-outline-button svg{width:18px;height:18px}.ds-outline-button{background:transparent;color:inherit}.ds-outline-button:hover{background:var(--ink,#171a18);color:var(--paper,#f2efe6);transform:translateY(-2px)}.ds-arrow{display:inline-block;width:1.1em;height:1.1em;vertical-align:-.12em;flex:none}.ds-outline-button:focus-visible{outline:2px solid var(--oxide-on-paper,#96412c);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-outline-button{transition:none}}"
-    },
-    {
-      "name": "Ruled Text Link",
-      "kind": "button",
-      "description": "Lower-emphasis action with a widening gap on hover.",
-      "html": "<div class=\"ds-link-field\"><a class=\"ds-line-link\" href=\"/projects\">See all selected work<svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><g transform=\"rotate(-45 12 12)\"><path d=\"M4 12h16M13 5l7 7-7 7\"/></g></svg></a></div>",
-      "css": ".ds-link-field{padding:24px;background:var(--ink,#171a18);color:var(--paper,#f2efe6);font:400 1rem/1.58 var(--font-body,'Atkinson Hyperlegible',Arial,sans-serif)}.ds-line-link{display:inline-flex;gap:1.1rem;align-items:center;width:fit-content;padding-block:.8rem;border-bottom:1px solid currentColor;font-weight:700;color:inherit;text-decoration:none;transition:gap var(--duration,360ms) var(--ease,cubic-bezier(.22,1,.36,1)),color var(--duration,360ms) var(--ease,cubic-bezier(.22,1,.36,1))}.ds-line-link svg{width:18px;height:18px;flex:none}.ds-line-link:hover{gap:1.65rem;color:var(--oxide,#d36548)}.ds-arrow{display:inline-block;width:1.1em;height:1.1em;vertical-align:-.12em;flex:none}.ds-line-link:focus-visible{outline:2px solid var(--lime,#d8ee78);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-line-link{transition:none}}"
-    },
-    {
-      "name": "Contact Field",
-      "kind": "input",
-      "refersTo": "input-dark",
-      "description": "Labeled transparent input with a lime focus border and caret.",
-      "html": "<div class=\"ds-contact-field\"><label for=\"ds-contact-email\">Email address</label><input id=\"ds-contact-email\" type=\"email\" autocomplete=\"email\" required placeholder=\"you@example.com\"></div>",
-      "css": ".ds-contact-field{padding:24px;background:var(--ink,#171a18);color:var(--paper,#f2efe6);font:400 1rem/1.58 var(--font-body,'Atkinson Hyperlegible',Arial,sans-serif)}.ds-contact-field label{display:block;margin-bottom:.45rem;font-size:.8rem;font-weight:700}.ds-contact-field input{width:100%;padding:.85rem .95rem;border:1px solid var(--line-dark,rgba(242,239,230,.2));border-radius:0;background:transparent;color:var(--paper,#f2efe6);caret-color:var(--lime,#d8ee78);font:inherit;outline:none}.ds-contact-field input::placeholder{color:#aaaDA3}.ds-contact-field input:focus,.ds-contact-field input:focus-visible{border-color:var(--lime,#d8ee78)}"
-    },
-    {
-      "name": "Desktop Navigation",
-      "kind": "nav",
-      "description": "All seven familiar route names, with an oxide rule for active and hover states.",
-      "html": "<nav class=\"ds-navigation\" aria-label=\"Portfolio navigation\"><a href=\"/\">Home</a><a href=\"/projects\" aria-current=\"page\">Projects</a><a href=\"/about\">About</a><a href=\"/experience\">Experience</a><a href=\"/skills\">Skills</a><a href=\"/contact\">Contact</a><a href=\"/cv\">CV</a></nav>",
-      "css": ".ds-navigation{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(14px,1.6vw,28px);padding:24px;background:var(--ink,#171a18);font:400 .84rem/1.58 var(--font-body,'Atkinson Hyperlegible',Arial,sans-serif)}.ds-navigation a{position:relative;padding-block:.5rem;color:var(--text-muted,#b8bbaf);text-decoration:none;transition:color 220ms ease}.ds-navigation a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--oxide,#d36548);transition:right 240ms var(--ease,cubic-bezier(.22,1,.36,1))}.ds-navigation a:hover,.ds-navigation a[aria-current]{color:var(--paper,#f2efe6)}.ds-navigation a:hover::after,.ds-navigation a[aria-current]::after{right:0}.ds-navigation a:focus-visible{outline:2px solid var(--lime,#d8ee78);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-navigation a,.ds-navigation a::after{transition:none}}"
-    },
-    {
-      "name": "Shared Arrow",
-      "kind": "custom",
-      "description": "Actual ArrowIcon SVG with up-right rotation and a rounded 1.7px stroke.",
-      "html": "<span class=\"ds-icon-field\"><svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><g transform=\"rotate(-45 12 12)\"><path d=\"M4 12h16M13 5l7 7-7 7\"/></g></svg></span>",
-      "css": ".ds-icon-field{display:inline-flex;padding:24px;background:var(--paper,#f2efe6);color:var(--ink,#171a18);font-size:1.5rem}.ds-arrow{display:inline-block;width:1.1em;height:1.1em;vertical-align:-.12em;flex:none}"
-    },
-    {
-      "name": "Education Relationship Schematic",
-      "kind": "custom",
-      "refersTo": "system-map",
-      "description": "The implemented origin-and-branches proof pattern, explicitly labeled as a schematic.",
-      "html": "<figure class=\"ds-schematic\"><div class=\"ds-schematic-panel\"><div class=\"ds-map-heading\"><strong>Multi-tenant education</strong><span>Product relationships · schematic</span></div><div class=\"ds-tenant-map\"><div class=\"ds-tenant-origin\"><strong>One platform.<br>Each teacher’s identity.</strong><p>A teacher’s domain selects their brand and learning experience.</p></div><div class=\"ds-tenant-branches\"><div><h3>Identity &amp; discovery</h3><p>Brand · stages · courses · books</p></div><div><h3>Protected learning</h3><p>Multimedia · live sessions</p></div><div><h3>Student continuity</h3><p>Payments · homework · timed exams</p></div></div></div></div><figcaption>Verified product scope, not an interface screenshot. Actual product captures are pending.</figcaption></figure>",
-      "css": ".ds-schematic{margin:0;font:400 1rem/1.58 var(--font-body,'Atkinson Hyperlegible',Arial,sans-serif)}.ds-schematic-panel{color:var(--paper,#f2efe6);background:var(--ink-soft,#252a26);padding:clamp(24px,3vw,48px)}.ds-map-heading{display:flex;justify-content:space-between;gap:2rem;margin-bottom:3rem;font-size:.9rem}.ds-map-heading>span{color:var(--text-muted,#b8bbaf);font-size:.8rem}.ds-tenant-map{display:grid;grid-template-columns:1fr 1fr;gap:6vw}.ds-tenant-origin>strong{display:block;font:700 clamp(2rem,3.5vw,3.6rem)/.98 var(--font-display,'Anybody','Arial Narrow',sans-serif);font-stretch:85%;letter-spacing:-.035em;max-width:23ch}.ds-tenant-origin p{margin:1.5rem 0 0;max-width:35ch;color:var(--text-muted,#b8bbaf)}.ds-tenant-branches{display:grid;gap:1.5rem}.ds-tenant-branches>div{border-top:1px solid var(--line-dark,rgba(242,239,230,.2));padding-top:.8rem}.ds-tenant-branches h3{margin:0;font:700 1.1rem var(--font-body,'Atkinson Hyperlegible',Arial,sans-serif);color:var(--lime,#d8ee78)}.ds-tenant-branches p{margin:.5rem 0 0;color:var(--text-muted,#b8bbaf)}.ds-schematic figcaption{margin-top:.7rem;color:var(--text-on-paper,#555c51);font-size:.85rem;line-height:1.5}@media(max-width:600px){.ds-map-heading{display:block;margin-bottom:2rem}.ds-map-heading>span{display:block;margin-top:.4rem}.ds-tenant-map{grid-template-columns:1fr;gap:2rem}.ds-tenant-origin>strong{font-size:2.1rem}}"
-    },
-    {
-      "name": "Open Project Article",
-      "kind": "custom",
-      "description": "A ruled secondary-project article with explicit type, role, stack, and a separate action.",
-      "html": "<div class=\"ds-row-field\"><article class=\"ds-project-row\"><div><h3>Fashion Store</h3><p class=\"ds-project-type\">E-commerce</p></div><div><p>React storefront with product discovery, categories, and cart.</p><p class=\"ds-secondary-fact\"><strong>My Role</strong>Frontend development: product browsing, filtering, and cart interfaces.</p><p class=\"ds-secondary-fact\"><strong>Core Technologies</strong>React.js · JavaScript · Tailwind CSS</p></div><a href=\"https://ecommerce8.netlify.app/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ds-project-action\">Visit Project<svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><g transform=\"rotate(-45 12 12)\"><path d=\"M4 12h16M13 5l7 7-7 7\"/></g></svg></a></article></div>",
-      "css": ".ds-row-field{padding:24px;background:var(--paper,#f2efe6);color:var(--ink,#171a18);font:400 1rem/1.58 var(--font-body,'Atkinson Hyperlegible',Arial,sans-serif)}.ds-project-row{display:grid;grid-template-columns:.8fr 1.2fr .55fr;align-items:center;gap:2rem;min-height:120px;border-bottom:1px solid var(--line-light,rgba(23,26,24,.2));padding-block:1.5rem}.ds-project-row>*{min-width:0}.ds-project-row h3{margin:0;font:700 clamp(1.7rem,2.5vw,2.7rem)/.98 var(--font-display,'Anybody','Arial Narrow',sans-serif);font-stretch:85%;letter-spacing:-.035em}.ds-project-row p{margin:0}.ds-project-row .ds-project-type{margin-top:.6rem;font-size:1rem}.ds-project-row .ds-secondary-fact{margin-top:1rem}.ds-secondary-fact strong{display:block;margin-bottom:.3rem}.ds-project-action{display:inline-flex;gap:1.1rem;align-items:center;width:fit-content;padding-block:.8rem;border-bottom:1px solid currentColor;font-weight:700;color:inherit;text-decoration:none;transition:gap var(--duration,360ms) var(--ease,cubic-bezier(.22,1,.36,1)),color var(--duration,360ms) var(--ease,cubic-bezier(.22,1,.36,1))}.ds-project-action:hover{gap:1.65rem;color:var(--oxide,#d36548)}.ds-project-action:focus-visible{outline:2px solid var(--oxide-on-paper,#96412c);outline-offset:4px}.ds-arrow{display:inline-block;width:18px;height:18px;vertical-align:-.12em;flex:none}@media(max-width:900px){.ds-project-row{grid-template-columns:.7fr 1fr;gap:1.5rem}.ds-project-row>:last-child{grid-column:2}}@media(max-width:600px){.ds-project-row{grid-template-columns:minmax(0,1fr)}.ds-project-row>:last-child{grid-column:1}}@media(prefers-reduced-motion:reduce){.ds-project-action{transition:none}}"
+      "name": "Project Directory",
+      "kind": "navigation",
+      "refersTo": "pages/projects/index.vue",
+      "description": "Native selection buttons update a readable project preview; mobile scrolls to that preview."
     }
   ],
   "narrative": {
-    "northStar": "The Production Record",
-    "overview": "The system presents complex engineering work with the confidence of an editorial record. Charcoal grounds and warm reading fields divide the content into distinct chapters. Large, compressed statements establish hierarchy; readable prose and precise relationships make the evidence understandable. Familiar page names and clear actions come first.\n\nComposition stays flat and open. Horizontal rules, asymmetric columns, and changes of surface carry structure without repeated card containers. Oxide brings warmth to emphasis and actions; acid lime marks meaningful connections and states. The interface remains human and professional rather than imitating a terminal.",
+    "northStar": "MOHAB_OS",
+    "overview": "An original personal frontend operating system. Clear content first; system metaphor in presentation, navigation states and purposeful interactions. Amber, off-white, restrained CRT and pixel display typography combine with readable technical prose.",
     "keyCharacteristics": [
-      "Clear page names and actions with large compressed display type.",
-      "Charcoal and warm-paper passages with restrained oxide and rare lime emphasis.",
-      "Flat editorial rows, horizontal rules, and asymmetric content relationships.",
-      "Square controls and visible, surface-aware keyboard focus.",
-      "Product schematics distinguish verified relationships from pending interface captures."
+      "Clear page names and role/framework identity.",
+      "Session-only boot and native accessible dialogs.",
+      "Persistent active-route taskbar and mobile menu.",
+      "Different application layouts for each content type.",
+      "Verified diagrams, original PDF and preserved email backend."
     ],
     "rules": [
       {
-        "name": "The Surface-Aware Accent Rule",
-        "body": "Use Oxide on Paper for small light-field emphasis and focus; retain lime focus for dark fields.",
-        "section": "colors"
+        "name": "Readable System",
+        "body": "Do not hide essential content behind hover, typing, motion or fictitious commands.",
+        "section": "content"
       },
       {
-        "name": "The Statement-and-Reading Rule",
-        "body": "Keep Anybody for statements and Atkinson for reading and controls; use Fira only when the content benefits from a data voice.",
-        "section": "typography"
+        "name": "Protected Functionality",
+        "body": "Preserve Resend validation, reply-to, honeypot, WhatsApp encoding and original CV.",
+        "section": "implementation"
       },
       {
-        "name": "The Flat Chapter Rule",
-        "body": "Convey chapter hierarchy through field color, rules, and spacing; reserve the shipped soft shadow for scrolled navigation.",
-        "section": "elevation"
+        "name": "Restrained CRT",
+        "body": "Use lighter effects on mobile and reduced motion; offer an actual CRT-off control.",
+        "section": "motion"
       }
-    ],
-    "dos": [
-      "Do give statements space and preserve the contrast between display type and readable prose.",
-      "Do keep page names, section names, and action labels clear before adding creative phrasing.",
-      "Do use warm fields and charcoal fields to make distinct chapters.",
-      "Do use surface-aware focus and keep actionable controls reachable by keyboard.",
-      "Do show product relationships as meaningful diagrams and label pending screenshots honestly.",
-      "Do preserve local responsive fits for real titles, long addresses, and schematics."
-    ],
-    "donts": [
-      "Don't introduce card grids as the default page structure.",
-      "Don't introduce gradients, glow, terminal chrome, or proficiency scores.",
-      "Don't turn the unused radius variable into rounded controls or panels.",
-      "Don't use monospace as a replacement for readable body copy.",
-      "Don't promote decorative kickers or Unicode icon glyphs into reusable system patterns."
     ]
   }
 }

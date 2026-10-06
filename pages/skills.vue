@@ -1,8 +1,66 @@
 <script setup lang="ts">
-useHead({ title: 'Technical Skills' })
-const { skills } = useProfessionalProfile()
+useHead({ title: "Skills" });
+const { skills } = useProfessionalProfile();
 </script>
-<template><main><PageHeader label="Skills" title="Technical Skills" description="Technologies and tools I use in production projects." /><section class="paper chapter-tight" aria-label="Technical skill categories"><div class="container skill-groups"><section v-for="group in skills" :key="group.name" class="skill-group"><h2>{{ group.name }}</h2><ul><li v-for="item in group.items" :key="item">{{ item }}</li></ul></section></div></section><section class="chapter-tight"><div class="container"><h2 class="display display-md">Skills in Practice</h2><div class="skill-proof"><NuxtLink to="/projects/orbit-system"><h3>Real-Time Dashboards</h3><p>Vue 3, Pinia, REST APIs, and WebSockets in Orbit.</p></NuxtLink><NuxtLink to="/projects/education-system"><h3>Multi-Tenant Applications</h3><p>Nuxt 3, SSR, and dynamic SEO in Education System.</p></NuxtLink><NuxtLink to="/projects/hse-management-system"><h3>Bilingual Workflows</h3><p>Vue I18n and Arabic / English RTL / LTR in HSE.</p></NuxtLink></div></div></section></main></template>
-<style scoped>
-.skill-groups { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 2rem 4rem; }.skill-group { border-top: 1px solid var(--line-light); padding-top: 1.5rem; }.skill-group:first-child { grid-column: 1/-1; }.skill-group h2 { font: 700 clamp(1.4rem,2vw,2rem)/1.2 var(--font-display); margin-bottom: 1rem; }.skill-group ul { display: flex; flex-wrap: wrap; gap: .5rem .9rem; }.skill-group li { padding: .45rem .65rem; background: var(--paper-soft); font-weight: 700; }.skill-proof { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2rem; margin-top: 2rem; }.skill-proof a { padding-top: 1rem; border-top: 1px solid var(--line-dark); }.skill-proof a:hover { color: var(--lime); }.skill-proof p { margin-top: .5rem; color: var(--text-muted); }@media(max-width:600px) { .skill-groups, .skill-proof { grid-template-columns: 1fr; }.skill-group:first-child { grid-column: auto; } }
-</style>
+<template>
+  <main>
+    <PageHeader
+      label="Skills"
+      title="Technical Skills"
+      description="Technologies and tools I use in production projects. Organized by the work they do."
+    />
+    <div class="page-content">
+      <div class="skills-status">
+        <strong>INSTALLED MODULES / {{ skills.length }} CATEGORIES</strong
+        ><span>SKILL NAMES, NOT PROFICIENCY SCORES</span>
+      </div>
+      <div class="skills-grid">
+        <section
+          v-for="(group, index) in skills"
+          :key="group.name"
+          class="skill-group"
+        >
+          <div class="skill-group-heading">
+            <span>{{ String(index + 1).padStart(2, "0") }}</span>
+            <h2>{{ group.name }}</h2>
+          </div>
+          <ul>
+            <li v-for="item in group.items" :key="item">{{ item }}</li>
+          </ul>
+        </section>
+      </div>
+      <section class="content-section">
+        <div class="section-label">
+          <span>DEPENDENCIES</span>
+          <h2>How Tools Connect</h2>
+        </div>
+        <div class="connection-list">
+          <p>
+            <strong>Vue / Nuxt → Pinia → REST APIs</strong>State and data
+            connect enterprise workflows.<br /><NuxtLink
+              to="/projects/orbit-system"
+              class="text-link"
+              >Orbit System ↗</NuxtLink
+            >
+          </p>
+          <p>
+            <strong>Nuxt → SSR → Dynamic SEO</strong>Tenant-aware discovery and
+            learning.<br /><NuxtLink
+              to="/projects/education-system"
+              class="text-link"
+              >Education System ↗</NuxtLink
+            >
+          </p>
+          <p>
+            <strong>Vue I18n → Arabic / English → RTL / LTR</strong>Role-aware,
+            bilingual safety operations.<br /><NuxtLink
+              to="/projects/hse-management-system"
+              class="text-link"
+              >HSE Management System ↗</NuxtLink
+            >
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+</template>

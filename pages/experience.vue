@@ -1,12 +1,64 @@
 <script setup lang="ts">
-useHead({ title: 'Professional Experience' })
-const { experienceEntries, location } = useProfessionalProfile()
+useHead({ title: "Experience" });
+const { experienceEntries } = useProfessionalProfile();
 </script>
-<template><main>
-<PageHeader class="paper" label="Experience" title="Professional Experience" description="Frontend development, e-commerce, and programming instruction since 2024." />
-<section aria-label="Work experience"><article v-for="(job, index) in experienceEntries" :key="job.title" class="job chapter-tight" :class="'job-' + index"><div class="container job-layout"><div class="job-meta"><p class="mono">{{ job.period }}</p><p>{{ job.type }}</p><p>{{ location }}</p></div><div><h2 class="display display-md">{{ job.title }}</h2><p class="company">{{ job.company }}</p><ul class="responsibilities"><li v-for="point in job.responsibilities" :key="point">{{ point }}</li></ul><p class="job-stack"><strong>Technologies</strong><br>{{ job.technology }}</p><NuxtLink :to="job.proof" class="line-link">{{ index === 2 ? 'About My Background' : 'View Related Projects' }} <ArrowIcon /></NuxtLink></div></div></article></section>
-<section class="paper chapter-tight"><div class="container education-layout"><h2 class="display display-md">Education</h2><div><h3>Bachelor of Engineering</h3><p>Mechatronics Engineering · Mansoura University</p><p>2019 – 2024</p><p class="education-note">Faculty of Engineering, with a foundation in software, embedded systems, and control.</p><h3 class="training">Embedded Systems Training</h3><p>National Telecommunication Institute (NTI) · 2023</p></div></div></section>
-</main></template>
-<style scoped>
-.job-1 { background: var(--ink-soft); }.job-2 { background: var(--ink-raised); }.job-layout { display: grid; grid-template-columns: .35fr 1fr; gap: 5vw; }.job-meta { color: var(--text-muted); }.job-meta p { margin-bottom: .6rem; }.job-meta .mono { color: var(--lime); }.company { margin-top: 1rem; color: var(--text-muted); }.responsibilities { max-width: 67ch; margin-top: 1.5rem; padding-left: 1.2rem; }.responsibilities li { list-style: disc; margin-bottom: .8rem; }.job-stack { max-width: 65ch; margin-top: 1.5rem; color: var(--text-muted); }.job-stack strong { color: var(--paper); }.job .line-link { margin-top: 1rem; }.education-layout { display: grid; grid-template-columns: .35fr 1fr; gap: 5vw; }.education-layout p { margin-top: .5rem; }.education-note { max-width: 60ch; color: var(--text-on-paper); }.training { margin-top: 2rem; }@media(max-width:700px) { .job-layout, .education-layout { grid-template-columns: 1fr; gap: 1.5rem; }.job-meta { display: flex; flex-wrap: wrap; gap: .5rem 1rem; }.job-meta p { margin: 0; } }
-</style>
+<template>
+  <main>
+    <PageHeader
+      label="Experience"
+      title="Work Experience"
+      description="Production frontend development, e-commerce implementation, and programming education."
+    />
+    <div class="page-content">
+      <div class="history-log">
+        <article
+          v-for="(job, index) in experienceEntries"
+          :key="job.title"
+          class="experience-entry"
+        >
+          <div class="log-meta">
+            <span class="log-index">0{{ index + 1 }}</span>
+            <p class="log-date">[ {{ job.period }} ]</p>
+            <span class="log-type">{{ job.type }}</span>
+          </div>
+          <div>
+            <h2>{{ job.title }}</h2>
+            <p class="job-meta">{{ job.company }} / Mansoura, Egypt</p>
+            <ul class="list">
+              <li
+                v-for="responsibility in job.responsibilities"
+                :key="responsibility"
+              >
+                {{ responsibility }}
+              </li>
+            </ul>
+            <p class="job-stack">{{ job.technology }}</p>
+            <NuxtLink :to="job.proof" class="text-link"
+              >View related work ↗</NuxtLink
+            >
+          </div>
+        </article>
+      </div>
+      <section class="content-section">
+        <div class="section-label">
+          <span>EDUCATION.LOG</span>
+          <h2>Education</h2>
+        </div>
+        <article class="education-row">
+          <time>2019 – 2024</time>
+          <div>
+            <h3>Bachelor of Engineering / Mechatronics</h3>
+            <p>Mansoura University · Faculty of Engineering</p>
+          </div>
+        </article>
+        <article class="education-row">
+          <time>2023</time>
+          <div>
+            <h3>Embedded Systems Training</h3>
+            <p>National Telecommunication Institute (NTI)</p>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+</template>

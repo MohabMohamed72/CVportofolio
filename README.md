@@ -1,6 +1,6 @@
 # Mohab Mohamed — Portfolio
 
-Nuxt 3 portfolio for a frontend engineer building complex production applications. The interface uses self-hosted Anybody, Atkinson Hyperlegible and Fira Code, charcoal/warm-paper surfaces, restrained oxide and lime, full-page case studies, and a web-native CV.
+MOHAB_OS is an original Nuxt 3 retro operating-system portfolio for a frontend developer building complex production applications. Self-hosted Silkscreen and Fira Code, amber application windows, a once-per-session boot, selectable project directory, persistent taskbar, mobile system menu, optional CRT treatment and a web-native CV form the shared interface. No animation library was added.
 
 ## Development
 
@@ -8,7 +8,8 @@ Nuxt 3 portfolio for a frontend engineer building complex production application
 npm install
 npm run dev
 npm run build
-npx tsc --noEmit
+npm run typecheck
+npm run test:contact
 ```
 
 `npm run build` creates a server-capable Nuxt deployment. Vercel detects its server functions automatically; do not use `nuxt generate` or a static-only preset when deploying the contact API. No deployment was performed.
@@ -60,4 +61,4 @@ Self-hosted font sources and licenses live in `public/fonts/`.
 
 ## Verification scope
 
-Chromium browser checks cover 375, 430, 768, 1024, 1280, 1440 and 1920 widths, plus 200% root text enlargement at375. Emulated touch/keyboard behavior is checked; physical iOS/Android devices and Safari are not verified. Original image loading cannot be assessed until the actual assets are supplied.
+MOHAB_OS browser verification covers all ten routes at 375, 390, 430, 768, 1024, 1440 and 1920 widths. It also checks session-only boot/skip, window restoration, CRT preference persistence, directory selection, mobile menu keyboard behavior, reduced motion, contact validation and mocked success/failure, encoded WhatsApp content, the real PDF, and live API validation/honeypot/missing-configuration responses. No email is sent during testing. Physical iOS/Android devices and Safari are not verified. Original screenshot loading cannot be assessed until those assets are supplied.

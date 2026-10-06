@@ -1,14 +1,95 @@
 <script setup lang="ts">
-useHead({ title: 'About Me' })
-const profile = useProfessionalProfile()
-const facts = [{ label: 'Name', value: profile.name }, { label: 'Role', value: profile.role }, { label: 'Location', value: profile.location }, { label: 'Experience', value: profile.experience }, { label: 'Languages', value: profile.languages }]
+useHead({ title: "About" });
+const profile = useProfessionalProfile();
+const facts = [
+  { label: "Name", value: profile.name },
+  { label: "Role", value: profile.role },
+  { label: "Location", value: profile.location },
+  { label: "Experience", value: profile.experience },
+  { label: "Languages", value: profile.languages },
+];
 </script>
-<template><main>
-<PageHeader label="About" title="About Me" description="Frontend Developer based in Mansoura, Egypt, with an engineering background and production application experience." />
-<section class="paper chapter-tight"><div class="container about-summary"><div><h2 class="display display-md">Professional Summary</h2><p>I build frontend applications for enterprise operations, education, safety management, and e-commerce. My work includes complex dashboards, role-based workflows, bilingual interfaces, and real-time integrations.</p><p>Mechatronics Engineering at Mansoura University gave me a foundation in software, hardware, and interconnected systems. NTI Embedded Systems training added practical experience with microcontrollers and real-time constraints.</p><p>Alongside development, I teach programming. Explaining Arduino, AI, Machine Learning, Computer Vision, Scratch, Python, and C helps me communicate clearly and break complex problems into manageable steps.</p></div><aside><h2>Quick Info</h2><dl><div v-for="fact in facts" :key="fact.label"><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div></dl></aside></div></section>
-<section class="paper-soft chapter-tight"><div class="container education-layout"><h2 class="display display-md">Education</h2><div><h3>Bachelor of Engineering</h3><p>Mechatronics Engineering · Mansoura University, Faculty of Engineering</p><p class="education-date">2019 – 2024</p><h3 class="training-title">Embedded Systems Training</h3><p>National Telecommunication Institute (NTI) · 2023</p></div></div></section>
-<section class="chapter-tight"><div class="container"><h2 class="display display-md">What I Focus On</h2><ul class="focus-list"><li>Frontend Applications</li><li>Dashboard Systems</li><li>E-Commerce</li><li>Educational Platforms</li></ul><NuxtLink to="/projects" class="line-link">View Projects <ArrowIcon /></NuxtLink></div></section>
-</main></template>
-<style scoped>
-.about-summary { display: grid; grid-template-columns: 1.5fr .7fr; gap: clamp(2rem, 7vw, 7rem); }.about-summary p { max-width: 66ch; margin-top: 1.5rem; }.about-summary h2 { margin-bottom: 1.5rem; }aside h2 { font-size: 1.4rem; }dl { margin: 0; }dl div { padding-block: 1rem; border-top: 1px solid var(--line-light); }dt { color: var(--text-on-paper); }dd { margin: .25rem 0 0; font-weight: 700; }.education-layout { display: grid; grid-template-columns: .7fr 1.5fr; gap: 3rem; }.education-layout p { margin-top: .5rem; }.education-date { color: var(--oxide-on-paper); }.training-title { margin-top: 2rem; }.focus-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-block: 2rem; }.focus-list li { border-top: 1px solid var(--line-dark); padding-top: 1rem; font-weight: 700; }@media(max-width:800px) { .about-summary, .education-layout { grid-template-columns: 1fr; }.focus-list { grid-template-columns: 1fr 1fr; } }
-</style>
+<template>
+  <main>
+    <PageHeader
+      label="About"
+      title="About Me"
+      description="Frontend Developer based in Mansoura, Egypt. Engineering background. Production application experience."
+    />
+    <div class="page-content">
+      <div class="profile-layout">
+        <aside class="profile-facts">
+          <p class="eyebrow">USER RECORD / 01</p>
+          <h2>Quick Info</h2>
+          <dl class="facts">
+            <div v-for="fact in facts" :key="fact.label">
+              <dt>{{ fact.label }}</dt>
+              <dd>{{ fact.value }}</dd>
+            </div>
+          </dl>
+          <NuxtLink to="/contact" class="text-link">Contact Me ↗</NuxtLink>
+        </aside>
+        <SystemWindow
+          file="PROFILE.SYS"
+          class="profile-summary"
+          label="PROFESSIONAL SUMMARY"
+          ><h2>Professional Summary</h2>
+          <p>
+            I build frontend applications for enterprise operations, education,
+            safety management, and e-commerce. My work includes complex
+            dashboards, role-based workflows, bilingual interfaces, and
+            real-time integrations.
+          </p>
+          <p>
+            Mechatronics Engineering at Mansoura University gave me a foundation
+            in software, hardware, and interconnected systems. NTI Embedded
+            Systems training added practical experience with microcontrollers
+            and real-time constraints.
+          </p>
+          <p>
+            Alongside development, I teach programming. Explaining Arduino, AI,
+            Machine Learning, Computer Vision, Scratch, Python, and C helps me
+            communicate clearly and break complex problems into manageable
+            steps.
+          </p></SystemWindow
+        >
+      </div>
+      <section class="content-section">
+        <div class="section-label">
+          <span>02 / RECORDS</span>
+          <h2>Education</h2>
+        </div>
+        <article class="education-row">
+          <time>2019 – 2024</time>
+          <div>
+            <h3>Bachelor of Engineering</h3>
+            <p>
+              Mechatronics Engineering · Faculty of Engineering<br />Mansoura
+              University
+            </p>
+          </div>
+        </article>
+        <article class="education-row">
+          <time>2023</time>
+          <div>
+            <h3>Embedded Systems Training</h3>
+            <p>National Telecommunication Institute (NTI)</p>
+          </div>
+        </article>
+      </section>
+      <section class="content-section">
+        <div class="section-label">
+          <span>03 / FOCUS</span>
+          <h2>Focus Areas</h2>
+        </div>
+        <ul class="focus-lines">
+          <li><span>01</span>Frontend Applications</li>
+          <li><span>02</span>Dashboard Systems</li>
+          <li><span>03</span>E-Commerce</li>
+          <li><span>04</span>Educational Platforms</li>
+        </ul>
+        <NuxtLink to="/projects" class="text-link">View Projects ↗</NuxtLink>
+      </section>
+    </div>
+  </main>
+</template>

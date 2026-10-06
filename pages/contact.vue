@@ -1,16 +1,67 @@
 <script setup lang="ts">
-useHead({ title: 'Contact Me' })
-const methods = [
- { label:'Email', value:'mohabmohamedd772@gmail.com', href:'mailto:mohabmohamedd772@gmail.com', external:false },
- { label:'WhatsApp', value:'+20 100 759 9123', href:'https://wa.me/201007599123', external:true },
- { label:'LinkedIn', value:'View Profile', href:'https://linkedin.com/in/mohab-mohamed-a5121024b', external:true },
- { label:'GitHub', value:'View Profile', href:'https://github.com/MohabMohamed72', external:true },
-]
+useHead({ title: "Contact" });
+const { personalInfo } = usePortfolioData();
+const channels = [
+  {
+    label: "Email",
+    text: "mohabmohamedd772@gmail.com",
+    href: "mailto:mohabmohamedd772@gmail.com",
+  },
+  {
+    label: "WhatsApp",
+    text: "+20 100 759 9123",
+    href: "https://wa.me/201007599123",
+  },
+  {
+    label: "LinkedIn",
+    text: "View professional profile",
+    href: personalInfo.linkedin,
+  },
+  { label: "GitHub", text: "View repositories", href: personalInfo.github },
+];
 </script>
-<template><main class="contact-page paper">
-  <header class="contact-opening"><div class="container"><p class="contact-label">Contact</p><h1 class="display">Contact Me</h1><p class="body-lg contact-description">Have a project, opportunity, or question?<br>Feel free to get in touch.</p><a class="contact-email display" href="mailto:mohabmohamedd772@gmail.com"><span>mohabmohamedd772@gmail.com</span><ArrowIcon /></a><div class="contact-quick"><span>Mansoura, Egypt</span><a href="https://wa.me/201007599123" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://github.com/MohabMohamed72" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://linkedin.com/in/mohab-mohamed-a5121024b" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></header>
-  <section class="contact-lower"><div class="container contact-layout"><aside class="contact-details"><h2 class="display">Contact Details</h2><p>Choose the channel that works for you.</p><dl><div v-for="method in methods" :key="method.label"><dt>{{ method.label }}</dt><dd><a :href="method.href" :target="method.external ? '_blank' : undefined" :rel="method.external ? 'noopener noreferrer' : undefined"><span>{{ method.value }}</span><ArrowIcon /></a></dd></div><div><dt>Location</dt><dd>Mansoura, Egypt</dd></div></dl></aside><div class="message-column"><h2 class="display">Send a Message</h2><ContactForm /></div></div></section>
-</main></template>
-<style scoped>
-.contact-opening { padding-block:clamp(32px,4vw,56px) 2.5rem; }.contact-label { font-weight:700; color:var(--oxide-on-paper); margin-bottom:1rem; }.contact-opening h1 { font-size:clamp(2.5rem,4.7vw,4.75rem); }.contact-description { margin-top:1.5rem; max-width:50ch; }.contact-email { display:flex; align-items:center; gap:1.5rem; justify-content:space-between; font-size:clamp(1.2rem,3vw,3rem); border-bottom:1px solid var(--ink); padding-block:1rem; margin-top:1.5rem; line-height:1.25; }.contact-email span { overflow-wrap:anywhere; }.contact-email svg { width:clamp(20px,2.5vw,36px); height:clamp(20px,2.5vw,36px); flex:none; }.contact-email:hover { color:var(--oxide-on-paper); }.contact-quick { display:flex; flex-wrap:wrap; gap:.5rem 2rem; align-items:center; margin-top:1rem; }.contact-quick a { display:flex; min-height:44px; align-items:center; text-decoration:underline; }.contact-lower { padding-block:1rem clamp(56px,6vw,96px); }.contact-layout { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,3fr); gap:clamp(2rem,6vw,6rem); }.contact-layout h2 { font-size:clamp(1.8rem,2.7vw,2.8rem); }.contact-details > p { margin-top:1rem; color:var(--text-on-paper); }.contact-details dl { margin:1.5rem 0 0; }.contact-details dl > div { border-top:1px solid var(--line-light); padding-block:1rem; }.contact-details dt { color:var(--text-on-paper); font-size:.85rem; font-weight:700; }.contact-details dd { margin:.4rem 0 0; }.contact-details a { display:flex; gap:1rem; align-items:center; justify-content:space-between; min-height:44px; overflow-wrap:anywhere; }.contact-details a svg { width:18px; height:18px; flex:none; transition:transform 200ms var(--ease); }.contact-details a:hover { color:var(--oxide-on-paper); }.contact-details a:hover svg { transform:translate(2px,-2px); }.message-column { border-top:1px solid var(--ink); padding-top:1.25rem; }.message-column h2 { margin-bottom:1.25rem; }@media(max-width:767px) { .contact-layout { grid-template-columns:1fr; gap:2rem; }.contact-opening { padding-bottom:1.5rem; }.contact-email { font-size:clamp(1.2rem,5vw,2rem); }.contact-quick { gap:.25rem 1.25rem; } }
-</style>
+<template>
+  <main>
+    <PageHeader
+      label="Contact"
+      title="Contact Me"
+      description="Have a project, opportunity, or question? Feel free to get in touch."
+    />
+    <div class="page-content contact-layout">
+      <aside>
+        <p class="availability">
+          <i aria-hidden="true"></i> AVAILABLE FOR OPPORTUNITIES
+        </p>
+        <div class="contact-channel-list">
+          <a
+            v-for="channel in channels"
+            :key="channel.label"
+            :href="channel.href"
+            :target="channel.label !== 'Email' ? '_blank' : undefined"
+            :rel="channel.label !== 'Email' ? 'noopener noreferrer' : undefined"
+            class="contact-channel"
+            ><span class="meta">{{ channel.label }}</span
+            ><strong>{{ channel.text }}</strong
+            ><span class="channel-arrow" aria-hidden="true">↗</span></a
+          >
+          <div class="contact-channel">
+            <span class="meta">Location</span><strong>Mansoura, Egypt</strong>
+          </div>
+        </div>
+        <p class="contact-aside-note">
+          A complicated interface?<br />That's usually the interesting part.
+        </p>
+        <p class="contact-aside-note">
+          Use email or WhatsApp directly, or send a message here.
+        </p>
+      </aside>
+      <SystemWindow
+        file="CONTACT.EXE"
+        label="COMMUNICATION TERMINAL"
+        class="contact-window"
+        ><h2>Send a Message</h2>
+        <ContactForm
+      /></SystemWindow>
+    </div>
+  </main>
+</template>

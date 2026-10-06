@@ -38,17 +38,17 @@ Visitors explore a web portfolio on desktop and mobile, moving among Home, Proje
 ## Brand Commitments
 
 - Name: Mohab Mohamed. Professional positioning: Frontend Engineer focused on complex production applications.
-- The redesign should retain a dark base, warm off-white, orange/red accent, and sparing acid-lime emphasis. The owner explicitly rejects template-like developer portfolio conventions.
+- The owner superseded the cream editorial direction with MOHAB_OS: an original retro-computer portfolio, near-black canvas, warm amber interaction color, off-white priority text, and restrained CRT treatment. Eddy's site is a craft reference, not a source of branding, assets, code or exact composition.
 - Voice and presentation should be confident, technical, human, and professional for recruiters and engineering managers.
-- The owner chose familiar portfolio navigation and content structure for the redesign, while retaining the brief's distinctive editorial visual identity and deep project case studies.
+- Familiar portfolio names and native navigation remain clear. The operating-system metaphor supports content through a session-only boot, taskbar, application launcher, project directory and application-style pages.
 
 ## Evidence on Hand
 
 - Existing project descriptions, technology lists, and interface fragments: `composables/usePortfolioData.ts`, `pages/`, and `public/images/`.
-- Existing image assets are logos or illustrative images; no actual interface screenshot or CV PDF is present in this repository as of the redesign brief.
+- Existing project image assets are logos or illustrative images, not actual interface screenshots. The real two-page CV has been recovered at public/documents/mohab-mohamed-frontend-cv.pdf.
 - Existing content contains inconsistent experience counts and unsupported numeric speed/student claims. Do not promote those as proof without confirmation.
 - The owner confirmed that the detailed project features in the redesign brief are verified work they personally delivered. Individual role attribution and outcome language should remain precise when case studies are written.
-- The owner plans to upload actual interface screenshots and the CV PDF to this workspace; they are not available yet.
+- Actual interface screenshots remain unavailable. Display verified workflow schematics with explicit labeling until approved captures are supplied; retain the recovered original PDF.
 
 ## Product Principles
 

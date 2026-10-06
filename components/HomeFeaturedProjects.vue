@@ -1,23 +1,40 @@
 <script setup lang="ts">
-const studies = useCaseStudies()
-const featured = ['hse-management-system','education-system','orbit-system'].map(slug => studies.find(study => study.slug === slug)!)
+const studies = [...useCaseStudies()].sort((a, b) =>
+  a.slug === "hse-management-system"
+    ? -1
+    : b.slug === "hse-management-system"
+      ? 1
+      : 0,
+);
 </script>
 <template>
-  <section id="featured-projects" class="featured paper" aria-labelledby="projects-title">
-    <div class="container">
-      <header class="featured-heading"><div><p class="mono">01 / Selected Work</p><h2 id="projects-title" class="display" aria-label="Featured Projects"><span>Featured</span><span class="projects-line"><span>Projects</span><ArrowIcon direction="down" /></span></h2></div><p>Production systems for education, enterprise operations, and workplace safety.</p></header>
-      <article v-for="(study,index) in featured" :key="study.slug" class="project-feature" :class="'feature-' + index">
-        <div class="project-story"><span class="project-number mono">{{ String(index+1).padStart(2,'0') }} / Production System</span><h3 class="display"><NuxtLink :to="'/projects/' + study.slug">{{ study.title }}</NuxtLink></h3><p class="project-type">{{ study.category }}</p><p class="project-description">{{ study.summary }}</p><p class="contribution"><strong>My Contribution</strong>{{ study.role }}</p><ul class="project-technologies"><li v-for="technology in study.technology.slice(0,4)" :key="technology">{{ technology }}</li></ul><NuxtLink :to="'/projects/' + study.slug" class="line-link">View Case Study <ArrowIcon /></NuxtLink></div>
-        <div class="project-visual"><ProjectMedia :study="study" compact /></div>
-      </article>
-      <div class="project-directory"><p>Also built: Orbit Client Portal, commerce applications, and smaller product explorations.</p><NuxtLink to="/projects" class="button button-dark">View All Projects <ArrowIcon /></NuxtLink></div>
+  <section class="home-projects">
+    <div class="home-projects-heading">
+      <div>
+        <p class="eyebrow">RECENT APPLICATIONS / PRODUCTION SYSTEMS</p>
+        <h2>Featured Projects</h2>
+      </div>
+      <NuxtLink to="/projects" class="text-link"
+        >Open project directory ↗</NuxtLink
+      >
+    </div>
+    <div class="home-projects-grid">
+      <NuxtLink
+        v-for="(study, index) in studies"
+        :key="study.slug"
+        :to="'/projects/' + study.slug"
+        class="home-project-link"
+        ><div class="meta">
+          <span>0{{ index + 1 }} / {{ study.shortTitle }}.APP</span
+          ><span>CASE STUDY</span>
+        </div>
+        <h3>{{ study.title }}</h3>
+        <p>{{ study.summary }}</p>
+        <div class="project-link-bottom">
+          <span>{{ study.technology.slice(0, 3).join(" / ") }}</span
+          ><span aria-hidden="true">↗</span>
+        </div></NuxtLink
+      >
     </div>
   </section>
 </template>
-<style scoped>
-.featured { position:relative;z-index:4; }.featured-heading { display:grid;grid-template-columns:1fr .4fr;gap:48px;align-items:end;padding-block:28px 48px;border-top:1px solid var(--ink); }.featured-heading .mono { font-size:.75rem;color:var(--oxide-on-paper);margin-bottom:16px; }.featured-heading h2 { font-size:clamp(3rem,5.2vw,5.5rem); }.featured-heading h2 > span { display:block; }.featured-heading h2 .projects-line { display:flex;gap:24px;align-items:center;margin-left:8%; }.projects-line > span { min-width:0; }.featured-heading h2 svg { width:40px;height:40px;flex:none;color:var(--oxide-on-paper); }.featured-heading > p { max-width:30ch; font-size:1.1rem; }.project-feature { display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(32px,5vw,72px);padding-block:clamp(48px,7vw,96px);border-top:1px solid var(--line-light);align-items:center; }.project-number { display:block;font-size:.75rem;color:var(--text-on-paper);margin-bottom:20px;transition:color 450ms var(--ease); }.project-feature:hover .project-number { color:var(--oxide-on-paper); }.project-story h3 { font-size:clamp(2.4rem,3.8vw,4rem);max-width:17ch; }.project-story h3 a:hover { color:var(--oxide-on-paper); }.project-type { font-weight:700;margin-top:16px; }.project-description { color:var(--text-on-paper);font-size:1.1rem;max-width:44ch;margin-top:12px; }.contribution { font-size:.95rem;margin-top:24px;max-width:48ch; }.contribution strong { display:block;margin-bottom:8px; }.project-technologies { display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:24px;font-size:.85rem;font-weight:700; }.project-story .line-link { margin-top:16px; }.project-story .line-link svg { transition:transform 450ms var(--ease); }.project-story .line-link:hover svg { transform:translate(3px,-3px); }.project-visual { transition:transform 600ms var(--ease); }.project-feature:hover .project-visual { transform:translateY(-4px); }.project-visual :deep(.project-screenshot) { transition:transform 600ms var(--ease); }.project-feature:hover .project-visual :deep(.project-screenshot) { transform:scale(1.02); }.project-visual :deep(.system-map h3),.project-visual :deep(.tenant-origin strong) { font-size:clamp(1.7rem,2.5vw,2.5rem); }.project-visual :deep(.safety-map ol) { gap:24px 16px; }.project-visual :deep(.safety-map small) { font-size:.85rem; }.project-visual :deep(.tenant-map) { gap:24px; }.project-visual :deep(.map-heading) { flex-direction:column;gap:4px; }.feature-1 { grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); }.feature-1 .project-story { order:2; }.feature-1 .project-visual { order:1; }.feature-2 { grid-template-columns:1fr;gap:32px; }.feature-2 .project-story { display:grid;grid-template-columns:1.2fr 1fr;gap:12px 64px; }.feature-2 .project-number { grid-column:1/-1; }.feature-2 .project-story h3 { grid-column:1;grid-row:2/5;max-width:15ch; }.feature-2 .project-type,.feature-2 .project-description,.feature-2 .contribution { grid-column:2;margin-top:0; }.feature-2 .project-technologies { grid-column:1; }.feature-2 .line-link { grid-column:2;justify-self:start; }.feature-2 :deep(.lifecycle) { grid-template-columns:repeat(6,minmax(0,1fr)); }.project-directory { display:flex;justify-content:space-between;gap:32px;align-items:center;padding-block:32px 64px;border-top:1px solid var(--line-light); }.project-directory p { max-width:55ch;color:var(--text-on-paper); }.project-directory .button { flex:none; }
-@media(min-width:1101px) { .featured { margin-top:-44px; }.featured-heading { padding-top:16px; } }
-@media(max-width:1000px) { .project-feature,.feature-1 { grid-template-columns:1fr;gap:32px; }.feature-1 .project-story,.feature-1 .project-visual { order:initial; }.project-story { display:grid;grid-template-columns:1fr 1fr;gap:12px 32px; }.project-number { grid-column:1/-1; }.project-story h3 { grid-column:1;grid-row:2/5; }.project-type,.project-description,.contribution { grid-column:2;margin-top:0; }.project-technologies { grid-column:1; }.project-story .line-link { grid-column:2;justify-self:start; }.project-visual :deep(.map-heading) { flex-direction:row; }.feature-2 :deep(.lifecycle) { grid-template-columns:repeat(3,minmax(0,1fr)); } }
-@media(max-width:600px) { .featured-heading { grid-template-columns:1fr;gap:24px;padding-bottom:32px; }.featured-heading h2 { font-size:2.9rem; }.featured-heading h2 svg { width:24px;height:24px; }.featured-heading h2 .projects-line { gap:16px; }.featured-heading > p { max-width:40ch; }.project-feature { padding-block:40px; }.project-story,.feature-2 .project-story { display:block; }.project-story h3 { font-size:2.35rem; }.project-type { margin-top:12px; }.project-description,.contribution { margin-top:16px; }.project-number { margin-bottom:16px; }.project-visual :deep(.map-heading) { display:block; }.project-visual :deep(.tenant-map) { grid-template-columns:1fr; }.project-visual :deep(.safety-map ol) { grid-template-columns:1fr 1fr; }.project-visual :deep(.system-map) { padding:24px 20px; }.feature-2 :deep(.lifecycle) { grid-template-columns:1fr 1fr; }.project-directory { display:block;padding-bottom:40px; }.project-directory .button { margin-top:24px; } }
-@media(prefers-reduced-motion:reduce) { .project-feature:hover .project-visual,.project-feature:hover .project-visual :deep(.project-screenshot),.project-story .line-link:hover svg { transform:none; } }
-</style>
