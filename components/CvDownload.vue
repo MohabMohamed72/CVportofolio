@@ -1,4 +1,12 @@
 <script setup lang="ts">
-const { available, path } = useCvDocument()
+import type { CvVariant } from "~/composables/useCvDocument";
+const props = withDefaults(defineProps<{ variant?: CvVariant }>(), {
+  variant: "full",
+});
+const document = computed(() => useCvDocument(props.variant));
 </script>
-<template><a v-if="available" :href="path" download class="button">Download CV <ArrowIcon direction="down" /></a></template>
+<template>
+  <a :href="document.path" download class="button">
+    {{ document.label }} <ArrowIcon direction="down" />
+  </a>
+</template>

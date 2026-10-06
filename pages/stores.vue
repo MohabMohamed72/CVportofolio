@@ -2,7 +2,7 @@
 useHead({ title: "E-commerce Stores" });
 useSeoMeta({
   description:
-    "Explore Mohab Mohamed’s e-commerce store portfolio, featuring Prime Story, BKRJ, Augoo Coffee, Snacko, Tuhfa Fn, and more.",
+    "Explore Mohab Mohamed’s e-commerce store portfolio, featuring Prime Story, Bellora, BKRJ, Augoo Coffee, Snacko, Tuhfa Fn, and more.",
 });
 </script>
 <template>
@@ -13,6 +13,7 @@ useSeoMeta({
     />
     <div class="page-content">
       <PortfolioTracks current="stores" />
+      <div class="actions"><CvDownload variant="stores" /></div>
       <StoreShowcase />
       <div class="store-contact">
         <div>

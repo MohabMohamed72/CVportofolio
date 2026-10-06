@@ -173,6 +173,7 @@ main {
 }
 .muted {
   color: var(--text-secondary);
+  margin-top: 0.5rem;
 }
 .amber {
   color: var(--amber);
@@ -2333,7 +2334,8 @@ progress::-moz-progress-bar {
     padding-top: 0.3rem;
   }
   .cv-header .actions {
-    margin-top: 1.2rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
   }
   .cv-header .button {
     font-size: 10px;
@@ -3007,4 +3009,27 @@ textarea {
     flex-direction: column;
     gap: 1.25rem;
   }
+}
+
+.store-capture-unavailable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+.store-capture-unavailable svg {
+  width: 40px;
+  height: 40px;
+  color: var(--amber);
+}
+.store-capture-unavailable strong {
+  font-size: 1.25rem;
+}
+.store-capture-unavailable span {
+  color: var(--text-secondary);
+  font-size: 12px;
 }
