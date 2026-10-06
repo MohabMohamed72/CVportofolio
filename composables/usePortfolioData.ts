@@ -15,29 +15,26 @@ export function usePortfolioData() {
     portfolio: "https://portfolio772.vercel.app/",
     linkedin: "https://linkedin.com/in/mohab-mohamed-a5121024b",
     github: "https://github.com/MohabMohamed72",
-    bio: `Motivated Frontend Developer with 1+ year of hands-on experience building responsive, scalable web applications using Vue.js, React.js, Angular, Nuxt.js, and TypeScript. Skilled in translating Figma designs into pixel-perfect UIs with Tailwind CSS and SCSS. Comfortable using AI-powered development tools like GitHub Copilot, Cursor AI, and ChatGPT to write cleaner code faster.`,
+    bio: `Motivated Frontend Developer with production experience building responsive, scalable web applications using Vue 3, React, Angular, Nuxt 3, and TypeScript. Skilled in translating Figma designs into pixel-perfect UIs with Tailwind CSS and SCSS. Comfortable using AI-powered development tools like GitHub Copilot, Cursor AI, and ChatGPT to write cleaner code faster.`,
   };
 
   const skills = {
     frontend: [
-      { name: "Vue.js 2/3", level: 92, icon: "🟢" },
-      { name: "React.js", level: 85, icon: "⚛️" },
-      { name: "Angular", level: 78, icon: "🔺" },
-      { name: "Nuxt.js", level: 90, icon: "💚" },
-      { name: "Next.js", level: 75, icon: "▲" },
-      { name: "TypeScript", level: 88, icon: "🔷" },
-      { name: "JavaScript", level: 95, icon: "⚡" },
-      { name: "HTML5 / CSS3", level: 96, icon: "🎨" },
-      { name: ".NET", level: 95, icon: "🔺" },
-      { name: "Node js", level: 95, icon: "▲" },
-      { name: "C#", level: 95, icon: "⚛️" },
-      { name: "C", level: 95, icon: "🎨" },
-      { name: "Paython", level: 95, icon: "🔷" },
+      { name: "Vue 3", icon: "🟢" },
+      { name: "React", icon: "⚛️" },
+      { name: "Angular", icon: "🔺" },
+      { name: "Nuxt 3", icon: "💚" },
+      { name: "Next.js", icon: "▲" },
+      { name: "TypeScript", icon: "🔷" },
+      { name: "JavaScript", icon: "⚡" },
+      { name: "HTML5 / CSS3", icon: "🎨" },
     ],
+    backend: [".NET", "Node.js", "REST APIs", "GraphQL", "Axios"],
+    otherLanguages: ["C#", "C", "Python"],
     styling: [
-      { name: "Tailwind CSS", level: 93 },
-      { name: "SCSS / SASS", level: 90 },
-      { name: "Bootstrap", level: 85 },
+      { name: "Tailwind CSS" },
+      { name: "SCSS / SASS" },
+      { name: "Bootstrap" },
     ],
     tools: [
       "Redux",
@@ -89,22 +86,22 @@ export function usePortfolioData() {
       period: "Jan 2024 – Present",
       location: "Mansoura, Egypt",
       highlights: [
-        "Built and maintained 4 web applications (dashboards + client-facing websites) using Vue 3, Nuxt.js, React.js, Angular, and TypeScript.",
+        "Built and maintained 4 web applications (dashboards + client-facing websites) using Vue 3, Nuxt 3, React, Angular, and TypeScript.",
         "Translated Figma wireframes into responsive, pixel-perfect UIs using Tailwind CSS and SCSS.",
         "Integrated RESTful APIs and payment gateways (Stripe, PayPal) into frontend applications.",
         "Contributed to building AI-powered chatbot and smart search features in production.",
         "Built admin dashboards with data visualization (Chart.js), role-based views, and real-time tracking.",
         "Collaborated in Agile/Scrum workflow using Git, GitHub, and Jira.",
-        "Used GitHub Copilot and ChatGPT daily to accelerate development velocity by 40%.",
+        "Used GitHub Copilot and ChatGPT to support development workflows.",
       ],
     },
     {
       title: "Programming Instructor",
       company: "Part-Time",
-      period: "2022 – Present",
+      period: "2024 – Present",
       location: "Mansoura, Egypt",
       highlights: [
-        "Taught Python, C, Arduino, Machine Learning, Computer Vision, and Scratch to 200+ students.",
+        "Taught Python, C, Arduino, Machine Learning, Computer Vision, and Scratch.",
         "Created structured lesson plans with hands-on projects.",
         "Conducted workshops on AI tools for developers.",
       ],
@@ -232,7 +229,7 @@ export function usePortfolioData() {
       description:
         "Full-featured LMS with course catalog, video lectures, AI chatbot for student support, and secure multi-method payment processing.",
       tech: [
-        "Vue.js",
+        "Vue 3",
         "TypeScript",
         "Tailwind CSS",
         "AI Chatbot",
@@ -258,7 +255,7 @@ export function usePortfolioData() {
           "Rich content editor for course creation",
         ],
         techStack: [
-          { category: "Framework", items: ["Vue.js", "TypeScript"] },
+          { category: "Framework", items: ["Vue 3", "TypeScript"] },
           { category: "Styling", items: ["Tailwind CSS"] },
           { category: "State", items: ["Pinia"] },
           {
@@ -275,7 +272,7 @@ export function usePortfolioData() {
       description:
         "Comprehensive travel platform with flight booking, hotel reservations, room management, and e-ticket generation with multi-method payments.",
       tech: [
-        "Vue.js",
+        "Vue 3",
         "TypeScript",
         "SCSS",
         "REST APIs",
@@ -301,7 +298,7 @@ export function usePortfolioData() {
           "Admin back-office for managing inventory and agents",
         ],
         techStack: [
-          { category: "Framework", items: ["Vue.js", "TypeScript"] },
+          { category: "Framework", items: ["Vue 3", "TypeScript"] },
           { category: "Styling", items: ["SCSS"] },
           { category: "APIs", items: ["REST APIs", "Axios"] },
           { category: "Payments", items: ["Payment Gateway integration"] },
@@ -315,7 +312,7 @@ export function usePortfolioData() {
       link: "https://ecommerce8.netlify.app/",
       description:
         "Modern fashion e-commerce platform for men, women, and kids with product browsing, shopping cart, category filtering, and responsive user experience.",
-      tech: ["React.js", "Tailwind CSS", "JavaScript"],
+      tech: ["React", "Tailwind CSS", "JavaScript"],
       features: [
         "Men, Women & Kids categories",
         "Shopping cart",
@@ -327,19 +324,19 @@ export function usePortfolioData() {
       image: forever,
       details: {
         overview:
-          "A responsive fashion e-commerce application built with React.js and Tailwind CSS. The platform provides a seamless shopping experience for men's, women's, and kids' clothing collections.",
+          "A responsive fashion e-commerce application built with React and Tailwind CSS. The platform provides a seamless shopping experience for men's, women's, and kids' clothing collections.",
         highlights: [
           "Modern responsive design for all devices",
           "Category-based product browsing",
           "Shopping cart functionality",
-          "Fast performance with React.js",
+          "Fast performance with React",
           "Tailwind CSS powered UI",
           "Clean and intuitive user experience",
         ],
         techStack: [
           {
             category: "Frontend",
-            items: ["React.js", "JavaScript"],
+            items: ["React", "JavaScript"],
           },
           {
             category: "Styling",
@@ -354,7 +351,7 @@ export function usePortfolioData() {
       link: "https://ecommerce759.netlify.app/",
       description:
         "Comprehensive e-commerce marketplace featuring electronics, mobiles, laptops, furniture, perfumes, food products, and more.",
-      tech: ["Vue.js", "TypeScript", "Tailwind CSS", "Pinia"],
+      tech: ["Vue 3", "TypeScript", "Tailwind CSS", "Pinia"],
       features: [
         "Multi-category marketplace",
         "Electronics & mobiles",
@@ -367,19 +364,19 @@ export function usePortfolioData() {
       image: cart,
       details: {
         overview:
-          "A complete Vue.js e-commerce marketplace offering a wide range of products including mobiles, laptops, furniture, perfumes, food items, and other consumer products.",
+          "A complete Vue 3 e-commerce marketplace offering a wide range of products including mobiles, laptops, furniture, perfumes, food items, and other consumer products.",
         highlights: [
           "Multiple product categories",
           "Product search and filtering",
           "Responsive shopping experience",
           "State management with Pinia",
-          "Modern Vue.js architecture",
+          "Modern Vue 3 architecture",
           "Optimized performance",
         ],
         techStack: [
           {
             category: "Frontend",
-            items: ["Vue.js", "TypeScript"],
+            items: ["Vue 3", "TypeScript"],
           },
           {
             category: "State Management",
@@ -398,7 +395,7 @@ export function usePortfolioData() {
       link: "https://filmpiren.netlify.app/",
       description:
         "Movie discovery platform featuring movies, actors, ratings, movie details, cast information, and entertainment content.",
-      tech: ["React.js", "JavaScript", "REST APIs", "Tailwind CSS"],
+      tech: ["React", "JavaScript", "REST APIs", "Tailwind CSS"],
       features: [
         "Movie browsing",
         "Actor profiles",
@@ -411,7 +408,7 @@ export function usePortfolioData() {
       image: fimpire,
       details: {
         overview:
-          "A movie and entertainment platform built with React.js that allows users to explore movies, actors, ratings, cast details, and other cinema-related information.",
+          "A movie and entertainment platform built with React that allows users to explore movies, actors, ratings, cast details, and other cinema-related information.",
         highlights: [
           "Movie catalog browsing",
           "Actor and cast information",
@@ -423,7 +420,7 @@ export function usePortfolioData() {
         techStack: [
           {
             category: "Frontend",
-            items: ["React.js", "JavaScript"],
+            items: ["React", "JavaScript"],
           },
           {
             category: "Data",

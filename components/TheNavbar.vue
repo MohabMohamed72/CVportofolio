@@ -1,342 +1,94 @@
+<script setup lang="ts">
+const { items, active } = useOsNavigation();
+const route = useRoute();
+const menu = ref<HTMLDialogElement | null>(null);
+const menuOpen = ref(false);
+let desktopQuery: MediaQueryList | undefined;
+function closeOnDesktop() {
+  if (desktopQuery?.matches) menu.value?.close();
+}
+const effects = useState("os-effects", () => true);
+onMounted(() => {
+  desktopQuery = matchMedia("(min-width: 768px)");
+  desktopQuery.addEventListener("change", closeOnDesktop);
+  try {
+    effects.value = sessionStorage.getItem("mohab-os-effects") !== "off";
+  } catch {}
+});
+onUnmounted(() => desktopQuery?.removeEventListener("change", closeOnDesktop));
+function toggleEffects() {
+  effects.value = !effects.value;
+  try {
+    sessionStorage.setItem("mohab-os-effects", effects.value ? "on" : "off");
+  } catch {}
+}
+watch(
+  () => route.path,
+  () => menu.value?.close(),
+);
+</script>
 <template>
-  <header class="navbar" :class="{ scrolled: isScrolled, 'menu-open': menuOpen }">
-    <div class="container navbar-inner">
-      <NuxtLink to="/" class="logo">
-        <span class="logo-bracket">&lt;</span>
-        <span class="logo-text">Mohab</span>
-        <span class="logo-bracket">/&gt;</span>
-      </NuxtLink>
-
-      <nav class="nav-links">
-        <NuxtLink to="/" class="nav-link">Home</NuxtLink>
-        <NuxtLink to="/about" class="nav-link">About</NuxtLink>
-        <NuxtLink to="/skills" class="nav-link">Skills</NuxtLink>
-        <NuxtLink to="/projects" class="nav-link">Projects</NuxtLink>
-        <NuxtLink to="/experience" class="nav-link">Experience</NuxtLink>
-        <NuxtLink to="/contact" class="nav-link">Contact</NuxtLink>
-      </nav>
-
-      <a href="https://github.com/MohabMohamed72" target="_blank" class="nav-github">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-        </svg>
-      </a>
-
-      <!-- Theme toggle -->
-      <button
-        class="theme-toggle"
-        @click="toggleTheme"
-        :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-        :title="isDark ? 'Light mode' : 'Dark mode'"
+  <header class="system-bar">
+    <NuxtLink to="/" class="system-brand" aria-label="MOHAB OS Home"
+      ><span class="brand-chip">M</span><span>MOHAB_OS</span></NuxtLink
+    >
+    <span class="system-breadcrumb"
+      ><span aria-hidden="true">/</span> {{ active.file }}</span
+    >
+    <div class="system-bar-actions">
+      <span class="online"><i aria-hidden="true"></i> ONLINE</span
+      ><button
+        type="button"
+        class="effects-button"
+        :aria-pressed="effects"
+        @click="toggleEffects"
       >
-        <Transition name="theme-icon" mode="out-in">
-          <!-- Sun (shown in dark mode → click to go light) -->
-          <svg v-if="isDark" key="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
-          <!-- Moon (shown in light mode → click to go dark) -->
-          <svg v-else key="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </Transition>
-      </button>
-
-      <button
-        class="menu-toggle"
-        @click="menuOpen = !menuOpen"
+        CRT {{ effects ? "ON" : "OFF" }}</button
+      ><button
+        class="mobile-menu-button"
+        type="button"
+        aria-haspopup="dialog"
+        aria-controls="system-menu"
         :aria-expanded="menuOpen"
-        :aria-label="menuOpen ? 'Close menu' : 'Open menu'"
+        @click="
+          menu?.showModal();
+          menuOpen = true;
+        "
       >
-        <span class="bar bar-1" />
-        <span class="bar bar-2" />
-        <span class="bar bar-3" />
+        Menu <span aria-hidden="true">＋</span>
       </button>
     </div>
-
-    <!-- Mobile drawer -->
-    <Transition name="drawer">
-      <nav v-if="menuOpen" class="mobile-menu">
-        <NuxtLink to="/" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">01</span> Home
-        </NuxtLink>
-        <NuxtLink to="/about" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">02</span> About
-        </NuxtLink>
-        <NuxtLink to="/skills" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">03</span> Skills
-        </NuxtLink>
-        <NuxtLink to="/projects" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">04</span> Projects
-        </NuxtLink>
-        <NuxtLink to="/experience" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">05</span> Experience
-        </NuxtLink>
-        <NuxtLink to="/contact" class="mobile-link" @click="menuOpen = false">
-          <span class="mobile-link-num">06</span> Contact
-        </NuxtLink>
-
-        <a
-          href="https://github.com/MohabMohamed72"
-          target="_blank"
-          class="mobile-github"
-          @click="menuOpen = false"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-          GitHub
-        </a>
-      </nav>
-    </Transition>
   </header>
+  <dialog
+    id="system-menu"
+    ref="menu"
+    class="mobile-menu"
+    aria-labelledby="menu-title"
+    @close="menuOpen = false"
+  >
+    <div class="window-titlebar">
+      <h2 id="menu-title">SYSTEM NAVIGATION</h2>
+      <button
+        type="button"
+        class="window-control"
+        aria-label="Close menu"
+        @click="menu?.close()"
+      >
+        ×
+      </button>
+    </div>
+    <nav aria-label="Mobile navigation">
+      <NuxtLink
+        v-for="(item, index) in items"
+        :key="item.path"
+        :to="item.path"
+        :aria-current="active.path === item.path ? 'page' : undefined"
+        ><span class="module-number">0{{ index }}</span
+        ><SystemIcon :name="item.icon" /><span>{{ item.label }}</span
+        ><span class="mobile-file">{{ item.file }}</span
+        ><span aria-hidden="true">↗</span></NuxtLink
+      >
+    </nav>
+    <p class="mobile-menu-note">MOHAB MOHAMED / FRONTEND DEVELOPER</p>
+  </dialog>
 </template>
-
-<script setup>
-const isScrolled = ref(false)
-const menuOpen = ref(false)
-
-const { isDark, toggleTheme, initTheme } = useTheme()
-
-const route = useRoute()
-watch(() => route.path, () => { menuOpen.value = false })
-
-onMounted(() => {
-  initTheme()
-  window.addEventListener('scroll', () => {
-    isScrolled.value = window.scrollY > 40
-  })
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') menuOpen.value = false
-  })
-})
-</script>
-
-<style scoped>
-/* ── Base ── */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 16px 0;
-  transition: background 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
-}
-.navbar.scrolled {
-  padding: 10px 0;
-  background: var(--navbar-scrolled-bg);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-}
-
-.navbar-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* ── Logo ── */
-.logo {
-  font-family: var(--font-mono);
-  font-size: 1.3rem;
-  font-weight: 700;
-  display: flex;
-  gap: 2px;
-  transition: var(--transition);
-  flex-shrink: 0;
-}
-.logo:hover { transform: scale(1.05); }
-.logo-bracket { color: var(--primary); }
-.logo-text {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ── Desktop nav ── */
-.nav-links {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-.nav-link {
-  padding: 8px 16px;
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  border-radius: 50px;
-  transition: var(--transition);
-}
-.nav-link:hover,
-.nav-link.router-link-active {
-  color: var(--primary);
-  background: rgba(66, 211, 146, 0.08);
-}
-
-/* ── GitHub icon ── */
-.nav-github {
-  color: var(--text-secondary);
-  transition: var(--transition);
-  padding: 8px;
-  border-radius: 50%;
-  display: flex;
-  flex-shrink: 0;
-}
-.nav-github:hover {
-  color: var(--primary);
-  transform: scale(1.1);
-}
-
-/* ── Hamburger ── */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  cursor: pointer;
-  padding: 8px 10px;
-  position: relative;
-  z-index: 1001;
-  transition: border-color 0.2s ease;
-}
-.menu-toggle:hover { border-color: var(--border-hover); }
-
-.bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--text-secondary);
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.2s ease, background 0.2s ease;
-  transform-origin: center;
-}
-.menu-open .bar { background: var(--primary); }
-.menu-open .bar-1 { transform: translateY(7px) rotate(45deg); }
-.menu-open .bar-2 { opacity: 0; transform: scaleX(0); }
-.menu-open .bar-3 { transform: translateY(-7px) rotate(-45deg); }
-
-/* ── Mobile drawer ── */
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  padding: 8px 16px 20px;
-  border-top: 1px solid var(--border);
-  background: var(--mobile-menu-bg);
-  backdrop-filter: blur(24px);
-  box-shadow: var(--shadow-lg);
-}
-
-.mobile-link {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  border-radius: 10px;
-  border-left: 2px solid transparent;
-  transition: color 0.2s, background 0.2s, border-color 0.2s, padding-left 0.2s;
-}
-.mobile-link:hover,
-.mobile-link.router-link-active {
-  color: var(--primary);
-  background: rgba(66, 211, 146, 0.07);
-  border-left-color: var(--primary);
-  padding-left: 18px;
-}
-.mobile-link-num {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--primary);
-  opacity: 0.5;
-  min-width: 22px;
-}
-
-.mobile-github {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
-}
-.mobile-github:hover {
-  color: var(--primary);
-  border-color: var(--primary);
-  background: rgba(66, 211, 146, 0.06);
-}
-
-/* ── Theme toggle button ── */
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease,
-    background 0.2s ease, transform 0.2s ease;
-  flex-shrink: 0;
-}
-.theme-toggle:hover {
-  color: var(--primary);
-  border-color: var(--border-hover);
-  background: rgba(66, 211, 146, 0.08);
-  transform: rotate(20deg) scale(1.08);
-}
-
-/* ── Theme icon swap animation ── */
-.theme-icon-enter-active,
-.theme-icon-leave-active {
-  transition: opacity 0.18s ease, transform 0.18s ease;
-}
-.theme-icon-enter-from {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.6);
-}
-.theme-icon-leave-to {
-  opacity: 0;
-  transform: rotate(90deg) scale(0.6);
-}
-
-/* ── Drawer transition ── */
-.drawer-enter-active,
-.drawer-leave-active {
-  transition: opacity 0.22s ease, transform 0.22s ease;
-}
-.drawer-enter-from,
-.drawer-leave-to {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .nav-github { display: none; }
-  .menu-toggle { display: flex; }
-  .mobile-menu { display: flex; }
-}
-</style>

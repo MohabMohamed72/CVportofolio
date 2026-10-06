@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T12:00:00.000Z",
+  "title": "Design System: MOHAB_OS",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "background",
+        "value": "#10120f"
+      },
+      "panel-background": {
+        "role": "neutral",
+        "displayName": "panel-background",
+        "value": "#181c16"
+      },
+      "panel-raised": {
+        "role": "neutral",
+        "displayName": "panel-raised",
+        "value": "#20251d"
+      },
+      "amber": {
+        "role": "primary",
+        "displayName": "amber",
+        "value": "#ffbd66"
+      },
+      "amber-muted": {
+        "role": "neutral",
+        "displayName": "amber-muted",
+        "value": "#c5a77e"
+      },
+      "text-primary": {
+        "role": "neutral",
+        "displayName": "text-primary",
+        "value": "#f2eadb"
+      },
+      "text-secondary": {
+        "role": "neutral",
+        "displayName": "text-secondary",
+        "value": "#bbb5a6"
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "border",
+        "value": "#665742"
+      },
+      "border-subtle": {
+        "role": "neutral",
+        "displayName": "border-subtle",
+        "value": "#343b2e"
+      },
+      "danger": {
+        "role": "neutral",
+        "displayName": "danger",
+        "value": "#ffad98"
+      },
+      "success": {
+        "role": "neutral",
+        "displayName": "success",
+        "value": "#c4d694"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Pixel Display",
+        "purpose": "Silkscreen for system headings, app labels and buttons."
+      },
+      "body": {
+        "displayName": "Technical Reading",
+        "purpose": "Fira Code for readable prose, data, skill names and navigation."
+      }
+    },
+    "shadows": [
+      {
+        "name": "window-offset",
+        "value": "5px 5px 0 #0003",
+        "purpose": "Small application-frame depth; not general card elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "route-close",
+        "value": "120ms",
+        "purpose": "Short closing CRT wipe."
+      },
+      {
+        "name": "route-open",
+        "value": "340ms cubic-bezier(.22,.8,.25,1)",
+        "purpose": "Opening application wipe."
+      },
+      {
+        "name": "boot",
+        "value": "2200ms maximum",
+        "purpose": "Skip-able local startup, once per session; absent under reduced motion."
+      },
+      {
+        "name": "preview",
+        "value": "120ms",
+        "purpose": "Selected project record transition."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "none",
+        "purpose": "No animations, cursor accent or smooth scrolling."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "small-phone-form",
+        "value": "390px"
+      },
+      {
+        "name": "mobile-shell",
+        "value": "767px"
+      },
+      {
+        "name": "directory-recomposition",
+        "value": "900px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1100px"
+      },
+      {
+        "name": "wide-desktop",
+        "value": "1600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "System Window",
+      "kind": "panel",
+      "refersTo": "SystemWindow.vue",
+      "description": "Application frame with filename, readable content, and optional real minimize/restore."
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button primary",
+      "description": "Square amber control, native semantics, visible focus and subtle pressed state."
+    },
+    {
+      "name": "Project Directory",
+      "kind": "navigation",
+      "refersTo": "pages/projects/index.vue",
+      "description": "Native selection buttons update a readable project preview; mobile scrolls to that preview."
+    }
+  ],
+  "narrative": {
+    "northStar": "MOHAB_OS",
+    "overview": "An original personal frontend operating system. Clear content first; system metaphor in presentation, navigation states and purposeful interactions. Amber, off-white, restrained CRT and pixel display typography combine with readable technical prose.",
+    "keyCharacteristics": [
+      "Clear page names and role/framework identity.",
+      "Session-only boot and native accessible dialogs.",
+      "Persistent active-route taskbar and mobile menu.",
+      "Different application layouts for each content type.",
+      "Verified diagrams, original PDF and preserved email backend."
+    ],
+    "rules": [
+      {
+        "name": "Readable System",
+        "body": "Do not hide essential content behind hover, typing, motion or fictitious commands.",
+        "section": "content"
+      },
+      {
+        "name": "Protected Functionality",
+        "body": "Preserve Resend validation, reply-to, honeypot, WhatsApp encoding and original CV.",
+        "section": "implementation"
+      },
+      {
+        "name": "Restrained CRT",
+        "body": "Use lighter effects on mobile and reduced motion; offer an actual CRT-off control.",
+        "section": "motion"
+      }
+    ]
+  }
+}
