@@ -2,13 +2,13 @@
   <div class="page-skills">
     <section class="section">
       <div class="container">
-        <span class="section-label">// Skills & Expertise</span>
+        <span class="section-label">Capabilities / Toolkit</span>
         <h1 class="section-title">
-          My <span class="gradient-text">Technical Arsenal</span>
+          Tools I trust<br /><span class="gradient-text">to ship real work.</span>
         </h1>
         <p class="section-subtitle">
-          Technologies, frameworks, and AI tools I use to build modern web
-          applications.
+          A practical stack shaped by production dashboards, client platforms,
+          and the occasional hard problem.
         </p>
 
         <!-- Frontend Frameworks -->
@@ -72,8 +72,8 @@
             <span class="block-icon">🤖</span> AI-Powered Development
           </h2>
           <p class="ai-intro">
-            I integrate AI tools across the full development lifecycle to boost
-            productivity and code quality.
+            Used thoughtfully for research, iteration, and review—not as a
+            substitute for engineering judgment.
           </p>
           <div class="ai-grid">
             <div class="ai-card" v-for="ai in skills.ai" :key="ai.category">

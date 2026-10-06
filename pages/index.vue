@@ -5,21 +5,20 @@
         <div class="hero-text">
           <div class="hero-badge">
             <span class="badge-dot" />
-            <span>Available for opportunities</span>
+            <span>Frontend engineer · Mansoura, EG</span>
           </div>
           <h1 class="hero-title">
-            Hi, I'm <span class="gradient-text">Mohab Mohamed</span>
+            Interfaces with logic.<br /><span class="gradient-text">Products with character.</span>
           </h1>
           <p class="hero-role">
-            <span class="typing-prefix">I build </span>
+            <span class="typing-prefix">Currently building </span>
             <span class="hero-typed gradient-text"
               >{{ typedText }}<span class="cursor">|</span></span
             >
           </p>
           <p class="hero-desc">
-            Frontend Developer crafting responsive, scalable web applications
-            with Vue.js, React.js, Angular, Nuxt.js & TypeScript — powered by
-            modern AI tools.
+            I turn complex product requirements into clear, responsive web
+            experiences using Vue, React, Angular, Nuxt, and TypeScript.
           </p>
           <div class="hero-actions">
             <NuxtLink to="/projects" class="btn-primary">
@@ -54,6 +53,9 @@
               </svg>
               Contact Me
             </NuxtLink>
+            <NuxtLink to="/resume" class="btn-outline hero-cv-link">
+              CV ↗
+            </NuxtLink>
           </div>
           <div class="hero-stats">
             <div class="stat">
@@ -67,38 +69,21 @@
             </div>
             <div class="stat-divider" />
             <div class="stat">
-              <span class="stat-num gradient-text">6+</span>
-              <span class="stat-label">AI Tools Mastered</span>
+              <span class="stat-num gradient-text">200+</span>
+              <span class="stat-label">Students Mentored</span>
             </div>
           </div>
         </div>
 
         <div class="hero-visual">
-          <div class="code-window">
-            <div class="code-header">
-              <div class="code-dots">
-                <span style="background: #ff5f57" />
-                <span style="background: #febc2e" />
-                <span style="background: #28c840" />
-              </div>
-              <span class="code-filename">mohab.ts</span>
+          <div class="code-window profile-card">
+            <div class="profile-topline"><span>Selected profile</span><span>2026</span></div>
+            <div class="profile-monogram">M</div>
+            <div class="profile-copy">
+              <span>Mohab Mohamed</span>
+              <strong>Frontend<br />Developer</strong>
             </div>
-            <pre
-              class="code-body"
-            ><code><span class="kw">const</span> <span class="fn">developer</span> = {
-  <span class="key">name</span>: <span class="str">"Mohab Mohamed"</span>,
-  <span class="key">role</span>: <span class="str">"Frontend Developer"</span>,
-  <span class="key">frameworks</span>: [
-    <span class="str">"Vue.js"</span>, <span class="str">"React"</span>,
-    <span class="str">"Angular"</span>, <span class="str">"Nuxt"</span>
-  ],
-  <span class="key">aiTools</span>: [
-    <span class="str">"Copilot"</span>, <span class="str">"Cursor"</span>,
-    <span class="str">"ChatGPT"</span>, <span class="str">"Claude"</span>
-  ],
-  <span class="key">passion</span>: <span class="str">"Building the web"</span>,
-  <span class="fn">code</span>: () => <span class="str">"pixel-perfect"</span> <span class="cmt">✨</span>
-};</code></pre>
+            <div class="profile-meta"><span>Vue / React / Nuxt</span><span>Available worldwide ↗</span></div>
           </div>
           <div class="floating-badge badge-vue" style="animation-delay: 0s">
             Vue.js
@@ -195,27 +180,27 @@ onMounted(() => {
 
 const overviewCards = [
   {
-    icon: "⚡",
+    icon: "01",
     title: "Frontend Frameworks",
     desc: "Vue.js, React, Angular, Nuxt.js, Next.js — building with the right tool for every project.",
     bg: "rgba(66, 211, 146, 0.12)",
   },
   {
-    icon: "🤖",
-    title: "AI-Powered Dev",
-    desc: "GitHub Copilot, Cursor AI, ChatGPT, Claude — leveraging AI to ship faster and cleaner.",
+    icon: "02",
+    title: "Complex Product UI",
+    desc: "Dashboards, permissions, payments, and data-heavy workflows made simple to use.",
     bg: "rgba(100, 126, 255, 0.12)",
   },
   {
-    icon: "🎨",
-    title: "Pixel-Perfect UIs",
-    desc: "Tailwind CSS, SCSS, responsive design — translating Figma to flawless interfaces.",
+    icon: "03",
+    title: "Design to Browser",
+    desc: "Translating Figma systems into responsive interfaces without losing the details.",
     bg: "rgba(245, 158, 11, 0.12)",
   },
   {
-    icon: "🚀",
-    title: "Full-Stack Ready",
-    desc: "REST APIs, GraphQL, Node.js, state management — end-to-end feature delivery.",
+    icon: "04",
+    title: "Connected Systems",
+    desc: "REST APIs, GraphQL, Node.js, and state management for complete product flows.",
     bg: "rgba(239, 68, 68, 0.12)",
   },
 ];

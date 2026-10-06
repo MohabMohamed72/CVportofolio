@@ -2,9 +2,9 @@
   <div class="page-contact">
     <section class="section">
       <div class="container">
-        <span class="section-label">// Get In Touch</span>
-        <h1 class="section-title">Let's <span class="gradient-text">Work Together</span></h1>
-        <p class="section-subtitle">Have a project in mind? Looking for a frontend developer? Let's connect!</p>
+        <span class="section-label">Contact / Start a conversation</span>
+        <h1 class="section-title">Bring me the<br /><span class="gradient-text">complicated part.</span></h1>
+        <p class="section-subtitle">A new product, a difficult interface, or a team that needs frontend momentum—tell me what you are working on.</p>
 
         <div class="contact-grid">
           <!-- Contact Info -->

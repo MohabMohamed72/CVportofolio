@@ -2,12 +2,13 @@
   <div class="page-experience">
     <section class="section">
       <div class="container">
-        <span class="section-label">// Career Journey</span>
+        <span class="section-label">Experience / Timeline</span>
         <h1 class="section-title">
-          Professional <span class="gradient-text">Experience</span>
+          Work, teaching &<br /><span class="gradient-text">the road here.</span>
         </h1>
         <p class="section-subtitle">
-          My path from Mechatronics Engineering to Frontend Development.
+          From mechatronics engineering to product interfaces—with teaching
+          as the thread running through both.
         </p>
 
         <div class="timeline">

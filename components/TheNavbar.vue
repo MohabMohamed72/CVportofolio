@@ -2,9 +2,8 @@
   <header class="navbar" :class="{ scrolled: isScrolled, 'menu-open': menuOpen }">
     <div class="container navbar-inner">
       <NuxtLink to="/" class="logo">
-        <span class="logo-bracket">&lt;</span>
-        <span class="logo-text">Mohab</span>
-        <span class="logo-bracket">/&gt;</span>
+        <span class="logo-mark">MM</span>
+        <span class="logo-text">Mohab Mohamed</span>
       </NuxtLink>
 
       <nav class="nav-links">
@@ -14,6 +13,7 @@
         <NuxtLink to="/projects" class="nav-link">Projects</NuxtLink>
         <NuxtLink to="/experience" class="nav-link">Experience</NuxtLink>
         <NuxtLink to="/contact" class="nav-link">Contact</NuxtLink>
+        <NuxtLink to="/resume" class="nav-link nav-resume">CV ↗</NuxtLink>
       </nav>
 
       <a href="https://github.com/MohabMohamed72" target="_blank" class="nav-github">
@@ -81,6 +81,9 @@
         </NuxtLink>
         <NuxtLink to="/contact" class="mobile-link" @click="menuOpen = false">
           <span class="mobile-link-num">06</span> Contact
+        </NuxtLink>
+        <NuxtLink to="/resume" class="mobile-link" @click="menuOpen = false">
+          <span class="mobile-link-num">07</span> View CV
         </NuxtLink>
 
         <a

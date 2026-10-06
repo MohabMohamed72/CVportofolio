@@ -3,10 +3,10 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <span class="logo-code">&lt;Mohab /&gt;</span>
+          <span class="logo-code">Mohab Mohamed<sup>®</sup></span>
           <p class="footer-desc">
-            Building modern web experiences with passion, precision, and a love
-            for clean code.
+            Frontend engineer shaping useful digital products with clarity,
+            pace, and character.
           </p>
         </div>
 
@@ -18,6 +18,7 @@
           <NuxtLink to="/projects">Projects</NuxtLink>
           <NuxtLink to="/experience">Experience</NuxtLink>
           <NuxtLink to="/contact">Contact</NuxtLink>
+          <NuxtLink to="/resume">View CV</NuxtLink>
         </div>
 
         <div class="footer-links">
@@ -35,8 +36,7 @@
       <div class="footer-bottom">
         <div class="footer-line" />
         <p>
-          &copy; {{ new Date().getFullYear() }} Mohab Mohamed. Crafted with
-          <span class="heart">♥</span> using Nuxt.js
+          &copy; {{ new Date().getFullYear() }} Mohab Mohamed · Built in Mansoura with Nuxt
         </p>
       </div>
     </div>

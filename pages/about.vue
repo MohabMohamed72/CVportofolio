@@ -3,10 +3,10 @@
     <section class="section">
       <div class="container">
         <div class="about-header">
-          <span class="section-label">// About Me</span>
+          <span class="section-label">About / Profile</span>
           <h1 class="section-title">
-            Passionate about building<br /><span class="gradient-text"
-              >exceptional web experiences</span
+            Engineer by training.<br /><span class="gradient-text"
+              >Interface builder by choice.</span
             >
           </h1>
         </div>
@@ -45,10 +45,10 @@
                 >Get In Touch</NuxtLink
               >
               <a
-                href="https://github.com/MohabMohamed72"
-                target="_blank"
+                href="/documents/mohab-mohamed-frontend-cv.pdf"
+                download="Mohab_Mohamed_Frontend_CV.pdf"
                 class="btn-outline"
-                >View GitHub</a
+                >Download CV</a
               >
             </div>
           </div>
@@ -79,7 +79,7 @@
             class="section-title"
             style="text-align: center; margin-bottom: 48px"
           >
-            What I <span class="gradient-text">Bring</span>
+            How I <span class="gradient-text">contribute</span>
           </h2>
           <div class="wid-grid">
             <div class="wid-card" v-for="(item, i) in whatIDo" :key="i">

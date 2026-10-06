@@ -28,13 +28,13 @@ onUnmounted(() => {
   <div class="page-projects">
     <section class="section">
       <div class="container">
-        <span class="section-label">// Portfolio</span>
+        <span class="section-label">Work / Selected builds</span>
         <h1 class="section-title">
-          Featured <span class="gradient-text">Projects</span>
+          Shipped systems.<br /><span class="gradient-text">Not concept shots.</span>
         </h1>
         <p class="section-subtitle">
-          Real-world applications I've built — dashboards, platforms, and
-          full-stack systems.
+          A selection of products built around real workflows, real users, and
+          real technical constraints.
         </p>
 
         <div class="projects-list">
