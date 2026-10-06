@@ -15,13 +15,13 @@
   --background: #10120f;
   --panel-background: #181c16;
   --panel-raised: #20251d;
-  --amber: #ffbd66;
-  --amber-muted: #c5a77e;
+  --amber: #42b883;
+  --amber-muted: #93bda8;
   --text-primary: #f2eadb;
   --text-secondary: #bbb5a6;
-  --border: #665742;
+  --border: #42634f;
   --border-subtle: #343b2e;
-  --glow: 0 0 16px #ffbd6626;
+  --glow: 0 0 16px #42b88326;
   --danger: #ffad98;
   --success: #c4d694;
   --font-display: Silkscreen, monospace;
@@ -649,7 +649,7 @@ main {
 .system-cursor.selecting {
   width: 19px;
   height: 19px;
-  background: #ffbd6610;
+  background: #42b88310;
 }
 .system-cursor span {
   position: absolute;
@@ -717,7 +717,7 @@ main {
   border: 1px solid var(--amber);
   box-shadow:
     12px 12px 0 #0006,
-    0 0 80px #ffbd660c;
+    0 0 80px #42b8830c;
   max-height: calc(100svh - 2rem);
   overflow: auto;
 }
