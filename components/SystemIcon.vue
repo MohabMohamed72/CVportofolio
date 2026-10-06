@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{ name: string }>();
 const paths: Record<string, string> = {
+  store: "M3 10v11h18V10M2 10l2-7h16l2 7ZM9 21v-7h6v7M2 10h20",
   home: "M3 10 12 3l9 7v11h-6v-7H9v7H3Z",
   profile: "M8 3h8v8H8ZM4 15h16v6H4Z",
   code: "m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18",

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+defineProps<{ storesFocus?: boolean }>();
 const { personalInfo } = usePortfolioData();
 const { items } = useOsNavigation();
 const intent = ref("Select an application to open");
@@ -14,16 +15,33 @@ const intent = ref("Select an application to open");
       <h1 class="desktop-name" aria-label="Mohab Mohamed">
         MOHAB<span>MOHAMED</span>
       </h1>
-      <p class="desktop-role">Frontend Developer</p>
-      <p class="desktop-intro">
-        I build scalable web applications for complex products and digital
-        platforms.
+      <p class="desktop-role">
+        {{ storesFocus ? "E-commerce Web Developer" : "Frontend Developer" }}
       </p>
-      <p class="desktop-stack">Vue 3 / Nuxt 3 / React / Angular / TypeScript</p>
+      <p class="desktop-intro">
+        {{
+          storesFocus
+            ? "I build storefront experiences for brands and online stores. Explore my e-commerce work, from coffee and food to personalized stories and wall art."
+            : "I build scalable web applications for complex products and digital platforms."
+        }}
+      </p>
+      <p class="desktop-stack">
+        {{
+          storesFocus
+            ? "Salla / WordPress / Shopify / Zid"
+            : "Vue 3 / Nuxt 3 / React / Angular / TypeScript"
+        }}
+      </p>
       <div class="actions">
-        <NuxtLink to="/projects" class="button primary"
-          >View Projects <ArrowIcon /></NuxtLink
-        ><CvDownload />
+        <NuxtLink
+          :to="storesFocus ? '/stores' : '/projects'"
+          class="button primary"
+          >{{ storesFocus ? "View Stores" : "View Projects" }}
+          <ArrowIcon /></NuxtLink
+        ><NuxtLink v-if="storesFocus" to="/contact" class="button"
+          >Contact me <ArrowIcon
+        /></NuxtLink>
+        <CvDownload v-else />
       </div>
       <div class="desktop-socials">
         <NuxtLink to="/contact" class="text-link">Contact ↗</NuxtLink
@@ -45,7 +63,8 @@ const intent = ref("Select an application to open");
     <div class="desktop-aux">
       <div class="desktop-applications">
         <div class="desktop-bottomline">
-          <span>APPLICATION LAUNCHER</span><span>01 — 06</span>
+          <span>APPLICATION LAUNCHER</span
+          ><span>01 — {{ String(items.length - 1).padStart(2, "0") }}</span>
         </div>
         <nav class="module-dock" aria-label="Portfolio applications">
           <NuxtLink
@@ -86,7 +105,13 @@ const intent = ref("Select an application to open");
           </div>
           <div>
             <dt>FOCUS</dt>
-            <dd>Vue / Nuxt / TypeScript</dd>
+            <dd>
+              {{
+                storesFocus
+                  ? "E-commerce / Storefronts"
+                  : "Vue / Nuxt / TypeScript"
+              }}
+            </dd>
           </div>
         </dl>
       </SystemWindow>

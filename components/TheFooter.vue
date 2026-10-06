@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const { items, active } = useOsNavigation();
+const route = useRoute();
+const storesFocus = computed(
+  () => route.path === "/stores" || route.query.work === "stores",
+);
 const time = ref("--:--");
 let timer: ReturnType<typeof setInterval> | undefined;
 function updateTime() {
@@ -21,7 +25,10 @@ onUnmounted(() => {
   <footer class="system-footer">
     <span>MOHAB_OS / BUILT BY MOHAB MOHAMED</span
     ><a href="mailto:mohabmohamedd772@gmail.com">Start a conversation ↗</a
-    ><span>Frontend Developer / Mansoura, Egypt</span>
+    ><span
+      >{{ storesFocus ? "E-commerce Web Developer" : "Frontend Developer" }} /
+      Mansoura, Egypt</span
+    >
   </footer>
   <div class="taskbar">
     <NuxtLink to="/" class="taskbar-start" aria-label="Home"

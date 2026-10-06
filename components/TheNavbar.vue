@@ -82,6 +82,7 @@ watch(
         v-for="(item, index) in items"
         :key="item.path"
         :to="item.path"
+        @click="menu?.close()"
         :aria-current="active.path === item.path ? 'page' : undefined"
         ><span class="module-number">0{{ index }}</span
         ><SystemIcon :name="item.icon" /><span>{{ item.label }}</span

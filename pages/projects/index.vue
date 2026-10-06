@@ -82,6 +82,7 @@ function select(index: number) {
       title="Projects"
       description="Selected web applications and platforms I've worked on. Open a directory entry to inspect its features and implementation."
     />
+    <div class="page-content"><PortfolioTracks current="frontend" /></div>
     <div class="page-content project-directory">
       <aside class="directory-index">
         <div class="directory-toolbar">
